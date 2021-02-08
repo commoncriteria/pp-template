@@ -506,7 +506,9 @@ users of the same system.
               </selectables>. 
             </title>
             <note role="application"></note>
-            <aactivity>Something<TSS>ABC</TSS></aactivity>
+            <aactivity>Specific to the componenet<TSS>ABC</TSS></aactivity>
+            <aactivity level="element"> Specific to the element <TSS>ABC</TSS></aactivity>
+            <rule id="r-wine">
             <or>
                <and>
                  <ref-id>s-white</ref-id>
@@ -519,6 +521,7 @@ users of the same system.
                      <ref-id>pizza</ref-id></or>
                </and>
             </or>
+            </rule>
 
           </f-element>
         </f-component>
@@ -533,10 +536,14 @@ users of the same system.
             <title> The TOE shall eat <selectables><selectable id="crackers">crackers</selectable><selectable>nothing</selectable></selectables></title>
             <note role="application">Deonstrating rules across elements</note>
             <aactivity>Something <Guidance> Some guidance</Guidance></aactivity>
-            <or>
+            <rule id="r-snack">
+              <description>Selections <xref to="tea"/> and <xref to="crackers"/> must be chosen together or not at all.
+              </description>
+              <or>
                 <and><ref-id>tea</ref-id><ref-id>crackers</ref-id></and>
                 <and><not><ref-id>tea</ref-id></not><not><ref-id>crackers</ref-id></not></and>
-            </or>
+              </or>
+            </rule>
           </f-element>
 
          </f-component>
