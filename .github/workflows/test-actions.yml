@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get install -y xsltproc
       - name: Convert XML to HTML
         run: make
-#      - name: Package it up
+      - name: Package it up
         run: zip -r PPTemplate.zip output
 
       - name: Create Draft Release
