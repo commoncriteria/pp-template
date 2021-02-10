@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./pp-template-release.html
+          asset_path: ./output/pp-template-release.html
           asset_name: pp-template-release.html
           asset_content_type: text/html
 
