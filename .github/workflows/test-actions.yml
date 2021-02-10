@@ -20,8 +20,8 @@ jobs:
         run: sudo apt-get install -y xsltproc
       - name: Convert XML to HTML
         run: make
-      - name: Package it up
-        run: zip -r PPTemplate.zip output
+      #- name: Package it up
+      #  run: zip -r PPTemplate.zip output
 
       - name: Create Draft Release
         id: create_release
@@ -39,9 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./PPTemplate.zip
-          asset_name: PPTemplate.zip
-          asset_content_type: application/zip
+          asset_path: ./pp-template-release.html
+          asset_name: pp-template-release.html
+          asset_content_type: text/html
 
       - uses: eregon/publish-release@v1
         env:
