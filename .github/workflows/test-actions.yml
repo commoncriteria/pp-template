@@ -10,8 +10,8 @@ jobs:
         with: 
           submodules: true
       - name: Set up Python 3
-        uses: actions/setup-ptyhon@v2
+        uses: actions/setup-python@v2
         with:
-            python-version: 3.8
+            python-version: '3.x'
       - run: python -c "import sys; print(sys.version)"
       - run: make
