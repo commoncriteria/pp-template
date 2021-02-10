@@ -3,10 +3,15 @@ on: [push]
 jobs:
   build-the-document:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout project and transforms
       - uses: actions/checkout@v2 
         with: 
           submodules: true
-      - uses: actions/setup-node@v1
-      - run: npm install xsltproc --save
+      - name: Set up Python 3
+        uses: actions/setup-ptyhon@v2
+        with:
+            python-version: 3.8
+      - run: python -c "import sys; print(sys.version)"
       - run: make
