@@ -8,4 +8,5 @@ jobs:
         with: 
           submodules: true
       - uses: actions/setup-node@v1
+      - run: npm install xsltproc --save
       - run: make help
