@@ -22,8 +22,9 @@ jobs:
         run: make
       - name: Package it up
         run: zip -r PPTemplate.zip output
+
       - name: Update release
-        uses: johnwbyrd/update-release@v1
+        uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./output/pp-template-release.html
@@ -41,7 +42,7 @@ jobs:
 
       - name: Create Draft Release
         id: create_release
-        uses: actions/create-release@v1.0.0
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
