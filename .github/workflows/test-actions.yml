@@ -22,12 +22,13 @@ jobs:
         run: make
       - name: Package it up
         run: zip -r PPTemplate.zip output
+
       - name: Release
         uses: sondreb/action-release@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: "action.js;README.md"
-          folder: "${{github.workspace}}/package/"
+          files: "PPTemplate.zip"
+          folder: "${{github.workspace}}/output/"
           draft: true
           prerelease: true
           body: 'This is a pre-release'
