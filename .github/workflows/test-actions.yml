@@ -22,17 +22,28 @@ jobs:
         run: make
       - name: Package it up
         run: zip -r PPTemplate.zip output
-
-      - name: Create Draft Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: sondreb/action-release@master
         with:
-          tag_name: draft-latest
-          release_name: draft-latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: "action.js;README.md"
+          folder: "${{github.workspace}}/package/"
           draft: true
-          prerelease: false
+          prerelease: true
+          body: 'This is a pre-release'
+          name: "Draft Release"
+          tag: v0.0.1
+
+#        - name: Create Draft Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: draft-latest
+#          release_name: draft-latest
+#          draft: true
+#          prerelease: false
 
       - uses: actions/upload-release-asset@v1.0.1
         env:
