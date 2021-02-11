@@ -22,7 +22,11 @@ jobs:
         run: make
       - name: Package it up
         run: zip -r PPTemplate.zip output
-
+      - name: Update release
+        uses: johnwbyrd/update-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./output/pp-template-release.html
 #      - name: Release
 #        uses: sondreb/action-release@master
 #        with:
