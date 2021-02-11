@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: PDFify
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -19,25 +19,25 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
      - name: Checkout project and transforms
-        uses: actions/checkout@v2 
-        with: 
-          submodules: true
-      - name: Set up Python 3
-        uses: actions/setup-python@v2
-        with:
+       uses: actions/checkout@v2 
+       with: 
+         submodules: true
+     - name: Set up Python 3
+       uses: actions/setup-python@v2
+       with:
             python-version: '3.x'
-      - name: Install lib
-        run: sudo apt-get install -y xsltproc
-      - name: Convert XML to HTML
-        run: make
-      - name: Download the PDFifier
-        run: wget -O - https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz | tar -x wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
-      - name: PDFify
-        run:  ./wkhtmltox/bin/wkhtmltopdf --javascript-delay 15000 file://./output/pp-template-release.html?expand=on output/pp-template-release.pdf
-      - name: Package it up
-        run: cd output && zip -r ../PPTemplate.zip .
-      - name: Update release
-        uses: johnwbyrd/update-release@v1.0.0
-        with:
+     - name: Install lib
+       run: sudo apt-get install -y xsltproc
+     - name: Convert XML to HTML
+       run: make
+     - name: Download the PDFifier
+       run: wget -O - https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz | tar -x wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+     - name: PDFify
+       run:  ./wkhtmltox/bin/wkhtmltopdf --javascript-delay 15000 file://./output/pp-template-release.html?expand=on output/pp-template-release.pdf
+     - name: Package it up
+       run: cd output && zip -r ../PPTemplate.zip .
+     - name: Update release
+       uses: johnwbyrd/update-release@v1.0.0
+       with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./PPTemplate.zip
