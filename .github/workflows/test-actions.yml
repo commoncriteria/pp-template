@@ -21,47 +21,10 @@ jobs:
       - name: Convert XML to HTML
         run: make
       - name: Package it up
-        run: zip -r PPTemplate.zip output
+        run: cd output && zip -r ../PPTemplate.zip .
 
       - name: Update release
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./output/pp-template-release.html
-#      - name: Release
-#        uses: sondreb/action-release@master
-#        with:
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          files: "PPTemplate.zip"
-#          folder: "${{github.workspace}}/output/"
-#          draft: true
-#          prerelease: true
-#          body: 'This is a pre-release'
-#          name: "Draft Release"
-#          tag: v0.0.1
-
-#      - name: Create Draft Release
-#        id: create_release
-#        uses: actions/create-release@v1
-#       env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: draft-latest
-#          release_name: draft-latest
-#          draft: true
-#          prerelease: false
-
-#      - uses: actions/upload-release-asset@v1.0.1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          upload_url: ${{ steps.create_release.outputs.upload_url }}
-#          asset_path: ./PPTemplate.zip
-#          asset_name: PPTemplate.zip
-#          asset_content_type: application/zip
-#
-#      - uses: eregon/publish-release@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          release_id: ${{ steps.create_release.outputs.id }}
+          files: ./PPTemplate.zip
