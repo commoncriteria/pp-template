@@ -37,8 +37,13 @@ jobs:
     steps:
     # Runs a single command using the runners shell
       - name: Download PDFifier
-        run: 
-          wget -O - https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
+        run: >
+          wget -O - 
+          https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |
           tar -xv 
-      - name: Run PDFifier    
-          ./wkhtmltopdf/bin/wkhtmltopdf --javascript-delay 15000 --footer-right '[page]' file://./output/pp-template-release.html?expand=on ./output/pp-template-release-paged.pdf
+      - name: Run PDFifier
+        run: >
+          ./wkhtmltopdf/bin/wkhtmltopdf 
+          --javascript-delay 15000 --footer-right '[page]' 
+          file://./output/pp-template-release.html?expand=on 
+          ./output/pp-template-release-paged.pdf
