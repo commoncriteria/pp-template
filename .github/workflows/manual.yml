@@ -46,7 +46,7 @@ jobs:
           fi
 
       - name: Package it up
-        run: cd output && zip -r ../PPTemplate.zip images/* *.html
+        run: cd output && zip -r ../PPTemplate.zip .
 
       - name: Update release
         uses: johnwbyrd/update-release@v1.0.0
