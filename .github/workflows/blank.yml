@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: abc == workflow_dispatch
-        run: echo Hello, world!
+        if: ${{github.event}} == workflow_dispatch
+        run: echo ${{github.event}} Hello, world!
 
 
