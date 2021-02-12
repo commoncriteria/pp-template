@@ -40,10 +40,22 @@ jobs:
         run: >
           wget -O - 
           https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |
-          tar -xv 
+          tar -xJv 
       - name: Run PDFifier
         run: >
           ./wkhtmltopdf/bin/wkhtmltopdf 
           --javascript-delay 15000 --footer-right '[page]' 
           file://./output/pp-template-release.html?expand=on 
           ./output/pp-template-release-paged.pdf
+
+  Upload-output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Package it up
+        run: cd output && zip -r ../PPTemplate.zip images/* *.html
+
+      - name: Update release
+        uses: johnwbyrd/update-release@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./PPTemplate.zip
