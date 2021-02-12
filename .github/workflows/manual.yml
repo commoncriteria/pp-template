@@ -18,7 +18,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Debug
-        run: echo a $env.BASE_NAME b ${{ env.BASE_NAME }} c ${BASENAME}
+        run: echo a ${env.BASE_NAME} b ${{ env.BASE_NAME }} 
       - name: Checkout project and transforms
         uses: actions/checkout@v2 
         with: 
@@ -39,12 +39,12 @@ jobs:
         run: >
            xvfb-run -- /usr/bin/wkhtmltopdf \
             --javascript-delay 15000  \
-            file://$(pwd)/output/${BASE_NAME}-release.html?expand=on \
-            ./output/${BASE_NAME}-release.pdf;
+            file://$(pwd)/output/${{ env.BASE_NAME }}-release.html?expand=on \
+            ./output/$${{ env.BASE_NAME }}-release.pdf;
       - name: Package it up
-        run: cd output && zip -r ../${BASE_NAME}.zip .
+        run: cd output && zip -r ../${{ env.BASE_NAME }}.zip .
       - name: Update release
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./${BASE_NAME}.zip 
+          files: ./${{ env.BASE_NAME }}.zip 
