@@ -12,8 +12,6 @@ jobs:
   build-html:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout project and transforms
@@ -39,9 +37,9 @@ jobs:
             wget -O - \
               https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
               tar -xJv 
-           wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb --location -o /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
-           apt-get --assume-yes install /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
-           ./wkhtmltox/bin/wkhtmltopdf \
+            curl https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb -o /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
+            apt-get --assume-yes install /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
+            ./wkhtmltox/bin/wkhtmltopdf \
               --javascript-delay 15000 --footer-right '[page]' \
               file://$(pwd)/output/pp-template-release.html?expand=on \
               ./output/pp-template-release-paged.pdf;
