@@ -27,17 +27,7 @@ jobs:
         run: sudo apt-get install -y xsltproc
       - name: Convert XML to HTML
         run: make
-      - name: Install PDFifier
-        if: ${{ github.event_name }} == "workflow_dispatch"
-        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
-      - name: PDFify
-        if: ${{ github.event_name }} = "workflow_dispatch"
-        run: >
-           xvfb-run -- /usr/bin/wkhtmltopdf \
-            --javascript-delay 15000  \
-            file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
-            ./output/${PWD##*/}-release.pdf;
-      - name: Make PDF Output Directory
+      - name: Make Zip Output Directory
         run: mkdir -p commoncriteria
       - name: Package it up
         run: echo ${GITHUB_REPOSITORY} && cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
@@ -45,4 +35,4 @@ jobs:
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./$${ github.repository }}.zip 
+          files: ./${{ github.repository }}.zip 
