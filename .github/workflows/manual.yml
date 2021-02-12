@@ -37,8 +37,8 @@ jobs:
             --javascript-delay 15000  \
             file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
             ./output/${PWD##*/}-release.pdf;
-      - name: Make Directory
-        run: mkdir -p ${{GITHUB_REPOSITORY}}
+      - name: Make PDF Output Directory
+        run: mkdir -p commoncriteria
       - name: Package it up
         run: cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
       - name: Update release
