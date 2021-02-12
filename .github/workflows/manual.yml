@@ -14,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Download and install PDFifier
-#       if: ${{ github.event_name }} == workflow_dispatch
-        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
 
       - name: Checkout project and transforms
         uses: actions/checkout@v2 
@@ -35,16 +32,16 @@ jobs:
       - name: Debug
         run: echo ${{ github.event_name }}
 
-#            wget -O - \
-#              https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
-#              tar -xJ 
-#            curl https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb -o /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
-#            sudo apt-get --assume-yes install /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
-#            ./wkhtmltox/bin/wkhtmltopdf \
-#              --javascript-delay 15000 --footer-right '[page]' \
-#              file://$(pwd)/output/pp-template-release.html?expand=on \
-#              ./output/pp-template-release-paged.pdf;
-#          fi
+      - name: Download and install PDFifier
+#       if: ${{ github.event_name }} == workflow_dispatch
+        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
+      - name: PDFify
+#       if: ${{ github.event_name }} == workflow_dispatch
+        run: >
+          wkhtmltopdf 
+            --javascript-delay 15000 --footer-right '[page]' \
+            file://$(pwd)/output/pp-template-release.html?expand=on \
+            ./output/pp-template-release-paged.pdf;
 
       - name: Package it up
         run: cd output && zip -r ../PPTemplate.zip .
