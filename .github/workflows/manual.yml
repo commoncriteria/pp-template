@@ -16,14 +16,26 @@ jobs:
       max-parallel: 1
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Building HTML"
+      - name: Checkout project and transforms
+        uses: actions/checkout@v2 
+        with: 
+          submodules: true
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+            python-version: '3.x'
+      - name: Install lib
+        run: sudo apt-get install -y xsltproc
+      - name: Convert XML to HTML
+        run: make
+      - name: Package it up
+        run: cd output && zip -r ../PPTemplate.zip .
+
   build-pdf:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Building PDF"
+      - name: Make PDF
+        run: echo "Building PDF"
     
