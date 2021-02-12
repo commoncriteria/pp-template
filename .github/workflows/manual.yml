@@ -29,10 +29,10 @@ jobs:
       - name: Convert XML to HTML
         run: make
       - name: Install PDFifier
-        if: ${{ github.event_name  == workflow_dispatch }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: PDFify
-        if: ${{ github.event_name  == workflow_dispatch }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: >
            xvfb-run -- /usr/bin/wkhtmltopdf \
             --javascript-delay 15000  \
