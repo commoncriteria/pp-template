@@ -32,13 +32,13 @@ jobs:
       - name: Debug
         run: echo ${{ github.event_name }}
 
-      - name: Download and install PDFifier
+      - name: Install PDFifier
 #       if: ${{ github.event_name }} == workflow_dispatch
         run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: PDFify
 #       if: ${{ github.event_name }} == workflow_dispatch
         run: >
-          wkhtmltopdf \
+           xvfb-run -- /usr/bin/wkhtmltopdf \
             --javascript-delay 15000 --footer-right '[page]' \
             file://$(pwd)/output/pp-template-release.html?expand=on \
             ./output/pp-template-release-paged.pdf;
