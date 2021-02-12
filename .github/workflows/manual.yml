@@ -8,7 +8,6 @@ on: [push, workflow_dispatch]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
-  # This workflow contains a single job called "greet"
   build-project:
 
     # The type of runner that the job will run on
@@ -30,10 +29,10 @@ jobs:
       - name: Convert XML to HTML
         run: make
       - name: Install PDFifier
-        if: ${{ github.event_name  == "workflow_dispatch" }}
+        if: ${{ github.event_name  == workflow_dispatch }}
         run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: PDFify
-        if: ${{ github.event_name  == "workflow_dispatch" }}
+        if: ${{ github.event_name  == workflow_dispatch }}
         run: >
            xvfb-run -- /usr/bin/wkhtmltopdf \
             --javascript-delay 15000  \
