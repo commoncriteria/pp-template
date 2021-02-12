@@ -25,8 +25,20 @@ jobs:
             python-version: '3.x'
       - name: Install lib
         run: sudo apt-get install -y xsltproc
+      - name: Debug
+        run: echo "The trigger was " ${{ github.event_name }}
       - name: Convert XML to HTML
         run: make
+      - name: Install PDFifier
+        if: ${{ github.event_name }} == "pushworkflow_dispatch"
+        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
+      - name: PDFify
+        if: ${{ github.event_name }} == "workflow_dispatch"
+        run: >
+           xvfb-run -- /usr/bin/wkhtmltopdf \
+            --javascript-delay 15000  \
+            file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
+            ./output/${PWD##*/}-release.pdf;
       - name: Make Zip Output Directory
         run: mkdir -p commoncriteria
       - name: Package it up
@@ -36,3 +48,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./${{ github.repository }}.zip 
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: output # The folder the action should deploy.
