@@ -38,7 +38,7 @@ jobs:
       - name: PDFify
 #       if: ${{ github.event_name }} == workflow_dispatch
         run: >
-          wkhtmltopdf 
+          wkhtmltopdf \
             --javascript-delay 15000 --footer-right '[page]' \
             file://$(pwd)/output/pp-template-release.html?expand=on \
             ./output/pp-template-release-paged.pdf;
