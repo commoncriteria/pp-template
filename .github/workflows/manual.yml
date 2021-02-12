@@ -16,12 +16,7 @@ jobs:
     steps:
       - name: Download and install PDFifier
 #       if: ${{ github.event_name }} == workflow_dispatch
-        run: >
-          cd /tmp;
-          sudo apt install wget xfonts-75dpi
-          wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb;
-          sudo dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb;
-          cd -
+        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
 
       - name: Checkout project and transforms
         uses: actions/checkout@v2 
