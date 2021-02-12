@@ -33,12 +33,12 @@ jobs:
 
       - name: Do the PDF Thing
         run: >
-          if [ "${{ github.event_name }}" == workflow_dispatch ]; then
+          if [ "${{ github.event_name }}" == push ]; then
             wget -O - \
               https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
               tar -xJ 
             curl https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb -o /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
-            apt-get --assume-yes install /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
+            sudo apt-get --assume-yes install /tmp/wkhtmltox_0.12.5-1.xenial_amd64.deb
             ./wkhtmltox/bin/wkhtmltopdf \
               --javascript-delay 15000 --footer-right '[page]' \
               file://$(pwd)/output/pp-template-release.html?expand=on \
