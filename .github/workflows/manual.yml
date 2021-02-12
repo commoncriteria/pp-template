@@ -17,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Debug
-        run: echo a ${env.BASE_NAME} b ${{ env.BASE_NAME }} 
       - name: Checkout project and transforms
         uses: actions/checkout@v2 
         with: 
