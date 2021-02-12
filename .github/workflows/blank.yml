@@ -28,6 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-        if: ${{ github.event_name }} == "pushworkflow_dispatch"
+        if: ${{ github.event_name }} = workflow_dispatch
 
 
