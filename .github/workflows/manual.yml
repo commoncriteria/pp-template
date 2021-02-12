@@ -14,6 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Download and install PDFifier
+#       if: ${{ github.event_name }} == workflow_dispatch
+        run: >
+          cd /tmp;
+          wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb;
+          sudo dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb;
+          cd -
+
       - name: Checkout project and transforms
         uses: actions/checkout@v2 
         with: 
@@ -31,13 +39,6 @@ jobs:
       - name: Debug
         run: echo ${{ github.event_name }}
 
-      - name: Download and install PDFifier
-#       if: ${{ github.event_name }} == workflow_dispatch
-        run: >
-          cd /tmp
-          wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
-          sudo dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb
-          cd -
 #            wget -O - \
 #              https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
 #              tar -xJ 
