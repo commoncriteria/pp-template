@@ -32,10 +32,13 @@ jobs:
         run: cd output && zip -r ../PPTemplate.zip .
 
   build-pdf:
-    if: github.event_name == 'workflow_dispatch'
+#    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
     # Runs a single command using the runners shell
-      - name: Make PDF
-        run: echo "Building PDF"
-    
+      - name: Download PDFifier
+        run: 
+          wget -O - https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz |\
+          tar -xv 
+      - name: Run PDFifier    
+          ./wkhtmltopdf/bin/wkhtmltopdf --javascript-delay 15000 --footer-right '[page]' file://./output/pp-template-release.html?expand=on ./output/pp-template-release-paged.pdf
