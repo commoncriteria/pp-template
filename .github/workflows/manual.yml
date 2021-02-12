@@ -10,8 +10,6 @@ on: [push, workflow_dispatch]
 jobs:  
   # This workflow contains a single job called "greet"
   build-project:
-    env:
-      BASE_NAME: pp-template
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -37,12 +35,14 @@ jobs:
         run: >
            xvfb-run -- /usr/bin/wkhtmltopdf \
             --javascript-delay 15000  \
-            file://$(pwd)/output/${{ env.BASE_NAME }}-release.html?expand=on \
-            ./output/$${{ env.BASE_NAME }}-release.pdf;
+            file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
+            ./output/${PWD##*/}-release.pdf;
+      - name: Make Directory
+        run: mkdir -p ${{GITHUB_REPOSITORY}}
       - name: Package it up
-        run: cd output && zip -r ../${{ env.BASE_NAME }}.zip .
+        run: cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
       - name: Update release
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./${{ env.BASE_NAME }}.zip 
+          files: ./${{ GITHUB_REPOSITORY }}.zip 
