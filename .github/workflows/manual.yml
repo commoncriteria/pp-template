@@ -42,6 +42,13 @@ jobs:
         run: mkdir -p commoncriteria
       - name: Package it up
         run: echo ${GITHUB_REPOSITORY} && cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
+      - name: Make a directory listing
+        run: >
+           (echo "<html><head><title>${PWD##*/} files<title><head><body><ol>" &&
+            cd output && for aa in $(find . -name '*.html'); do
+               echo "<li><a href='$aa'>$aa</a></li>";
+            done;
+            echo "</ol></body><html>") > index.html
       - name: Update release
         uses: johnwbyrd/update-release@v1.0.0
         with:
