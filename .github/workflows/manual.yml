@@ -24,8 +24,6 @@ jobs:
             python-version: '3.x'
       - name: Install lib
         run: sudo apt-get install -y xsltproc
-      - name: Debug
-        run: echo "The trigger was " ${{ github.event_name }}
       - name: Convert XML to HTML
         run: make
       - name: Install PDFifier
@@ -40,22 +38,8 @@ jobs:
             ./output/${PWD##*/}-release.pdf;
       - name: Make Zip Output Directory
         run: mkdir -p commoncriteria
-#      - name: Package it up
-#        run: echo ${GITHUB_REPOSITORY} && cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
       - name: Make a directory listing
-        run: >
-           cd output &&
-           (echo "<html><head><title>${PWD##*/} files</title></head><body><ol>" &&
-            for aa in $(find . -name '*.html'); do
-               echo "<li><a href='$aa'>$aa</a></li>";
-            done;
-            echo "</ol></body></html>") > index.html
-            
- #     - name: Update release
- #       uses: johnwbyrd/update-release@v1.0.0
- #       with:
- #         token: ${{ secrets.GITHUB_TOKEN }}
- #         files: ./${{ github.repository }}.zip 
+        run: make output/index.html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
