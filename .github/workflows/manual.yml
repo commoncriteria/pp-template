@@ -40,8 +40,8 @@ jobs:
             ./output/${PWD##*/}-release.pdf;
       - name: Make Zip Output Directory
         run: mkdir -p commoncriteria
-      - name: Package it up
-        run: echo ${GITHUB_REPOSITORY} && cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
+#      - name: Package it up
+#        run: echo ${GITHUB_REPOSITORY} && cd output && zip -r ../${GITHUB_REPOSITORY}.zip .
       - name: Make a directory listing
         run: >
            (echo "<html><head><title>${PWD##*/} files<title><head><body><ol>" &&
@@ -49,11 +49,11 @@ jobs:
                echo "<li><a href='$aa'>$aa</a></li>";
             done;
             echo "</ol></body><html>") > index.html
-      - name: Update release
-        uses: johnwbyrd/update-release@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./${{ github.repository }}.zip 
+ #     - name: Update release
+ #       uses: johnwbyrd/update-release@v1.0.0
+ #       with:
+ #         token: ${{ secrets.GITHUB_TOKEN }}
+ #         files: ./${{ github.repository }}.zip 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
