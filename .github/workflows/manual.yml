@@ -45,11 +45,11 @@ jobs:
       - name: Make a directory listing
         run: >
            cd output &&
-           (echo "<html><head><title>${PWD##*/} files<title><head><body><ol>" &&
+           (echo "<html><head><title>${PWD##*/} files</title></head><body><ol>" &&
             for aa in $(find . -name '*.html'); do
                echo "<li><a href='$aa'>$aa</a></li>";
             done;
-            echo "</ol></body><html>") > index.html
+            echo "</ol></body></html>") > index.html
             
  #     - name: Update release
  #       uses: johnwbyrd/update-release@v1.0.0
