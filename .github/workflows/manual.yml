@@ -37,7 +37,7 @@ jobs:
             file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
             ./output/${PWD##*/}-release.pdf;
       - name: Make a directory listing
-        run: make output/index.html
+        run: make listing
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
