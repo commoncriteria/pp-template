@@ -36,8 +36,6 @@ jobs:
             --javascript-delay 15000  \
             file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
             ./output/${PWD##*/}-release.pdf;
-      - name: Make Zip Output Directory
-        run: mkdir -p commoncriteria
       - name: Make a directory listing
         run: make output/index.html
       - name: Deploy 🚀
