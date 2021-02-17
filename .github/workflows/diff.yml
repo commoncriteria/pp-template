@@ -32,7 +32,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Get DaisyDiff
-        run: wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip | unzip
+        run: unzip $(wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip)
       - name: Debug
         run: find .
 #      - name: Install PDFifier
