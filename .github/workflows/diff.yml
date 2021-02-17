@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Build_Documents
+name: Diff_Documents
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -26,9 +26,15 @@ jobs:
         run: sudo apt-get install -y xsltproc
       - name: Convert XML to HTML
         run: make
-      - name: Install PDFifier
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
+        
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 1.8
+      - name: Get DaisyDiff
+        run: wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip | jar -x
+      - name: Make tmp dir
+        run: mkdir tmp
       - name: PDFify
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: >
@@ -36,6 +42,13 @@ jobs:
             --javascript-delay 15000  \
             file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
             ./output/${PWD##*/}-release.pdf;
+      - name: Diff against 2 Days ago
+        run: TMP=tmp DAISY_DIR=ExecuteDaisy-master make little-diff
+      - name: Diff against specified versions
+        run: DAISY_DIR=ExecuteDaisy-master make diff
+      - name: Install PDFifier
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: Make a directory listing
         run: make listing
       - name: Deploy 🚀
