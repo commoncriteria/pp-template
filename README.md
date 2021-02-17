@@ -52,8 +52,7 @@ For more information see the [PP Development Wiki](https://github.com/commoncrit
 
 Protection Profile or Extended Package for QQQQ
 ===============
-![build pp document](https://github.com/commoncriteria/pp-template/workflows/build%20pp%20document/badge.svg)
-[![Build Status](https://travis-ci.com/commoncriteria/pp-template.svg?branch=master)](https://travis-ci.com/commoncriteria/pp-template)
+[![build pp document](https://github.com/commoncriteria/pp-template/workflows/build%20pp%20document/badge.svg)](https://github.com/commoncriteria/pp-template/actions])
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/pp-template.svg?maxAge=2592000)](https://github.com/commoncriteria/pp-template/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
