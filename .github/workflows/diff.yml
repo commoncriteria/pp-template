@@ -33,6 +33,8 @@ jobs:
           java-version: 1.8
       - name: Get DaisyDiff
         run: wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip | jar -x
+      - name: Diff against 2 Days ago
+        run: DIFF_DIR=ExecuteDaisy-master make little-diff
       - name: Debug
         run: find .
 #      - name: Install PDFifier
