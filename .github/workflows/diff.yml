@@ -34,7 +34,9 @@ jobs:
       - name: Get DaisyDiff
         run: wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip | jar -x
       - name: Diff against 2 Days ago
-        run: DIFF_DIR=ExecuteDaisy-master make little-diff
+        run: DAISY_DIR=ExecuteDaisy-master make little-diff
+      - name: Diff against specified versions
+        run: DAISY_DIR=ExecuteDaisy-master make diff
       - name: Debug
         run: find .
 #      - name: Install PDFifier
