@@ -208,7 +208,7 @@
         </threat>
       </threats>
     </section>
-    <section title="Assumptions" id="assumption">
+    <sec:Assumptions>
       <assumptions>
         <assumption name="A.CONNECTIONS">
           <description> It is assumed that the TOE is connected to distinct networks in a manner
@@ -236,8 +236,8 @@
           </objective-refer>
         </assumption>
       </assumptions>
-    </section>
-    <section title="Organizational Security Policies" id="osp"> An organization deploying the TOE is
+    </sec:Assumptions>
+    <sec:Organizational_Security_Policies> An organization deploying the TOE is
       expected to satisfy the organizational security policy listed below in addition to all
       organizational security policies defined by the claimed base PP. <OSPs>
         <OSP name="P.ANALYZE">
@@ -251,7 +251,7 @@
           </objective-refer>
         </OSP>
       </OSPs>
-    </section>
+    </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Description>
   <sec:Security_Objectives>
     <sec:Security_Objectives_for_the_TOE>
