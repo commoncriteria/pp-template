@@ -33,6 +33,22 @@
     </entry>
   </RevisionHistory>
 
+    <include-pkg id="tls">
+		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
+
+               <raw-url>https://github.com/commoncriteria/tls/raw/
+                        562626874aacfbb9beb397fca5be128c86ec4ebf
+                        /input/tls.xml</raw-url>
+	</include-pkg>
+	    
+    <include-pkg id="ssh">
+		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
+                <raw-url>https://github.com/commoncriteria/ssh/raw/
+                         de9b38dc426a4ac14d4016510d1ef477d419f7ae
+                         /input/ssh.xml</raw-url>
+   </include-pkg>	
+
+
   <sec:Introduction>
     <section title="Overview" id="ppoverview">
       Content added 11 Feb 2021: 1307pm.
@@ -76,8 +92,16 @@
         </h:ul>
         And this is another sentence (or fragment). I added this sentence and deleted the next one. 
 		This uses the plural acronym OSes. 
-
       </h:p>
+      <h:p> And here's a generic coutner 
+                       <ctr id="c-abc" ctr-type="Abc ">: Some Words</ctr>
+      </h:p>
+      <h:p>
+        And here's the reference to it <xref to="c-abc"/>.
+      </h:p>
+ 
+
+
     </section>
     <tech-terms>
       <term abbr='AES' full="Advanced Encryption Standard"/>
@@ -462,25 +486,7 @@ users of the same system.
       </section>
   </sec:Security_Objectives>
 
-  <sec:Security_Requirements>This chapter describes the security requirements
-    which have to be fulfilled by the OS. Those requirements comprise functional
-    components from Part 2 and assurance components from Part 3 of <xref g="CC"/>. The
-    following notations are used: <h:ul>
-      <h:li>
-        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
-        requirement, and thus further restricts a requirement.</h:li>
-      <h:li>
-        <h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
-        provided by the [CC] in stating a requirement.</h:li>
-      <h:li>
-        <h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): is used to assign a
-        specific value to an unspecified parameter, such as the length of a password. Showing the
-        value in square brackets indicates assignment.</h:li>
-      <h:li>
-        <h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
-        "(1)")</h:li>
-    </h:ul>
-
+  <sec:Security_Requirements>
     <sec:SFRs title="Security Functional Requirements">
       <sec:Something>
           Here's whwere we talk about an audit table.
