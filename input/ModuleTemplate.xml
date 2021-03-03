@@ -28,6 +28,11 @@
       This Protection Profile Module (PP-Module) describes security requirements for Widgets. 
       This PP-Module is intended to provide a minimal baseline set of requirements that
       are targeted at mitigating well defined and described threats. 
+
+      <h:div> <depends on="ND"/> This is content that is only applicable to 
+       Modules that extend the ND pp.</h:div>
+
+
       <h:p>This PP-Module contains optional requirements for Widgets, a security
       product that provides something.
       </h:p>
@@ -360,7 +365,7 @@
     </section>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp version="2.1" name="Network Device" product="Network Device" short="ND" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=440&amp;id=440" xmlurl="test">
+    <base-pp id="ND" version="2.1" name="Network Device" product="Network Device" short="ND" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=440&amp;id=440" xmlurl="test">
       <modified-sfrs>
         <sec:from_nd_fpt title="Protection of the TSF (FPT)">
           <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection"><!-- DONE -->
