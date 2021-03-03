@@ -39,6 +39,7 @@
                <raw-url>https://github.com/commoncriteria/tls/raw/
                         562626874aacfbb9beb397fca5be128c86ec4ebf
                         /input/tls.xml</raw-url>
+               <depends on="pizza"/>
 	</include-pkg>
 	    
     <include-pkg id="ssh">
@@ -77,9 +78,9 @@
 
 </h:li> 
           <h:li> And this is how you reference it: <xref to="quadeq"/> </h:li>
-          <h:li> <h:div><depends on="selection"><ref-id>aaa</ref-id></depends> 
+          <h:li> <h:div><depends on="aaa"/> 
                     Some text </h:div> </h:li> 
-  		<h:li> <h:div><depends on="implements"><ref-id>a-feature-id</ref-id></depends> 
+			<h:li> <h:div><depends on="a-feature-id"/>
                     Someting dependent on a feature</h:div> </h:li> 
            
           <h:li> And here's the audit event table for mandatory requirements. 
@@ -513,7 +514,7 @@ users of the same system.
               </selectables>. 
             </title>
             <note role="application"></note>
-            <aactivity><h:div><depends on="selection"><ref-id>pizza</ref-id></depends>Check for anchovies</h:div>Specific to the componenet<TSS>ABC</TSS></aactivity>
+            <aactivity><h:div><depends on="pizza"/>Check for anchovies</h:div>Specific to the componenet<TSS>ABC</TSS></aactivity>
             <aactivity level="element"> Specific to the element <TSS>ABC</TSS></aactivity>
             <rule id="r-wine">
             <or>
@@ -577,10 +578,10 @@ Activities assoiated with guidance
                      </test>
                  </testlist>
 Activities assoiated with the Tests. 
-                 <h:div><depends on="selection"><ref-id>virtual</ref-id></depends>
+                 <h:div><depends on="virtual"/>
 					 Great tests for something virtual.
 				 </h:div>
-                 <h:div><depends on="selection"><ref-id>physical</ref-id><ref-id>imgi</ref-id></depends>
+                 <h:div><depends on="physical" also="imgi"/>
 					 Great tests for something tangible or in my mind.
 				 </h:div>
 
@@ -622,7 +623,7 @@ Activities assoiated with the TSS.
           </f-element>
         </f-component>
          <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
-          <selection-depends req="a-unique-id" ids="aaa"/>
+          <depends ids="aaa"/>
           <f-element id="selbased-example">
             <title> The TOE shall do something great.</title>
             <note role="application"></note>
@@ -634,7 +635,7 @@ Activities assoiated with the TSS.
           </f-element>
         </f-component>
         <f-component cc-id="fqq_qqq.6" name="WQQQQQ" status="feat-based">
-          <depends on="implements"><ref-id>a-feature-id</ref-id></depends>
+          <depends on="a-feature-id"/>
           <f-element id="feat-based-example">
             <title> The TOE shall do something with regards to some implementation.</title>
             <note role="application"></note>
@@ -855,6 +856,12 @@ Activities assoiated with the TSS.
 					
                 </f-component>
 
+
+
+               <ext-comp-def title="Security Store Filtering" fam-id="FAU_STG_EXT">
+                 <mod-def/>
+ i             </ext-comp-def>
+ 
                 <!-- FAU_STG_EXT.1 -->
                 <f-component cc-id="fau_stg_ext.1" name="Off-Loading of Audit Data">
                     <f-element id="fel-audit-mov">
