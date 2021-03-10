@@ -860,7 +860,7 @@ Activities assoiated with the TSS.
 
                <ext-comp-def title="Security Store Filtering" fam-id="FAU_STG_EXT">
                  <mod-def/>
- i             </ext-comp-def>
+               </ext-comp-def>
  
                 <!-- FAU_STG_EXT.1 -->
                 <f-component cc-id="fau_stg_ext.1" name="Off-Loading of Audit Data">
