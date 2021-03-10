@@ -77,7 +77,7 @@
         This PP-Module specifically addresses widgets.
         Wireless Intrusion Detection/Prevention Systems (WIDS/WIPS). 
         </h:p>
-        <h:p><depends><base-ref>Network Device</base-ref></depends>
+        <h:p><depends on="b-nd"/>
           Text specific to widgets when Newtork Device is the base.
         </h:p>
         <h:p>
@@ -242,9 +242,8 @@
         </assumption>
       </assumptions>
     </sec:Assumptions>
-    <sec:Organizational_Security_Policies> An organization deploying the TOE is
-      expected to satisfy the organizational security policy listed below in addition to all
-      organizational security policies defined by the claimed base PP. <OSPs>
+    <sec:Organizational_Security_Policies>
+       <OSPs>
         <OSP name="P.ANALYZE">
           <description>Analytical processes and information to derive conclusions about potential
             intrusions must be applied to WIDS data and appropriate response actions
@@ -261,7 +260,7 @@
   <sec:Security_Objectives>
     <sec:Security_Objectives_for_the_TOE>
       <!-- Later: Make sure new SFRs are mapped to SOs -->
-      <SOs>
+      <SOs><!--
         <SO name="O.SYSTEM_MONITORING">
           <description> To be able to analyze and react to potential network policy violations, the
             WIDS must be able to collect and store essential data elements of network traffic on
@@ -269,9 +268,9 @@
           </description>
            <consistency-rationale>Just because <_/></consistency-rationale>
 	  <addressed-by>FAU_GEN.1/WIDS</addressed-by>
-          <rationale>Good reasons</rationale><!-- Mandatory -->
+          <rationale>Good reasons</rationale>
 	  <addressed-by>FAU_STG_EXT.1/PCAP</addressed-by>
-          <rationale>Good reasons</rationale><!-- Mandatory -->
+          <rationale>Good reasons</rationale>
         </SO>
         <SO name="O.WIDS_ANALYZE">
           <description> The WIDS must be able to analyze collected or observed WLAN activity on
@@ -281,18 +280,18 @@
           </description>
            <consistency-rationale>Just because <_/></consistency-rationale>
           <addressed-by>
-	    <!-- Mandatory -->
+	    
 	    FAU_ARP.1, FAU_ARP_EXT.2, FAU_IDS_EXT.1, FAU_INV_EXT.1, FAU_INV_EXT.2, FAU_INV_EXT.3,
 	    FAU_SAA.1, FAU_WID_EXT.1, FAU_WID_EXT.2, FAU_WID_EXT.3, FAU_WID_EXT.4, FAU_WID_EXT.5, FDP_IFC.1,
-	    <!-- Optional -->
+	    
 	    FAU_ANO_EXT.1(OPTIONAL), FAU_INV_EXT.4(OPTIONAL),
-	    <!--  <component-refer ref="FAU_INV_EXT.4" iteration="CELL"/>-->
+	    
 	    FAU_INV_EXT.5(OPTIONAL), FAU_MAC_EXT.1(OPTIONAL), FAU_SIG_EXT.1(OPTIONAL), FAU_WID_EXT.6(OPTIONAL),
 	    FAU_WID_EXT.7(OPTIONAL), FAU_WID_EXT.8(OPTIONAL)
 	  </addressed-by>
           <rationale>Good reasons</rationale>
         </SO>    
-        <SO name="O.WIPS_REACT"><!-- NIAP: WIPS functionality is optional, so technically this is an optional objective -->
+        <SO name="O.WIPS_REACT">
           <description> The TOE must be able to react as configured by the administrators to
             isolate/contain WLAN devices that have been determined to violate administrator-defined
             WIPS policies. <h:br/>
@@ -334,12 +333,12 @@
           </description>
            <consistency-rationale>Just because <_/></consistency-rationale>
           <addressed-by>
-            <!-- Mandatory -->
+            
 	    FPT_ITT.1, FTP_ITC.1
-            <!-- Optional -->
+            
 	  </addressed-by>
           <rationale>Good reasons</rationale>
-        </SO>
+        </SO>-->
       </SOs>
     </sec:Security_Objectives_for_the_TOE>
     <section title="Security Objectives for the Operational Environment" id="SecurityObjectivesTOEorEnvironment"> 
@@ -365,7 +364,8 @@
     </section>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.1" name="Network Device" product="Network Device" short="ND" url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=440&amp;id=440" xmlurl="test">
+    <base-pp id="b-nd" version="2.1" name="Network Device" product="Network Device" short="ND">
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=440&amp;id=440</url>
       <modified-sfrs>
         <sec:from_nd_fpt title="Protection of the TSF (FPT)">
           <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection"><!-- DONE -->
@@ -2001,7 +2001,7 @@ The evaluator shall examine the operational guidance to verify that it
           <fam-behavior/>
         </ext-comp-def>
         <f-component cc-id="fau_ano_ext.1" name="Anomaly-Based Intrusion Detection"> <!-- DONE -->
-          <selection-depends req="fel-ids-meth" ids="anoBased"/>
+          <depends  on="anoBased"/>
           <consistency-rationale/>
           <comp-lev/>
           <management/>
@@ -2101,7 +2101,7 @@ The evaluator shall examine the operational guidance to verify that it
           <fam-behavior/>
         </ext-comp-def>
         <f-component cc-id="fau_sig_ext.1" name="Signature-Based Intrusion Detection"><!-- DONE -->
-          <selection-depends req="fel-ids-meth" ids="sigBased"/>
+          <depends on="sigBased"/>
           <consistency-rationale/>
           <comp-lev/>
           <management/>
@@ -2140,7 +2140,7 @@ The evaluator shall examine the operational guidance to verify that it
         </ext-comp-def>
         <f-component cc-id="fau_stg_ext.1" iteration="PCAP" name="Protected Audit Event Storage (Packet Captures)"> <!-- Later_TODO: Look at 1.2 in ND -->
           <!-- This component is copied from ND cPP and iterated to make a distintion between audit records and PCAPs -->
-          <selection-depends req="fel-arp" ids="pcap"/> <!-- fau_arp.1.1 -->
+          <depends on="pcap"/> <!-- fau_arp.1.1 -->
           <consistency-rationale/>
           <comp-lev/>
           <management/>
@@ -2468,6 +2468,7 @@ The evaluator shall examine the operational guidance to verify that it
         </f-component>
       </sec:fpt>
     </obj-sfrs>
+    <impl-dep-sfrs/>
   </sec:Security_Requirements>
   <appendix id="my_appendix" title="An Example Appendix">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
