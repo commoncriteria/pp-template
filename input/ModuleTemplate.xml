@@ -114,13 +114,13 @@
     <sec:Use_Cases>
       <usecases>
         <usecase id="usecase1" title="Use Case 1">
-          <description/>
+          <description> A great use case </description>
         </usecase>
       </usecases>
     </sec:Use_Cases>
   </sec:Introduction>
-  <sec:Conformance_Claims>
-    <cclaims>
+  <sec:Conformance_Claims/>
+<!--    <cclaims>
       <cclaim name="Conformance Statement">
         <description> This PP-Module inherits exact conformance as required from the specified
           Base-PP and as defined in the CC and CEM addenda for Exact Conformance, Selection-Based
@@ -135,11 +135,11 @@
           Criteria Version 3.1, Release 5 [CC]. </description>
       </cclaim>
       <cclaim name="Package Claims">
-        <description><!-- Later_NIAP: Does this module need to claim any packages? If YES: This PP-Module is <package name> Conformant. --> 
+        <description>
           This PP-Module does not claim conformance to any packages.</description>
       </cclaim>
     </cclaims>
-  </sec:Conformance_Claims>
+  </sec:Conformance_Claims>-->
   <sec:Security_Problem_Description>
     <h:p>WIDS address a range of security threats related to detection of and reaction to potentially malicious WLAN traffic. The malicious
     traffic may pose a threat to one or more endpoints on the monitored networks, to the network
