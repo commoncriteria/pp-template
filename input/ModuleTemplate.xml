@@ -990,7 +990,7 @@
           </f-element>
           <f-element>
             <title> The TSF shall detect the physical location of APs and EUDs to within <assignable>value equal or less than 15</assignable> feet of their actual location.</title>
-            <aactivity>
+            <aactivity>BBBB
               <TSS> 
                 The evaluator shall verify that the TSS includes information on location
                 tracking, optimal number of sensors and sensor placement to meet the required level
