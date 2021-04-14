@@ -515,8 +515,7 @@ users of the same system.
             <note role="application"></note>
             <aactivity><h:div><depends on="pizza"/>Check for anchovies</h:div>Specific to the componenet<TSS>ABC</TSS></aactivity>
             <aactivity level="element"> Specific to the element <TSS>ABC</TSS></aactivity>
-            <rule id="r-wine">
-            <or>
+            <rule id="r-wine"><or>
                <and>
                  <ref-id>s-white</ref-id>
                  <or><ref-id>ratatouille</ref-id>
@@ -527,8 +526,7 @@ users of the same system.
                   <or><ref-id>spaghetti</ref-id>
                      <ref-id>pizza</ref-id></or>
                </and>
-            </or>
-            </rule>
+            </or> </rule>
 
           </f-element>
         </f-component>
@@ -552,7 +550,9 @@ users of the same system.
               </or>
             </rule>
           </f-element>
-
+           <f-element id="f-test-selectable-style">
+             <title> Testing selectables <h:ul><h:li>something</h:li><h:li><selectables linebreak="yes"><selectable>abc</selectable><selectable style="display: inline;">def</selectable></selectables></h:li><h:li>somethingelse</h:li></h:ul></title>
+           </f-element>
          </f-component>
        </section>
        <section title="QQQQ" id="QQQQ">
@@ -1605,9 +1605,15 @@ Activities assoiated with the TSS.
 
   </appendix>
 
+
+  <implements>
+    <feature id="a-feature-id" title="Widget Thing">
+      <description> This is a super description of this certain feature.</description>
+    </feature>
+  </implements>
+
   <!-- Remove this section if an Entropy Assessment is not needed -->
-  <appendix title="References" id="biblio">
-    <bibliography>
+  <bibliography>
       <entry id="bibCEM">
         <tag>CEM</tag>
         <description>
@@ -1635,17 +1641,7 @@ Activities assoiated with the TSS.
             Cost for Security in Agency Information Technology Investments</h:a>, OMB M-06-19, July
           12, 2006. </description>
       </entry>
-    </bibliography>
-  </appendix>
-
-  <appendix title="Acronyms" id="acronyms">
-   <acronyms/>
-  </appendix>
-
-  <implements>
-    <feature id="a-feature-id" title="Widget Thing">
-      <description> This is a super description of this certain feature.</description>
-    </feature>
-  </implements>
+  </bibliography>
 
 </PP>
+
