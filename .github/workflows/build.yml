@@ -25,9 +25,12 @@ jobs:
       - name: Convert the pp-template.xml to HTML
         run: make
 
-      # Delete this line and the 3 below it for a project PP/Module/Package
-      - name: Convert the Module.xml to HTML
+      # Delete this line and the 6 below it for a project PP/Module/Package
+      - name: Convert the ModuleTemplate.xml to HTML
         run: make -f Module.make
+
+      - name: Covert the cpp-template.xml to HTML
+        run: make -f cPP.make 
 
       - name: Checkout commoncriteria.github.io
         uses: actions/checkout@v2
