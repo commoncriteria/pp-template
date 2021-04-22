@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
-<PP xmlns="https://niap-ccevs.org/cc/v1"
-    xmlns:sec="https://niap-ccevs.org/cc/v1/section" name="Protection Profile QQQQ"
-    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate='yes'>
+<PP  boilerplate='yes' target-products="foobars"
+    xmlns="https://niap-ccevs.org/cc/v1"
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+    xmlns:h="http://www.w3.org/1999/xhtml">
 
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -621,7 +622,14 @@ Activities assoiated with the TSS.
 	    </aactivity>
           </f-element>
         </f-component>
-         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
+        <f-component cc-id="faa_abc.1" name="Foreign depends" status="sel-based">
+          <depends on="tlsc_impl"><external-doc ref="tls"/></depends>
+          <f-element id="zzz">
+             <title>The TOE is required to do something based on a selection in the included TLS package</title>
+             <aactivity><Tests>abcdefg</Tests></aactivity>
+          </f-element>
+        </f-component>
+        <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <depends ids="aaa"/>
           <f-element id="selbased-example">
             <title> The TOE shall do something great.</title>
