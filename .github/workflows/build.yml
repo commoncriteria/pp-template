@@ -29,6 +29,9 @@ jobs:
       - name: Convert the ModuleTemplate.xml to HTML
         run: make -f Module.make
 
+      - name: Convert pp-template.xml to HTML with a modified transform
+        run: make -f pp-with-xsl-change.make 
+
       - name: Covert the cpp-template.xml to HTML
         run: make -f cPP.make 
 

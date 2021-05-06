@@ -1044,6 +1044,7 @@ Activities assoiated with the TSS.
           activities listed, rather than as an independent, abstract list. 
             <a-element type="D">
               <title>The developer shall provide a functional specification.</title>
+			  <note> Ane here's a Developers' note</note>
             </a-element>
             <a-element type="C">
               <title>The developer shall provide a tracing from the functional specification to the
