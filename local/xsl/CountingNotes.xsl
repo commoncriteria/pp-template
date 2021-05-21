@@ -30,5 +30,28 @@
       <xsl:text>: </xsl:text> 
     </span>
   </xsl:template>
+
+
+  <!-- ############### -->
+  <!--                 -->
+  <!-- ############### -->
+  <xsl:template match="cc:usecases">
+    <dl>
+      <xsl:for-each select="cc:usecase">
+        <dt> [USE CASE <xsl:value-of select="position()"/>] <xsl:value-of select="@title"/> </dt>
+        <dd>
+          <xsl:apply-templates select="cc:description"/>
+          <xsl:for-each select="cc:config">
+            <xsl:call-template name="use-case-and"/>
+          </xsl:for-each>
+        </dd>
+      </xsl:for-each>
+    </dl>
+  </xsl:template>
+
+
+
+
+
 </xsl:stylesheet>
  
