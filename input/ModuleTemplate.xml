@@ -364,7 +364,34 @@
     </section>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="b-nd" version="2.1" name="Network Device" product="Network Device" short="ND">
+	<!-- 5.1 Virtualization PP -->
+	<base-pp id="vir">
+             <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=408&amp;id=408</url>
+        <raw-url>https://github.com/commoncriteria/virtualization/raw/master/input/virtualization.xml</raw-url>
+
+		<!-- 5.1 Virtualization PP Security Functional Requirements Direction -->
+		<sec-func-req-dir>
+			In a PP-Configuration that includes the Virtualization PP, the TOE is expected to rely on some of the 
+			security functions implemented by the Virtualization System as a whole and evaluated against the Base-PP.
+			This section describes any modifications that the ST author must make to Base-PP SFRs to satisfy the 
+			required VS functionality.
+		</sec-func-req-dir>
+
+		<!-- 5.1.1 Modified SFRs -->	
+		<modified-sfrs/> 
+		<additional-sfrs/>
+	 
+		<!-- Consistency Rationale -->
+		<!-- Consistency of TOE Type -->
+		<con-toe>When this PP-Module is used to extend the Virtualization PP, the TOE type for
+		        the overall TOE is still a Virtualization System. The TOE boundary does not change.
+		</con-toe>
+	
+		<con-sec-prob/>
+		<con-obj/>
+		<con-op-en/>
+	</base-pp>
+	    <base-pp id="b-nd" version="2.1" name="Network Device" product="Network Device" short="ND">
       <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=440&amp;id=440</url>
       <modified-sfrs>
         <sec:from_nd_fpt title="Protection of the TSF (FPT)">
