@@ -366,8 +366,8 @@
   <sec:Security_Requirements>
 	<!-- 5.1 Virtualization PP -->
 	<base-pp id="vir">
-             <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=408&amp;id=408</url>
         <raw-url>https://github.com/commoncriteria/virtualization/raw/master/input/virtualization.xml</raw-url>
+             <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=408&amp;id=408</url>
 
 		<!-- 5.1 Virtualization PP Security Functional Requirements Direction -->
 		<sec-func-req-dir>
