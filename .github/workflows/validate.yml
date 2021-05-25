@@ -22,7 +22,13 @@ jobs:
       - name: Install Jing
         run: wget -O - https://github.com/relaxng/jing-trang/releases/download/V20181222/jing-20181222.zip | jar -x
 
-      - name: Schema Validation
+      - name: PP Schema Validation
         run: JING_JAR=jing*/bin/jing.jar make validate
+
+      - name: Module Validation
+        run: JING_JAR=jing*/bin/jing.jar make -f Module.make validate
+
+      - name: cPP Schema Validation
+        run: JING_JAR=jing*/bin/jing.jar make -f cPP.make validate
 
 
