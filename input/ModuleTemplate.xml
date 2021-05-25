@@ -420,6 +420,13 @@
               <no-tests/>          
               </aactivity>
             </f-element>
+  	  <audit-event>
+                <audit-event-descr>
+	On failure of audit data capture due to lack of disk space or pre-defined limit.
+                </audit-event-descr>
+                <audit-event-info>None.</audit-event-info>
+          </audit-event>
+
           </f-component>
         </sec:from_nd_fpt>
         <sec:ftp title="Trusted Paths/Channels (FTP)">
