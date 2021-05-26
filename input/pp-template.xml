@@ -275,7 +275,8 @@
 	  <config>
                 <ref-id>soup</ref-id><not><ref-id>ratatouille</ref-id><ref-id>pizza</ref-id></not>
                 <not><ref-id>table2</ref-id></not> <!-- This says you can't choose this selectable-->
-                <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->
+                <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->i
+                <not><ref-id>t-network-eavesdrop</ref-id></not>
 	  </config>
       </usecase>
       </usecases>
@@ -312,7 +313,7 @@
               attack has occurred.</rationale>
           </objective-refer>
         </threat>
-        <threat name="T.NETWORK_EAVESDROP">
+        <threat name="T.NETWORK_EAVESDROP" id="t-network-eavesdrop">
           <description> An attacker is positioned on a communications channel or elsewhere on the
             network infrastructure. Attackers may monitor and gain access to data exchanged between
             applications and services that are running on or part of the OS. </description>
