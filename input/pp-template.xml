@@ -275,7 +275,7 @@
 	  <config>
                 <ref-id>soup</ref-id><not><ref-id>ratatouille</ref-id><ref-id>pizza</ref-id></not>
                 <not><ref-id>table2</ref-id></not> <!-- This says you can't choose this selectable-->
-                <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->i
+                <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->
                 <not><ref-id>t-network-eavesdrop</ref-id></not>
 	  </config>
       </usecase>
