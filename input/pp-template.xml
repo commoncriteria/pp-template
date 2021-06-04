@@ -119,6 +119,8 @@
 
     </section>
     <tech-terms>
+      <suppress>  ,Base Protection Profile,
+               ,Common Criteria</suppress>
       <term abbr='AES' full="Advanced Encryption Standard"/>
       <term abbr='API' full="Application Programming Interface"/>
       <term full="Address Space Layout Randomization" abbr="ASLR">
