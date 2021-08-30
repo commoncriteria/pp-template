@@ -36,17 +36,13 @@
   </RevisionHistory>
 
     <include-pkg id="tls">
-      <raw-url>https://github.com/commoncriteria/tls/raw/
-                        562626874aacfbb9beb397fca5be128c86ec4ebf
-                        /input/tls.xml</raw-url>
+      <raw-url>https://raw.githubusercontent.com/commoncriteria/tls/562626874aacfbb9beb397fca5be128c86ec4ebf/input/tls.xml</raw-url>
 		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
                <depends on="pizza"/>
 	</include-pkg>
 	    
     <include-pkg id="ssh">
-                <raw-url>https://github.com/commoncriteria/ssh/raw/
-                         de9b38dc426a4ac14d4016510d1ef477d419f7ae
-                         /input/ssh.xml</raw-url>
+                <raw-url>https://raw.githubusercontent.com/commoncriteria/ssh/de9b38dc426a4ac14d4016510d1ef477d419f7ae/input/ssh.xml</raw-url>
       <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
    </include-pkg>	
 
