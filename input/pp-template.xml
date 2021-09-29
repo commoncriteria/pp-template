@@ -506,7 +506,7 @@ users of the same system.
           Here's whwere we talk about an audit table.
           <audit-table table="mandatory"/>
       </sec:Something>
-      <section title="QQQQ" id="FOO">
+      <section title="QQQQQ (foo)" id="FOO">
          <f-component cc-id="foo_foo.1" name="Foo Foo">
           <f-element id="foo-foo-id">
             <title> The TOE shall consiste of  
@@ -716,7 +716,12 @@ Activities assoiated with the TSS.
          </section> 
           <!-- FAU_GEN.1 -->
             <section id="fau" title="Security Audit (FAU)">
-                <f-component cc-id="fau_gen.1" name="Audit Data Generation">
+	      <class-description>
+		THis is information about the FAU class.
+	      </class-description>
+
+
+	      <f-component cc-id="fau_gen.1" name="Audit Data Generation">
                     <f-element id="fel-audit-gen">
                         <title>The TSF shall be able to generate an audit record of the following auditable events:
                             <h:ol type="a">

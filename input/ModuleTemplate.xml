@@ -530,7 +530,9 @@
             </aactivity>
           </f-element>
         </f-component>
-        
+        <!-- <ext-comp-class class="FAU"> -->
+	<!--   <description>This is a new class which is really awesome.</description> -->
+	<!-- </ext-comp-class> -->
         <ext-comp-def title="Security Alarm Filtering" fam-id="FAU_ARP_EXT">
           <mod-def/>
         </ext-comp-def>
