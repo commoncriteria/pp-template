@@ -581,7 +581,7 @@ users of the same system.
 	      <title>
 		The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified 
 		<selectables>
-		  <tabularize>
+		  <tabularize id="the_table_id" title="Supported Methods for Asymmetric Key Generation"> 
 		    <col>Cryptographic key generation algorithm </col>
 		    <text>and specified crptographic key sizes</text>
 		    <col>Cryptographic key sizes</col>
