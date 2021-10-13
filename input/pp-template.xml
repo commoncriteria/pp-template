@@ -569,6 +569,94 @@ users of the same system.
            </f-element>
          </f-component>
        </section>
+
+	<section id="fcs" title="Cryptographic Support (FCS)">
+	  
+	  <ext-comp-def title="Cryptographic Key Management" fam-id="FCS_CKM_EXT">
+	    <fam-behavior>This family defines requirements for management of cryptographic keys.</fam-behavior>
+	  </ext-comp-def>
+	  <!-- FCS_CKM.1/AK Gryptographic Key Generation (Asymmetric Keys) -->
+	  <f-component id="sfr-fcs-ckm-1-ak" cc-id="fcs_ckm.1" iteration="AK" name="Cryptographic Key Generation (Asymmetric Keys)">
+	    <f-element id="f-gen-ak">
+	      <title>
+		The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified 
+		<selectables>
+		  <tabularize>
+		    <col>Cryptographic key generation algorithm </col>
+		    <text>and specified crptographic key sizes</text>
+		    <col>Cryptographic key sizes</col>
+		    <text>that meet the following: </text>
+		    <col>List of standards</col>
+		  </tabularize>
+		  <selectable id="sel-fcs-ckm-ak-rsa">
+		    <col>RSA</col>
+ 		     <col><selectables>
+		       <selectable id="sel-exp-ak-rsa-2048">2048 bit</selectable>
+		       <selectable id="sel-exp-ak-rsa-3072">3072-bit</selectable>
+		     </selectables></col>
+		     <col>FIPS PUB 186-4 (Section B.3) [key generation]</col>
+		  </selectable>
+		  <selectable id="sel-fcs-ckm-ak-eccn">
+		    <col>ECC-N</col>
+                    <col><selectables>
+		      <selectable id="sel-exp-ak-eccn-P256">256 (P-256)</selectable>
+		      <selectable id="sel-exp-ak-eccn-P384">384 (P-384)</selectable>
+		      <selectable id="sel-exp-ak-eccn-P521">521 (P-521)</selectable>
+		    </selectables></col>
+		    <col>
+		      FIPS PUB 186-4 (Section B.4 &amp; D.1.2) [NIST curves]<h:br/>
+		      FIPS PUB 186-4 (Section B.4) [key generation]
+		    </col>
+		  </selectable>
+		  <selectable id="sel-fcs-ckm-ak-eccb">
+		    <col>ECC-B</col>
+		    <col><selectables>
+		      <selectable id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</selectable>
+		      <selectable id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</selectable>
+		    <selectable id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</selectable></selectables></col>
+		    <col>
+		      RFC5639 (Section 3) [Brainpool Curves]<h:br/>
+		      FIPS PUB 186-4 (Section B.4) [Key generation]
+		    </col>
+		  </selectable>
+		  <selectable id="sel-fcs-ckm-ak-dsa">
+		    <col>DSA</col>
+		    <col>
+		      DSA Bit lengths of p and q respectively (L, N) 
+		      <selectables>
+			<selectable id="sel-exp-ak-dsa-1024-160">(1024, 160)</selectable>
+			<selectable id="sel-exp-ak-dsa-2048-224">(2048, 224)</selectable>
+			<selectable id="sel-exp-ak-dsa-2048-256">(2048, 256)</selectable>
+			<selectable id="sel-exp-ak-dsa-3027-256">(3027, 256)</selectable>
+		      </selectables>
+		    </col>
+		    <col>FIPS 186-4 Appendix B.1 [key generation]</col>
+		  </selectable>
+		  <selectable id="sel-fcs-ckm-ak-curve25519">
+		    <col>Curve25519</col>
+		    <col>256 bits</col>
+		    <col>RFC 7748 [Curve25519]<h:br/>FIPS PUB 186-4 (Section B.4) [key generation]</col>
+		  </selectable>
+		</selectables>
+	      </title>
+	      <note role="application">
+		This SFR must be included in the ST if asymmetric key generation is a service provided by 
+		the TOE to tenant software, or if it is used by the TOE itself to support or implement PP-specified
+		security functionality.<h:p/> 
+		Specifically, this SFR must be included in the ST if "<h:i>Asymmetric KEKs generated in
+		accordance with FCS_CKM.1/AK</h:i>" is selected in FCS_CKM.1/KEK, or if FCS_IPSEC_EXT.1 is 
+		included in the ST.<h:p/>
+		For Curve25519, see also, final draft NIST FIPS-186-5, Oct 2019.<h:p/>
+		DSA will be deprecated by NIST PUB 186-5, when published.
+	      </note>
+	      <aactivity>
+		<TSS>
+		  The evaluator shall examine the TSS to verify that it describes how 
+		</TSS>
+	      </aactivity>
+	    </f-element>
+	  </f-component>
+	</section>
        <section title="QQQQ" id="QQQQ">
          <f-component cc-id="fqq_qqq.1" name="QQQQQ">
           <f-element id="a-unique-id">
@@ -714,7 +802,9 @@ Activities assoiated with the TSS.
             </f-element>
           </f-component>
          </section> 
-          <!-- FAU_GEN.1 -->
+
+
+	 
             <section id="fau" title="Security Audit (FAU)">
 	      <class-description>
 		THis is information about the FAU class.
