@@ -50,7 +50,16 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: Make a directory listing
-        run: make listing
+        run: >
+          cd output;
+          (echo "<html><head><title>PP-Template</title></head><body>";
+           date;
+           echo "<br/><ol>";
+           for aa in $(find . -name '*.html'); do;
+                echo "<li><a href='$aa'>$aa</a></li>";
+           done;
+           echo "</ol></body></html>") > index.html
+           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
