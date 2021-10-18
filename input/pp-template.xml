@@ -582,45 +582,49 @@ users of the same system.
 		The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified 
 		<selectables>
 		  <tabularize id="the_table_id" title="Supported Methods for Asymmetric Key Generation"> 
-		    <col>Cryptographic key generation algorithm </col>
-		    <text>and specified crptographic key sizes</text>
-		    <col>Cryptographic key sizes</col>
-		    <text>that meet the following: </text>
-		    <col>List of standards</col>
+		    <keycol>Cryptographic key generation algorithm </keycol>
+		    <reqtext>and specified crptographic key sizes</reqtext>
+		    <assigncol>Cryptographic key sizes</assigncol>
+		    <textcol>Notes</textcol>
+		    <reqtext>that meet the following: </reqtext>
+		    <assigncol>List of standards</assigncol>
 		  </tabularize>
 		  <selectable id="sel-fcs-ckm-ak-rsa">
-		    <col>RSA</col>
+		    <key>RSA</key>
  		     <col><selectables>
 		       <selectable id="sel-exp-ak-rsa-2048">2048 bit</selectable>
 		       <selectable id="sel-exp-ak-rsa-3072">3072-bit</selectable>
 		     </selectables></col>
+		     <col>Great Notes1</col>
 		     <col>FIPS PUB 186-4 (Section B.3) [key generation]</col>
 		  </selectable>
 		  <selectable id="sel-fcs-ckm-ak-eccn">
-		    <col>ECC-N</col>
+		    <key>ECC-N</key>
                     <col><selectables>
 		      <selectable id="sel-exp-ak-eccn-P256">256 (P-256)</selectable>
 		      <selectable id="sel-exp-ak-eccn-P384">384 (P-384)</selectable>
 		      <selectable id="sel-exp-ak-eccn-P521">521 (P-521)</selectable>
 		    </selectables></col>
+		     <col>Great Notes2</col>
 		    <col>
 		      FIPS PUB 186-4 (Section B.4 &amp; D.1.2) [NIST curves]<h:br/>
 		      FIPS PUB 186-4 (Section B.4) [key generation]
 		    </col>
 		  </selectable>
 		  <selectable id="sel-fcs-ckm-ak-eccb">
-		    <col>ECC-B</col>
+		    <key>ECC-B</key>
 		    <col><selectables>
 		      <selectable id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</selectable>
 		      <selectable id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</selectable>
 		    <selectable id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</selectable></selectables></col>
+		     <col>Great Notes3</col>
 		    <col>
 		      RFC5639 (Section 3) [Brainpool Curves]<h:br/>
 		      FIPS PUB 186-4 (Section B.4) [Key generation]
 		    </col>
 		  </selectable>
 		  <selectable id="sel-fcs-ckm-ak-dsa">
-		    <col>DSA</col>
+		    <key>DSA</key>
 		    <col>
 		      DSA Bit lengths of p and q respectively (L, N) 
 		      <selectables>
@@ -630,11 +634,13 @@ users of the same system.
 			<selectable id="sel-exp-ak-dsa-3027-256">(3027, 256)</selectable>
 		      </selectables>
 		    </col>
+		     <col>Great Notes4</col>
 		    <col>FIPS 186-4 Appendix B.1 [key generation]</col>
 		  </selectable>
 		  <selectable id="sel-fcs-ckm-ak-curve25519">
-		    <col>Curve25519</col>
+		    <key>Curve25519</key>
 		    <col>256 bits</col>
+		    <col>Great Notes5</col>
 		    <col>RFC 7748 [Curve25519]<h:br/>FIPS PUB 186-4 (Section B.4) [key generation]</col>
 		  </selectable>
 		</selectables>
