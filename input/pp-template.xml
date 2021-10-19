@@ -643,7 +643,7 @@ users of the same system.
 		    <col>Great Notes5</col>
 		    <col>RFC 7748 [Curve25519]<h:br/>FIPS PUB 186-4 (Section B.4) [key generation]</col>
 		  </selectable>
-		</selectables>
+		</selectables>.
 	      </title>
 	      <note role="application">
 		This SFR must be included in the ST if asymmetric key generation is a service provided by 
