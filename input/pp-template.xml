@@ -738,6 +738,7 @@ Activities assoiated with the TSS.
         </f-component>
         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <depends ids="aaa"/>
+          <depends><manual/></depends>
           <f-element id="selbased-example">
             <title> The TOE shall do something great.</title>
             <note role="application"></note>
