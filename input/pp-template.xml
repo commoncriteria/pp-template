@@ -519,6 +519,7 @@ users of the same system.
                  <selectable id="pizza">pizza</selectable>
                  <selectable id="spaghetti">spaghetti</selectable>
                  <selectable id="ratatouille">ratatouille</selectable>
+                 <selectable><deprecated/>pho</selectable>
                  <selectable id="sushi">sushi</selectable>
               </selectables> with 
               <selectables>
