@@ -275,6 +275,7 @@
                 <not><ref-id>table2</ref-id></not> <!-- This says you can't choose this selectable-->
                 <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->
                 <not><ref-id>t-network-eavesdrop</ref-id></not>
+                <restrict><ref-id>a-widget</ref-id><int gte="4" lte="6"/></restrict>
 	  </config>
       </usecase>
       </usecases>
@@ -739,7 +740,7 @@ Activities assoiated with the TSS.
         </f-component>
         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <depends ids="aaa"/>
-          <depends><manual/></depends>
+          <depends><optional/></depends>
           <f-element id="selbased-example">
             <title> The TOE shall do something great.</title>
             <note role="application"></note>
@@ -1055,16 +1056,16 @@ Activities assoiated with the TSS.
                 <!-- FAU_ARP.1 -->
                 <f-component cc-id="fau_arp.1" name="Security Audit Automatic Response"  status="optional">
                       <f-element id="fel-counter1">
-                        <title>The TSF shall have <assignable>number <int gte="1" lte="6"/></assignable>  widgets.
+                        <title>The TSF shall have <assignable id="a-widgets">number <int gte="1" lte="6"/></assignable>  widgets.
                         </title></f-element>
                      <f-element id="fel-counter2">
-                        <title>The TSF shall have <assignable><int gte="5"/></assignable>  widgets.
+                        <title>The TSF shall have <assignable>integer <int gte="5"/></assignable>  widgets.
                         </title></f-element>
                     <f-element id="fel-counter3">
                         <title>The TSF shall have <assignable><int gte="5" hide="y"/> number of bits </assignable>  a
                         </title></f-element>
                     <f-element id="fel-counter">
-                        <title>The TSF shall have <assignable><int lte="4"/></assignable>  widgets.
+                        <title>The TSF shall have <assignable>number of cats <int lte="4"/></assignable>  widgets.
                         </title>
                         <note role="application">In certain cases, it may be useful for Virtualization Systems to perform automated responses to certain security events. An example may include halting a VM which has taken some action to violate a key system security policy. This may be especially useful with headless endpoints when there is no human user in the loop.<h:br></h:br><h:br></h:br>
                             The potential security violation mentioned in FAU_ARP.1.1 refers to FAU_SAA.1. </note>
