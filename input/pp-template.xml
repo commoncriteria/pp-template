@@ -663,6 +663,26 @@ users of the same system.
 		</TSS>
 	      </aactivity>
 	    </f-element>
+	    <f-element id="f-test">
+	      <title>
+		The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified 
+		<selectables>
+		  <tabularize id="the_table_id-1" title="Supported Methods for Asymmetric Key Generation"> 
+		    <keycol assign="y">Cryptographic key generation algorithm</keycol>
+		    <reqtext>and specified crptographic key sizes</reqtext>
+                    <textcol>somethign else</textcol> 
+         	  </tabularize>
+		  <selectable id="sel-rsa-f">
+		    <key>RSA</key>
+                    <col>HERE1</col>
+         	  </selectable>
+		  <selectable id="sel-fcs-f">
+		    <key>ECC-N</key>
+                    <col>HERE2</col>
+                  </selectable>
+                </selectables>.</title>
+                <aactivity><TSS>DO SOMETHING</TSS></aactivity>
+            </f-element>
 	  </f-component>
 	</section>
        <section title="QQQQ" id="QQQQ">
