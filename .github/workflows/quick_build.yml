@@ -36,5 +36,5 @@ jobs:
          label: 'Sanity Checks:'
          status: ${{ steps.status.outputs.WORD }}
          color: ${{ steps.status.outputs.COLOR }}
-         path: 'output/test-badge.svg'
+         path: 'test-badge.svg'
       
