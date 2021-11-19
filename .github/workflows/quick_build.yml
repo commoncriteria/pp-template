@@ -18,9 +18,11 @@ jobs:
 #          submodules: true
 #      - name: Install Build Packages
 #        run: sudo apt-get update && sudo apt-get install -y xsltproc hunspell
-    - name: Set selected color
-      run: echo '::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo "SUCCESS"; else echo "FAILURE"; fi )'
+    - name: Get Status
+      run: \
+         echo '::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo "SUCCESS"; else echo "FAILURE"; fi )'
+         echo '::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )'
       id: status
       
     - name: Get color
-      run: echo "The selected color is ${{ steps.status.outputs.WORD }}" 
+      run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
