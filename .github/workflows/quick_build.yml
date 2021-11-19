@@ -19,7 +19,7 @@ jobs:
 #      - name: Install Build Packages
 #        run: sudo apt-get update && sudo apt-get install -y xsltproc hunspell
     - name: Get Status
-      run: \
+      run: |
          echo '::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo "SUCCESS"; else echo "FAILURE"; fi )'
          echo '::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )'
       id: status
