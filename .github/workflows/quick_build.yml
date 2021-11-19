@@ -26,3 +26,12 @@ jobs:
       
     - name: Get color
       run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
+      
+    - name: Create badge
+      uses: emibcn/badge-action@v1.2.1
+      with:
+         label: 'Test coverage'
+         status: '53.4%'
+         color: 'blue,555,daf'
+         path: '.github/badges/coverage.svg'
+      
