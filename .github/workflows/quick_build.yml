@@ -39,7 +39,7 @@ jobs:
     - name: Get Status
       run: |
          echo ::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo "SUCCESS"; else echo "FAILURE"; fi )
-#         echo ##[set-output name=COLOR;]$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )
+         echo ::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )
       id: status
       
     - name: Get color
@@ -64,7 +64,7 @@ jobs:
       with:
         label: 'Quick Build'
         status: ${{ steps.status.outputs.WORD }}
-        color: 'blue,555,daf'
+        color: ${{ steps.status.outputs.COLOR }}
         path: ${{ steps.coverage.outputs.path }}
 
     - name: Upload badge as artifact
