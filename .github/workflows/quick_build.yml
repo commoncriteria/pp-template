@@ -30,9 +30,9 @@ jobs:
     - name: Get color
       run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
 
-    - name: actions/checkout@v1
+    - uses: actions/checkout@v1
 	  with:
-	    ref: badges
+	     ref: badges
 
     - name: Create badge
       uses: emibcn/badge-action@v1.2.1
