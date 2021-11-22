@@ -47,26 +47,38 @@ jobs:
       with:
         ref: ${{ steps.coverage.outputs.branch }}
 
-
-    - name: Create badge
-      uses: emibcn/badge-action@v1.2.1
+    - name: Upload badge as artifact
+      uses: actions/upload-artifact@v2
       with:
-         label: 'Sanity Checks:'
-         status: ${{ steps.status.outputs.WORD }}
-         color: ${{ steps.status.outputs.COLOR }}
-         path: 'test-badge.svg'
-      
+        name: badge
+        path: ${{ steps.coverage.outputs.path }}
+        if-no-files-found: error
+
     - name: Commit badge
-	  continue-on-error: true
-	  run: |
-	    git config --local user.email action@github.com
-		git config --local user.name "GitHub Action"
-		git add test-badge.svg
-		git commit -m "Add/Update badge"
-	- name: Push badge commit
-	  uses: ad-m/github-push-action@master
-	  if: ${{ success() }}
-	  with:
-	    github_token: ${{ secrets.GITHUB_TOKEN }}
-		branch: "badges"
+      continue-on-error: true
+      env:
+        BADGE: ${{ steps.coverage.outputs.path }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add "${BADGE}"
+        git commit -m "Add/Update badge"
 		
+    - name: Push badge commit
+      uses: ad-m/github-push-action@master
+      if: ${{ success() }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.coverage.outputs.branch }}
+
+#- name: Create badge
+#      uses: emibcn/badge-action@v1.2.1
+#      with:
+#         label: 'Sanity Checks:'
+#         status: ${{ steps.status.outputs.WORD }}
+#         color: ${{ steps.status.outputs.COLOR }}
+#         path: 'test-badge.svg'
+
+
+
+
