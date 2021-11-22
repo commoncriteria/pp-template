@@ -26,10 +26,13 @@ jobs:
     - name: Prepare environment
       id: coverage
       run: |
+        # Generates a GitHub Workflow output named `lines` with a coverage value
+        echo "##[set-output name=lines;]${COVERAGE}"
         # Output values to be used by other steps
         echo "##[set-output name=path;]${BADGE_PATH}"
         echo "##[set-output name=branch;]${BRANCH}"
       env:
+        COVERAGE: 53.5%
         BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/test-badge.svg
         BRANCH: badges
 
@@ -39,6 +42,10 @@ jobs:
          echo '::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )'
       id: status
       
+    - name: Get color
+      run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
+
+
 
     - uses: actions/checkout@v1
       with:
@@ -57,7 +64,7 @@ jobs:
       with:
         label: 'Quick Build'
         status: ${{ steps.status.outputs.WORD }}
-        color: ${{ steps.status.outputs.COLOR }}
+        color: 'blue,555,daf'
         path: ${{ steps.coverage.outputs.path }}
 
     - name: Upload badge as artifact
