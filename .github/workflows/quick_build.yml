@@ -1,34 +1,20 @@
-name: QuickBuild
+on:
+  push:
+    branches:
+    - '*'
+    - '!badges'
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-on: 
-  push: 
-    branches: master
-    
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-project:
+  test:
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    name: A job to test this action
     steps:
-    
-    
-    
-#      - name: Checkout project and transforms
-#        uses: actions/checkout@v2
-#        with:
-#          submodules: true
-#      - name: Install Build Packages
-#        run: sudo apt-get update && sudo apt-get install -y xsltproc hunspell
-    - name: Get Status
-      run: |
-         echo '::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo "SUCCESS"; else echo "FAILURE"; fi )'
-         echo '::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )'
-      id: status
-      
-    - name: Get color
-      run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
+
+    # Get current banch name to use it as dest directory
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
 
     - name: Prepare environment
       id: coverage
@@ -41,11 +27,27 @@ jobs:
       env:
         COVERAGE: 53.5%
         BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/test-badge.svg
-        BRANCH: badges    
+        BRANCH: badges
 
     - uses: actions/checkout@v1
       with:
         ref: ${{ steps.coverage.outputs.branch }}
+
+    # Create the directory where badges will be saved, if needed
+    - name: Create destination directory
+      env:
+        BADGE_PATH: ${{ steps.coverage.outputs.path }}
+      run: mkdir -p "${BADGE_PATH%/*}"
+
+    # Use the output from the `coverage` step
+    - name: Generate the badge SVG image
+      uses: emibcn/badge-action@v1
+      id: badge
+      with:
+        label: 'Test coverage'
+        status: ${{ steps.coverage.outputs.lines }}
+        color: 'blue,555,daf'
+        path: ${{ steps.coverage.outputs.path }}
 
     - name: Upload badge as artifact
       uses: actions/upload-artifact@v2
@@ -63,22 +65,9 @@ jobs:
         git config --local user.name "GitHub Action"
         git add "${BADGE}"
         git commit -m "Add/Update badge"
-		
     - name: Push badge commit
       uses: ad-m/github-push-action@master
       if: ${{ success() }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ steps.coverage.outputs.branch }}
-
-#- name: Create badge
-#      uses: emibcn/badge-action@v1.2.1
-#      with:
-#         label: 'Sanity Checks:'
-#         status: ${{ steps.status.outputs.WORD }}
-#         color: ${{ steps.status.outputs.COLOR }}
-#         path: 'test-badge.svg'
-
-
-
-
