@@ -32,7 +32,7 @@ jobs:
 
     - uses: actions/checkout@v1
 	  with:
-	     ref: badges
+	     ref: "badges"
 
     - name: Create badge
       uses: emibcn/badge-action@v1.2.1
@@ -54,5 +54,5 @@ jobs:
 	  if: ${{ success() }}
 	  with:
 	    github_token: ${{ secrets.GITHUB_TOKEN }}
-		branch: badges
+		branch: "badges"
 		
