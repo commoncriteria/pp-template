@@ -1,3 +1,5 @@
+name: QuickBuild
+
 on:
   push:
     branches:
@@ -14,7 +16,6 @@ jobs:
       with:
         submodules: true
 
-
     - name: Install Build Packages
       run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell"
 
@@ -24,9 +25,7 @@ jobs:
     - id: spellcheck
       run: |
         make spellcheck-release
-        #echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt)
         echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )
-
 
     # Get current banch name to use it as dest directory
     - name: Extract branch name
@@ -38,15 +37,12 @@ jobs:
       id: coverage
       run: |
         # Generates a GitHub Workflow output named `lines` with a coverage value
-        echo "##[set-output name=lines;]${COVERAGE}"
         echo "##[set-output name=spellcolor;]$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)"
         # Output values to be used by other steps
         echo "##[set-output name=path;]${BADGE_PATH}"
         echo "##[set-output name=branch;]${BRANCH}"
- 
       env:
-        COVERAGE: 53.5%
-        BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/test-badge.svg
+        BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/warnings-badge.svg
         BRANCH: badges
 
     - name: Get Status
@@ -55,9 +51,6 @@ jobs:
          echo ::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo "green"; else echo "red"; fi )
       id: status
       
-    - name: Get color
-      run: echo "Status- ${{ steps.status.outputs.COLOR }} and ${{ steps.status.outputs.WORD }}"
-
 
     - uses: actions/checkout@v1
       with:
@@ -70,12 +63,11 @@ jobs:
       run: mkdir -p "${BADGE_PATH%/*}"
 
 
-
      # Use the output from the `coverage` step
     - name: Generate the spelling badge SVG image
       uses: emibcn/badge-action@v1
       with:
-        label: 'SpellCheck'
+        label: 'Misspellings'
         status: ${{ steps.spellcheck.outputs.LINES }}
         color: ${{ steps.coverage.outputs.spellcolor }}
         path: ${{ steps.extract_branch.outputs.branch }}/spell-badge.svg
@@ -111,7 +103,8 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add "${{ steps.extract_branch.outputs.branch }}"
-        git commit -m "Add/Update badge"
+        git commit -m "Add/Update badges"
+
     - name: Push badge commit
       uses: ad-m/github-push-action@master
       if: ${{ success() }}
