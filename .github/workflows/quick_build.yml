@@ -90,7 +90,6 @@ jobs:
    # Use the output from the `coverage` step
     - name: Generate the badge SVG image
       uses: emibcn/badge-action@v1
-      id: badge
       with:
         label: 'Quick Build'
         status: ${{ steps.status.outputs.WORD }}
@@ -104,14 +103,14 @@ jobs:
         path: ${{ steps.coverage.outputs.path }}
         if-no-files-found: error
 
-    - name: Commit badge
+    - name: Commit badges
       continue-on-error: true
       env:
         BADGE: ${{ steps.coverage.outputs.path }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add "${BADGE}"
+        git add "${{ steps.extract_branch.outputs.branch }}"
         git commit -m "Add/Update badge"
     - name: Push badge commit
       uses: ad-m/github-push-action@master
