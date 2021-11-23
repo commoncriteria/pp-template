@@ -21,8 +21,11 @@ jobs:
     - name: Quick Build
       run: make release 
 
-    - name: Spellchecking
-      run: make spellcheck
+    - id: spellcheck
+      run: |
+        make spellcheck-release
+        echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first } )
+
 
     # Get current banch name to use it as dest directory
     - name: Extract branch name
@@ -35,9 +38,11 @@ jobs:
       run: |
         # Generates a GitHub Workflow output named `lines` with a coverage value
         echo "##[set-output name=lines;]${COVERAGE}"
+        echo "##[set-output name=spellcolor;]$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)"
         # Output values to be used by other steps
         echo "##[set-output name=path;]${BADGE_PATH}"
         echo "##[set-output name=branch;]${BRANCH}"
+ 
       env:
         COVERAGE: 53.5%
         BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/test-badge.svg
