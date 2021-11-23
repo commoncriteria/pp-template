@@ -24,7 +24,8 @@ jobs:
     - id: spellcheck
       run: |
         make spellcheck-release
-        echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first } )
+        echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt)
+        #echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first } )
 
 
     # Get current banch name to use it as dest directory
