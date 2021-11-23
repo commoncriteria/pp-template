@@ -71,7 +71,24 @@ jobs:
 
 
 
-    # Use the output from the `coverage` step
+     # Use the output from the `coverage` step
+    - name: Generate the badge SVG image
+      uses: emibcn/badge-action@v1
+      id: badge
+      with:
+        label: 'SpellCheck'
+        status: ${{ steps.spellcheck.outputs.LINES }}
+        color: ${{ steps.coverage.outputs.spellcolor }}
+        path: ${{ steps.extract_branch.outputs.branch }}/spell-badge.svg
+
+    - name: Upload badge as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: badge
+        path: ${{ steps.coverage.outputs.path }}
+        if-no-files-found: error
+
+   # Use the output from the `coverage` step
     - name: Generate the badge SVG image
       uses: emibcn/badge-action@v1
       id: badge
