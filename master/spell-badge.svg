@@ -1,20 +1,20 @@
-<svg width="101.5" height="20" viewBox="0 0 1015 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SpellCheck: 115">
-  <title>SpellCheck: 115</title>
+<svg width="106.8" height="20" viewBox="0 0 1068 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Misspellings: 115">
+  <title>Misspellings: 115</title>
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="m"><rect width="1015" height="200" rx="30" fill="#FFF"/></mask>
+  <mask id="m"><rect width="1068" height="200" rx="30" fill="#FFF"/></mask>
   <g mask="url(#m)">
-    <rect width="705" height="200" fill="#555"/>
-    <rect width="310" height="200" fill="#E43" x="705"/>
-    <rect width="1015" height="200" fill="url(#a)"/>
+    <rect width="758" height="200" fill="#555"/>
+    <rect width="310" height="200" fill="#E43" x="758"/>
+    <rect width="1068" height="200" fill="url(#a)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="60" y="148" textLength="605" fill="#000" opacity="0.25">SpellCheck</text>
-    <text x="50" y="138" textLength="605">SpellCheck</text>
-    <text x="760" y="148" textLength="210" fill="#000" opacity="0.25">115</text>
-    <text x="750" y="138" textLength="210">115</text>
+    <text x="60" y="148" textLength="658" fill="#000" opacity="0.25">Misspellings</text>
+    <text x="50" y="138" textLength="658">Misspellings</text>
+    <text x="813" y="148" textLength="210" fill="#000" opacity="0.25">115</text>
+    <text x="803" y="138" textLength="210">115</text>
   </g>
   
 </svg>
