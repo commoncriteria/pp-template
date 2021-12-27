@@ -31,7 +31,7 @@ jobs:
       run: make diff #; make little-diff; true
 
     - name: Make a directory listing
-        run: >
+      run: >
           cd output;
           (echo "<html><head><title>Listing</title></head><body>";
            date;
