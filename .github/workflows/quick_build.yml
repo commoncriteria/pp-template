@@ -28,7 +28,7 @@ jobs:
         echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )
 
     - id: diff
-      run: make diff; make little-diff; true
+      run: make diff #; make little-diff; true
 
     # Get current banch name to use it as dest directory
     - name: Extract branch name
