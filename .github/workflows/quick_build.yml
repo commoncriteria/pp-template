@@ -30,6 +30,17 @@ jobs:
     - id: diff
       run: make diff #; make little-diff; true
 
+    - name: Make a directory listing
+        run: >
+          cd output;
+          (echo "<html><head><title>Listing</title></head><body>";
+           date;
+           echo "<br/><ol>";
+           for aa in $(find . -name '*.*'); do
+                echo "<li><a href='$aa'>$aa</a></li>";
+           done;
+           echo "</ol></body></html>") > index.html
+ 
     # Get current banch name to use it as dest directory
     - name: Extract branch name
       shell: bash
