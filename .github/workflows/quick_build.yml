@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A job to test this action
+    name: Builds Release, runs spellcheck, and diff.
     steps:
     - name: Checkout project and transforms
       uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
         submodules: true
 
     - name: Install Build Packages
-      run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell"
+      run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc"
 
     - name: Quick Build
       run: make release 
