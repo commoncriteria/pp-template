@@ -27,8 +27,11 @@ jobs:
         make spellcheck-release
         echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )
 
-    - id: diff
-      run: make diff || true; make little-diff || true
+    - name: diff
+      run: make diff || true; 
+
+    - name: little diff
+      run: make little-diff || true
 
     - name: Make a directory listing
       run: >
