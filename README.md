@@ -52,8 +52,17 @@ For more information see the [PP Development Wiki](https://github.com/commoncrit
 
 Protection Profile or Extended Package for QQQQ
 ===============
-[![build pp document](https://github.com/commoncriteria/pp-template/workflows/build/badge.svg)](https://github.com/commoncriteria/pp-template/actions)
-[![build pp document](https://github.com/commoncriteria/pp-template/workflows/validate/badge.svg)](https://github.com/commoncriteria/pp-template/actions)
+![Master Badges](https://img.shields.io/badge/Build-master-black.svg)
+![Build](https://github.com/commoncriteria/pp-template/workflows/Build/badge.svg)
+![Validate](https://github.com/commoncriteria/pp-template/workflows/Validate/badge.svg)
+
+![Last QuickBuilt Branch](https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/build-branch-badge.svg)
+[![Validation](https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/validation.svg)](https://github.com/commoncriteria/pp-template/blob/gh-pages/ValidationReport.txt)
+[![SanityChecks](https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/warnings.svg)](https://github.com/commoncriteria/pp-template/blob/gh-pages/SanityChecksOutput.md)
+[![SpellCheck](https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/spell-badge.svg)](https://github.com/commoncriteria/pp-template/blob/gh-pages/SpellCheckReport.txt)
+[![QuickBuild](https://github.com/commoncriteria/pp-template/actions/workflows/quick_build.yml/badge.svg)](https://commoncriteria.github.io/pp-template)
+
+
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/pp-template.svg?maxAge=2592000)](https://github.com/commoncriteria/pp-template/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 

@@ -4,7 +4,7 @@ name: Diff_Documents
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
@@ -35,20 +35,10 @@ jobs:
         run: wget -O- https://github.com/AndroidKitKat/ExecuteDaisy/archive/master.zip | jar -x
       - name: Make tmp dir
         run: mkdir tmp
-      - name: PDFify
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: >
-           xvfb-run -- /usr/bin/wkhtmltopdf \
-            --javascript-delay 15000  \
-            file://$(pwd)/output/${PWD##*/}-release.html?expand=on \
-            ./output/${PWD##*/}-release.pdf;
       - name: Diff against 2 Days ago
         run: TMP=tmp DAISY_DIR=ExecuteDaisy-master make little-diff
       - name: Diff against specified versions
         run: DAISY_DIR=ExecuteDaisy-master make diff
-      - name: Install PDFifier
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: sudo apt-get install xvfb libfontconfig wkhtmltopdf
       - name: Make a directory listing
         run: >
           cd output;
