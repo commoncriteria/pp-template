@@ -19,7 +19,7 @@
 | Build<br/> Master | No   | Success/Fail of the master branch |
 | Valid<br/> Master | No   | Master branch conformance to the schema |
 | Last     |  No           | Name of the last branch pushed |
-| Build   |  Yes - Dir listing | Success/Fail of last branch pushed |
+| Build   |  Yes - Files published by QuickBuild | Success/Fail of last branch pushed |
 | Valid   | Yes - Schema Errors | Schema Validation of the last branch pushed |
 | Warn    | Yes - List of Warnings | Sanity Checks of the last branch pushed |
 | Spell   | Yes - List of Misspelled Words | Words that hunspell does not recognize of the last branch pushed |
