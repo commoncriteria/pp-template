@@ -25,9 +25,6 @@ jobs:
       - name: PP Schema Validation
         run: JING_JAR=jing*/bin/jing.jar make validate
 
-      - name: Module Validation
-        run: JING_JAR=jing*/bin/jing.jar make -f Module.make validate
-
       - name: cPP Schema Validation
         run: JING_JAR=jing*/bin/jing.jar make -f cPP.make validate
 
