@@ -968,74 +968,70 @@ users of the same system.
 	  <div class="comp" id="FCS_CKM.1/AK"><h4>FCS_CKM.1/AK Cryptographic Key Generation (Asymmetric Keys)</h4>
 	    <div class="element"><div class="reqid" id="FCS_CKM.1.1/AK"><a href="#FCS_CKM.1.1/AK" class="abbr">FCS_CKM.1.1/AK</a></div><div class="reqdesc">
 		The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>asymmetric</b> cryptographic keys in accordance with a specified 
-		 
-		    [<b>selection</b><ul><li style=""><i id="sel-fcs-ckm-ak-rsa">RSA</i>, </li><li style=""><i id="sel-fcs-ckm-ak-eccn">ECC-N</i>, </li><li style=""><i id="sel-fcs-ckm-ak-eccb">ECC-B</i>, </li><li style=""><i id="sel-fcs-ckm-ak-dsa">DSA</i>, </li><li style=""><i id="sel-fcs-ckm-ak-curve25519">Curve25519</i></li></ul>]
-  
-		    and specified crptographic key sizes
-		    
-    [<b>assignment</b>: 
-    <span class="assignable-content">Cryptographic key sizes</span>]
-		    
-		    that meet the following: 
-		    
-    [<b>assignment</b>: 
-    <span class="assignable-content">List of standards</span>]
-		  .
-	      <table><caption><span class="ctr" data-myid="the_table_id" data-counter-type="ct-Table" id="the_table_id">Table <span class="counter">3</span></span>: Supported Methods for Asymmetric Key Generation</caption>
-		  <tr> 
-		    <th>Cryptographic key generation algorithm </th>
-		    
-		    <th>Cryptographic key sizes</th>
-		    <th>Notes</th>
-		    
-		    <th>List of standards</th>
-		  </tr>
+		
+							
+    [<b>selection</b>: 
+    <span class="selection-content">Cryptographic key generation algorithm </span>]
+							and specified cryptographic key sizes
+							
+    [<b>selection</b>: 
+    <span class="selection-content">Cryptographic key sizes</span>]
+							that meet the following: 
+							
+    [<b>selection</b>: 
+    <span class="selection-content">List of standards</span>]
+						
 
-		  <tr>
-		    <td>RSA</td>
- 		     <td>[<b>selection</b>: <i id="sel-exp-ak-rsa-2048">2048 bit</i>, <i id="sel-exp-ak-rsa-3072">3072-bit</i>]</td>
-		     <td>Great Notes1</td>
-		     <td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 (Section B.3) [key generation]</td>
-		  </tr>
+	      <table><caption><span class="ctr" data-myid="fcs-ckm-1-ak-sels" data-counter-type="ct-Table" id="fcs-ckm-1-ak-sels">Table <span class="counter">3</span></span>: Choices for completion of the selection         operations in <a href="#FCS_CKM.1.1/AK">FCS_CKM.1.1/AK</a></caption>
+						<tr>
+							<th>Cryptographic key generation algorithm </th>
+							
+							<th>Cryptographic key sizes</th>
+							
+							<th>List of standards</th>
+						</tr>
 
-		  <tr>
-		    <td>ECC-N</td>
-                    <td>[<b>selection</b>: <i id="sel-exp-ak-eccn-P256">256 (P-256)</i>, <i id="sel-exp-ak-eccn-P384">384 (P-384)</i>, <i id="sel-exp-ak-eccn-P521">521 (P-521)</i>]</td>
-		     <td>Great Notes2</td>
-		    <td>
-		      <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 (Section B.4 &amp; D.1.2) [<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves]<br/>
-		      <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 (Section B.4) [key generation]
-		    </td>
-		  </tr>
 
-		  <tr>
-		    <td>ECC-B</td>
-		    <td>[<b>selection</b>: <i id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</i>, <i id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</i>, <i id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</i>]</td>
-		     <td>Great Notes3</td>
-		    <td>
-		      RFC5639 (Section 3) [Brainpool Curves]<br/>
-		      <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 (Section B.4) [Key generation]
-		    </td>
-		  </tr>
+						<tr>
+							<td>RSA</td>
+							<td>[<b>selection</b>: <i id="sel-exp-ak-rsa-2048">2048 bit</i>, <i id="sel-exp-ak-rsa-3072">3072-bit</i>]</td>
+							<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.3 [key generation]</td>
+						</tr>
 
-		  <tr>
-		    <td>DSA</td>
-		    <td>
-		      DSA Bit lengths of p and q respectively (L, N) 
-		      [<b>selection</b>: <i id="sel-exp-ak-dsa-1024-160">(1024, 160)</i>, <i id="sel-exp-ak-dsa-2048-224">(2048, 224)</i>, <i id="sel-exp-ak-dsa-2048-256">(2048, 256)</i>, <i id="sel-exp-ak-dsa-3027-256">(3027, 256)</i>]
-		    </td>
-		     <td>Great Notes4</td>
-		    <td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-4 Appendix B.1 [key generation]</td>
-		  </tr>
 
-		  <tr>
-		    <td>Curve25519</td>
-		    <td>256 bits</td>
-		    <td>Great Notes5</td>
-		    <td><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7748 [Curve25519]<br/><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 (Section B.4) [key generation]</td>
-		  </tr>
+						<tr>
+							<td>ECC-N</td>
+							<td>[<b>selection</b>: <i id="sel-exp-ak-eccn-P256">256 (P-256)</i>, <i id="sel-exp-ak-eccn-P384">384 (P-384)</i>, <i id="sel-exp-ak-eccn-P521">521 (P-521)</i>]</td>
+							<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. D.1.2 [<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves]<p></p>
+								<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.4 [key generation]</td>
+						</tr>
 
-		</table><div class="appnote"><span class="note-header">Application
+
+						<tr>
+						<td>ECC-B</td>
+						<td>[<b>selection</b>: <i id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</i>, <i id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</i>, <i id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</i>]</td>
+						<td><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5639 sec. 3 [Brainpool Curves]<p></p>
+							<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.4 [key generation]</td>
+						</tr>
+
+
+						<tr>
+						<td>DSA</td>
+						<td>DSA Bit lengths of p and q respectively (L, N) 
+							[<b>selection</b>: <i id="sel-exp-ak-dsa-2048-224">(2048, 224)</i>, <i id="sel-exp-ak-dsa-2048-256">(2048, 256)</i>, <i id="sel-exp-ak-dsa-3027-256">(3027, 256)</i>]</td>
+						<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.1 [key generation]</td>
+						</tr>
+
+
+						<tr>
+						<td>Curve25519</td>
+						<td>256 bits</td>
+						<td><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7748 [Curve25519]<p></p>
+							<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.4 [key generation]
+							</td>
+						</tr>
+
+					</table><div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
 		This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if asymmetric key generation is a service provided by 
@@ -1047,42 +1043,15 @@ users of the same system.
 		For Curve25519, see also, final draft <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-186-5, Oct 2019.<p></p>
 		DSA will be deprecated by <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> PUB 186-5, when published.
 	      </span></div></div></div>
-	    <div class="element"><div class="reqid" id="FCS_CKM.1.2/AK"><a href="#FCS_CKM.1.2/AK" class="abbr">FCS_CKM.1.2/AK</a></div><div class="reqdesc">
-		The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>asymmetric</b> cryptographic keys in accordance with a specified 
-		 
-		    
-    [<b>assignment</b>:
-    <span class="assignable-content">Cryptographic key generation algorithm</span>]
-  
-		    and specified crptographic key sizes
-                     
-         	  .<table><caption><span class="ctr" data-myid="the_table_id-1" data-counter-type="ct-Table" id="the_table_id-1">Table <span class="counter">4</span></span>: Supported Methods for Asymmetric Key Generation</caption>
-		  <tr> 
-		    <th>Cryptographic key generation algorithm</th>
-		    
-                    <th>somethign else</th> 
-         	  </tr>
-
-		  <tr>
-		    <td>RSA</td>
-                    <td>HERE1</td>
-         	  </tr>
-
-		  <tr>
-		    <td>ECC-N</td>
-                    <td>HERE2</td>
-                  </tr>
-
-                </table></div></div>
 	  <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM.1/AK">FCS_CKM.1/AK</a></div>
 		
 	      <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 		  The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes how 
-		DO SOMETHING</div></div></div></div>
+		</div></div></div></div>
 	
        <h3 id="QQQQ" class="indexable" data-level="3">5.1.4 QQQQ</h3>
          <div class="comp" id="FQQ_QQQ.1"><h4>FQQ_QQQ.1 QQQQQ</h4>
-          <div class="element"><div class="reqid" id="FQQ_QQQ.1.1"><a href="#FQQ_QQQ.1.1" class="abbr">FQQ_QQQ.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall do either [<b>selection</b>: <i id="aaa">this</i>, <i id="_s_39">that</i>]. 
+          <div class="element"><div class="reqid" id="FQQ_QQQ.1.1"><a href="#FQQ_QQQ.1.1" class="abbr">FQQ_QQQ.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall do either [<b>selection</b>: <i id="aaa">this</i>, <i id="_s_36">that</i>]. 
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note"></span></div></div></div>
@@ -1224,7 +1193,7 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
                                 <li>Start-up and shutdown of audit functions</li>
                                 <li>All administrative actions</li>
                                 <li>[Specifically defined auditable events in Table 1]</li>
-                                <li>[<b>selection</b>: <i id="table2">additional information defined in Table 2</i>, <i id="_s_41">additional information defined in Table 3</i>, <i id="_s_42">additional information defined in Table 4</i>, <i id="_s_43">additional information defined in in Table 5</i>, <i id="_s_44">no other information</i>]</li>
+                                <li>[<b>selection</b>: <i id="table2">additional information defined in Table 2</i>, <i id="_s_38">additional information defined in Table 3</i>, <i id="_s_39">additional information defined in Table 4</i>, <i id="_s_40">additional information defined in in Table 5</i>, <i id="_s_41">no other information</i>]</li>
                             </ol>
                         </div></div>
                     <div class="element"><div class="reqid" id="FAU_GEN.1.2"><a href="#FAU_GEN.1.2" class="abbr">FAU_GEN.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within each audit record at least the following information:
@@ -1234,7 +1203,7 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
                                 <li>Subject and object identity (if applicable)</li>
                                 <li>The outcome (success or failure) of the event</li>
                                 <li>[Additional information defined in Table 1]</li>
-                                <li>[<b>selection</b>: <i id="_s_45">additional information defined in Table 2</i>, <i id="_s_46">additional information defined in Table 3</i>, <i id="_s_47">additional information defined in Table 4</i>, <i id="_s_48">additional information defined in in Table 5</i>, <i id="_s_49">no other information</i>]</li>
+                                <li>[<b>selection</b>: <i id="_s_42">additional information defined in Table 2</i>, <i id="_s_43">additional information defined in Table 3</i>, <i id="_s_44">additional information defined in Table 4</i>, <i id="_s_45">additional information defined in in Table 5</i>, <i id="_s_46">no other information</i>]</li>
                             </ol>
                         <div class="appnote"><span class="note-header">Application
       Note:
@@ -1334,9 +1303,9 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
                     <div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to transmit the generated audit data to an external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity using a trusted channel as specified in FTP_ITC_EXT.1.
                         </div></div>
                     <div class="element"><div class="reqid" id="FAU_STG_EXT.1.2"><a href="#FAU_STG_EXT.1.2" class="abbr">FAU_STG_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-                            [<b>selection</b>: <i id="_s_50">drop new audit data</i>, <i id="_s_51">overwrite previous audit records according to the following rule:
+                            [<b>selection</b>: <i id="_s_47">drop new audit data</i>, <i id="_s_48">overwrite previous audit records according to the following rule:
                                     [<b>assignment</b>: 
-     <span class="assignable-content">rule for overwriting previous audit records</span>]</i>, <i id="_s_52">[<b>assignment</b>: 
+     <span class="assignable-content">rule for overwriting previous audit records</span>]</i>, <i id="_s_49">[<b>assignment</b>: 
      <span class="assignable-content">other action</span>]</i>]
                             when the local storage space for audit data is full.
                         <div class="appnote"><span class="note-header">Application
@@ -1438,7 +1407,7 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
                             </div></div></div></div>
             
     <h3 id="obj-req-map" class="indexable" data-level="3">5.1.7 TOE Security Functional Requirements Rationale</h3><p>The following rationale provides justification for each security objective for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">5</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="2"><a href="#O.ACCOUNTABILITY">O.ACCOUNTABILITY</a><br/></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>'cause <a href="#FAU_GEN.1">FAU_GEN.1</a> is awesome</td></tr>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">4</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="2"><a href="#O.ACCOUNTABILITY">O.ACCOUNTABILITY</a><br/></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>'cause <a href="#FAU_GEN.1">FAU_GEN.1</a> is awesome</td></tr>
 <tr><td>FTP_ITC_EXT.1</td><td>Cause FTP reasons </td></tr>
 <tr class="major-row"><td rowspan="15"><a href="#O.INTEGRITY">O.INTEGRITY</a><br/></td><td>FPT_SBOP_EXT.1</td><td>For reasons </td></tr>
 <tr><td>FPT_ASLR_EXT.1</td><td><abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> For reasons </td></tr>
@@ -1885,7 +1854,7 @@ If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> fulfills any of
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are listed in this table:
 
-<table><caption><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">6</span></span>: Extended Component Definitions</b></caption><tr><th>Functional Class</th><th>Functional Components</th></tr><tr><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr><td>Security Audit (FAU)</td><td>FAU_STG_EXT Security Store Filtering<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">B.2 Extended Component Definitions</h2><h3 id="ext-comp-FCS" class="indexable" data-level="3">B.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+<table><caption><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">5</span></span>: Extended Component Definitions</b></caption><tr><th>Functional Class</th><th>Functional Components</th></tr><tr><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr><td>Security Audit (FAU)</td><td>FAU_STG_EXT Security Store Filtering<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">B.2 Extended Component Definitions</h2><h3 id="ext-comp-FCS" class="indexable" data-level="3">B.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
 	 FCS class originally defined by CC Part 2:
 	<h3 id="ext-comp-FCS_CKM_EXT" class="indexable" data-level="4">B.2.1.1 FCS_CKM_EXT Cryptographic Key Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for management of cryptographic keys.</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_CKM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FAU" class="indexable" data-level="3">B.2.2 Security Audit (FAU)</h3>
 		THis is information about the FAU class.

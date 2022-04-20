@@ -48,7 +48,7 @@ Vulnerability Assessment](#ava)[Appendix A - Optional					Vulnerability Assessme
 Requirements](#opt-app)[A.1Strictly Optional					      |	Requirements](#opt-app)[A.1Strictly Optional Requirements
 Requirements](#strict-opt-reqs)[A.1.1QQQQ](#QQQQ-opt)[A.1.2Security		      |	](#optional-reqs)[A.1.1QQQQ](#QQQQ-optional)[A.1.2Security Audit
 Audit (FAU)](#fau-opt)[A.2Objective						      |	(FAU)](#fau-optional)[A.2Objective Requirements
-Requirements](#obj-reqs)[A.2.1QQQQ](#QQQQ-obj)[A.3Implementation-Dependent	      |	](#objective-reqs)[A.2.1QQQQ](#QQQQ-objective)[A.3Implementation-based
+Requirements](#obj-reqs)[A.2.1QQQQ](#QQQQ-obj)[A.3Implementation-Dependent	      |	](#objective-reqs)[A.2.1QQQQ](#QQQQ-objective)[A.3Implementation-dependent
 Requirements](#impl-reqs)[A.3.1Widget						      |	Requirements ](#feat-based-reqs)[A.3.1Widget
 Thing](#a-feature-id)[A.3.1.1QQQQ](#QQQQ-impl)[Appendix B -				Thing](#a-feature-id)[A.3.1.1QQQQ](#QQQQ-impl)[Appendix B -
 Selection-Based									      |	Selection-based Requirements
@@ -192,18 +192,19 @@ This is going to show some tests:							This is going to show some tests:
       [FMT\_SMF.1/HOST](#FMT_SMF.1/HOST)   No events specified                        <
 										      <
       [FAU\_GEN.1](#FAU_GEN.1)             None.                                      <
-										      <
-      [FAU\_SAR.1](#FAU_SAR.1)             None.                                      <
-										      <
-      [FAU\_STG.1](#FAU_STG.1)             None.                                      <
 
-      [FAU\_STG\_EXT.1](#FAU_STG_EXT.1)    Failure of audit data capture due to lack  |	And this is another sentence (or fragment). I added this sentence and
-                                           On failure of logging function, capture re |	deleted the next one. This uses the plural acronym [OSes](#abbr_OS).
+      [FAU\_SAR.1](#FAU_SAR.1)             None.                                      |	And this is another sentence (or fragment). I added this sentence and
+										      >	deleted the next one. This uses the plural acronym [OSes](#abbr_OS).
 
-      [FAU\_ARP.1](#FAU_ARP.1)             No events specified                        |	And here\'s a generic coutner [Abc [1]{.counter}: Some Words]{#c-abc
+      [FAU\_STG.1](#FAU_STG.1)             None.                                      |	And here\'s a generic coutner [Abc [1]{.counter}: Some Words]{#c-abc
 										      >	.ctr data-myid="c-abc" data-counter-type="ct-Abc "}
 
-      [FAU\_SAA.1](#FAU_SAA.1)             No events specified                        |	And here\'s the reference to it [Abc [1]{.counter}](#c-abc){.c-abc-ref}.
+      [FAU\_STG\_EXT.1](#FAU_STG_EXT.1)    Failure of audit data capture due to lack  |	And here\'s the reference to it [Abc [1]{.counter}](#c-abc){.c-abc-ref}.
+                                           On failure of logging function, capture re <
+										      <
+      [FAU\_ARP.1](#FAU_ARP.1)             No events specified                        <
+										      <
+      [FAU\_SAA.1](#FAU_SAA.1)             No events specified                        <
       ------------------------------------------------------------------------------- <
 
 										      >	::: {.no-link}
@@ -1011,38 +1012,55 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	::: {.reqdesc}
 										      >	The [TSF](#abbr_TSF) shall generate **asymmetric** cryptographic keys in
-										      >	accordance with a specified \[**selection**
+										      >	accordance with a specified \[**selection**: [Cryptographic key
+										      >	generation algorithm ]{.selection-content}\] and specified cryptographic
+										      >	key sizes \[**selection**: [Cryptographic key
+										      >	sizes]{.selection-content}\] that meet the following: \[**selection**:
+										      >	[List of standards]{.selection-content}\]
 										      >
-										      >	-   *RSA*,
-										      >	-   *ECC-N*,
-										      >	-   *ECC-B*,
-										      >	-   *DSA*,
-										      >	-   *Curve25519*
+										      >	  -----------------------------------------------------------------------
+										      >	  Cryptographic key       Cryptographic key sizes List of standards
+										      >	  generation algorithm                            
+										      >	  ----------------------- ----------------------- -----------------------
+										      >	  RSA                     \[**selection**: *2048  [FIPS](#abbr_FIPS) PUB
+										      >	                          bit*, *3072-bit*\]      186-4 sec. B.3 \[key
+										      >	                                                  generation\]
 										      >
-										      >	\] and specified crptographic key sizes \[**assignment**: [Cryptographic
-										      >	key sizes]{.assignable-content}\] that meet the following:
-										      >	\[**assignment**: [List of standards]{.assignable-content}\] .
+										      >	  ECC-N                   \[**selection**: *256   [FIPS](#abbr_FIPS) PUB
+										      >	                          (P-256)*, *384          186-4 sec. D.1.2
+										      >	                          (P-384)*, *521          \[[NIST](#abbr_NIST)
+										      >	                          (P-521)*\]              curves\]
+										      >	                                                  
+										      >	                                                  [FIPS](#abbr_FIPS) PUB
+										      >	                                                  186-4 sec. B.4 \[key
+										      >	                                                  generation\]
 										      >
-										      >	  -----------------------------------------------------------------------------------
-										      >	  Cryptographic key generation algorithm   Cryptographic key sizes                   
-										      >	  ---------------------------------------- ------------------------------------------
-										      >	  RSA                                      \[**selection**: *2048 bit*, *3072-bit*\] 
+										      >	  ECC-B                   \[**selection**: *256   [RFC](#abbr_RFC) 5639
+										      >	                          (brainpoolP256r1)*,     sec. 3 \[Brainpool
+										      >	                          *384                    Curves\]
+										      >	                          (brainpoolP384r1)*,     
+										      >	                          *512                    [FIPS](#abbr_FIPS) PUB
+										      >	                          (brainpoolP512r1)*\]    186-4 sec. B.4 \[key
+										      >	                                                  generation\]
 										      >
-										      >	  ECC-N                                    \[**selection**: *256 (P-256)*, *384 (P-38
-										      >	                                                                                     
+										      >	  DSA                     DSA Bit lengths of p    [FIPS](#abbr_FIPS) PUB
+										      >	                          and q respectively (L,  186-4 sec. B.1 \[key
+										      >	                          N) \[**selection**:     generation\]
+										      >	                          *(2048, 224)*, *(2048,  
+										      >	                          256)*, *(3027, 256)*\]  
 										      >
-										      >	  ECC-B                                    \[**selection**: *256 (brainpoolP256r1)*, 
-										      >	                                                                                     
+										      >	  Curve25519              256 bits                [RFC](#abbr_RFC) 7748
+										      >	                                                  \[Curve25519\]
+										      >	                                                  
+										      >	                                                  [FIPS](#abbr_FIPS) PUB
+										      >	                                                  186-4 sec. B.4 \[key
+										      >	                                                  generation\]
+										      >	  -----------------------------------------------------------------------
 										      >
-										      >	  DSA                                      DSA Bit lengths of p and q respectively (L
-										      >
-										      >	  Curve25519                               256 bits                                  
-										      >	                                                                                     
-										      >	  -----------------------------------------------------------------------------------
-										      >
-										      >	  : [Table [3]{.counter}]{#the_table_id .ctr data-myid="the_table_id"
-										      >	  data-counter-type="ct-Table"}: Supported Methods for Asymmetric Key
-										      >	  Generation
+										      >	  : [Table [3]{.counter}]{#fcs-ckm-1-ak-sels .ctr
+										      >	  data-myid="fcs-ckm-1-ak-sels" data-counter-type="ct-Table"}: Choices
+										      >	  for completion of the selection operations in
+										      >	  [FCS\_CKM.1.1/AK](#FCS_CKM.1.1/AK)
 										      >
 										      >	::: {.appnote}
 										      >	[Application Note: ]{.note-header}[ This [SFR](#abbr_SFR) must be
@@ -1064,28 +1082,6 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	:::
 										      >	:::
 										      >
-										      >	::: {.element}
-										      >	::: {#FCS_CKM.1.2/AK .reqid}
-										      >	[FCS\_CKM.1.2/AK](#FCS_CKM.1.2/AK){.abbr}
-										      >	:::
-										      >
-										      >	::: {.reqdesc}
-										      >	The [TSF](#abbr_TSF) shall generate **asymmetric** cryptographic keys in
-										      >	accordance with a specified \[**assignment**: [Cryptographic key
-										      >	generation algorithm]{.assignable-content}\] and specified crptographic
-										      >	key sizes .
-										      >
-										      >	  Cryptographic key generation algorithm   somethign else
-										      >	  ---------------------------------------- ----------------
-										      >	  RSA                                      HERE1
-										      >	  ECC-N                                    HERE2
-										      >
-										      >	  : [Table [4]{.counter}]{#the_table_id-1 .ctr
-										      >	  data-myid="the_table_id-1" data-counter-type="ct-Table"}: Supported
-										      >	  Methods for Asymmetric Key Generation
-										      >	:::
-										      >	:::
-										      >
 										      >	::: {.activity_pane .hide}
 										      >	::: {.activity_pane_header}
 										      >	[[ Evaluation Activities ]{.activity_pane_label}[]{.toggler}](#)
@@ -1102,7 +1098,7 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	::: {.ea}
 										      >	The evaluator shall examine the [TSS](#abbr_TSS) to verify that it
-										      >	describes how DO SOMETHING
+										      >	describes how
 										      >	:::
 										      >	:::
 										      >	:::
@@ -1822,7 +1818,7 @@ The following rationale provides justification for each security			The following
 objective for the [TOE](#abbr_TOE), showing that the SFRs are suitable		      |	objective for the [TOE](#abbr_TOE), showing that the [SFRs](#abbr_SFR)
 to meet and achieve the security objectives:\					      |	are suitable to meet and achieve the security objectives:\
 
-OBJECTIVE									      |	[Table [5]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
+OBJECTIVE									      |	[Table [4]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
 										      >	data-counter-type="ct-Table"}: [SFR](#abbr_SFR) Rationale
 
 ADDRESSED BY									      |	Objective
@@ -3052,7 +3048,7 @@ included in the baseline requirements in future versions of this			included in t
 [PP](#abbr_PP). Adoption by vendors is encouraged and expected as soon			[PP](#abbr_PP). Adoption by vendors is encouraged and expected as soon
 as possible.\										as possible.\
 \											\
-The third type ( [A.3 Implementation-Dependent					      |	The third type ([A.3 Implementation-based
+The third type ( [A.3 Implementation-Dependent					      |	The third type ([A.3 Implementation-dependent
 Requirements](#impl-reqs){.dynref}) are dependent on the			      |	Requirements](#feat-based-reqs){.dynref}) are dependent on the
 [TOE](#abbr_TOE) implementing a particular function. If the				[TOE](#abbr_TOE) implementing a particular function. If the
 [TOE](#abbr_TOE) fulfills any of these requirements, the vendor must			[TOE](#abbr_TOE) fulfills any of these requirements, the vendor must
@@ -3298,8 +3294,8 @@ Activities assoiated with guidance							Activities assoiated with guidance
 :::											:::
 :::										      <
 
-A.3 Implementation-Dependent Requirements {#impl-reqs .indexable data-level="2"}      |	A.3 Implementation-based Requirements {#feat-based-reqs .indexable data-level="2"}
------------------------------------------					      |	-------------------------------------
+A.3 Implementation-Dependent Requirements {#impl-reqs .indexable data-level="2"}      |	A.3 Implementation-dependent Requirements {#feat-based-reqs .indexable data-level="2"
+-----------------------------------------						-----------------------------------------
 
 ### A.3.1 Widget Thing {#a-feature-id .indexable data-level="3"}			### A.3.1 Widget Thing {#a-feature-id .indexable data-level="3"}
 
@@ -3473,7 +3469,7 @@ Activities assoiated with the [TSS](#abbr_TSS).						Activities assoiated with t
 										      >	  Security Audit (FAU)          FAU\_STG\_EXT Security Store Filtering\
 										      >	  ---------------------------------------------------------------------------
 										      >
-										      >	  : **[Table [6]{.counter}]{.ctr data-myid=""
+										      >	  : **[Table [5]{.counter}]{.ctr data-myid=""
 										      >	  data-counter-type="ct-Table"}: Extended Component Definitions**
 										      >
 										      >	C.2 Extended Component Definitions {#ext-comp-defs-bg .indexable data-level="2"}
@@ -3762,8 +3758,8 @@ Appendix E - References {#biblio .indexable data-level="A"}			      |	Appendix E
 										      >	::: {.uc_sel}
 										      >	\* select [crackers](#crackers)
 										      >	:::
-										      >
-										      >	::: {.uc_from_fel}
+
+Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	::: {.uc_from_fel}
 										      >	From [FOO\_BAR.1.1](#FOO_BAR.1.1):
 										      >	:::
 										      >
@@ -3806,8 +3802,8 @@ Appendix E - References {#biblio .indexable data-level="A"}			      |	Appendix E
 										      >
 										      >	::: {.uc_not}
 										      >	Choose something other than:
-
-Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	::: {.uc_not_sel}
+										      >
+										      >	::: {.uc_not_sel}
 										      >	\* [ratatouille](#ratatouille)
 										      >	:::
 										      >
