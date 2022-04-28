@@ -192,17 +192,16 @@ This is going to show some tests:							This is going to show some tests:
       [FMT\_SMF.1/HOST](#FMT_SMF.1/HOST)   No events specified                        <
 										      <
       [FAU\_GEN.1](#FAU_GEN.1)             None.                                      <
+										      <
+      [FAU\_SAR.1](#FAU_SAR.1)             None.                                      <
 
-      [FAU\_SAR.1](#FAU_SAR.1)             None.                                      |	And this is another sentence (or fragment). I added this sentence and
+      [FAU\_STG.1](#FAU_STG.1)             None.                                      |	And this is another sentence (or fragment). I added this sentence and
 										      >	deleted the next one. This uses the plural acronym [OSes](#abbr_OS).
 
-      [FAU\_STG.1](#FAU_STG.1)             None.                                      |	And here\'s a generic coutner [Abc [1]{.counter}: Some Words]{#c-abc
-										      >	.ctr data-myid="c-abc" data-counter-type="ct-Abc "}
+      [FAU\_STG\_EXT.1](#FAU_STG_EXT.1)    Failure of audit data capture due to lack  |	And here\'s a generic coutner [Abc [1]{.counter}: Some Words]{#c-abc
+                                           On failure of logging function, capture re |	.ctr data-myid="c-abc" data-counter-type="ct-Abc "}
 
-      [FAU\_STG\_EXT.1](#FAU_STG_EXT.1)    Failure of audit data capture due to lack  |	And here\'s the reference to it [Abc [1]{.counter}](#c-abc){.c-abc-ref}.
-                                           On failure of logging function, capture re <
-										      <
-      [FAU\_ARP.1](#FAU_ARP.1)             No events specified                        <
+      [FAU\_ARP.1](#FAU_ARP.1)             No events specified                        |	And here\'s the reference to it [Abc [1]{.counter}](#c-abc){.c-abc-ref}.
 										      <
       [FAU\_SAA.1](#FAU_SAA.1)             No events specified                        <
       ------------------------------------------------------------------------------- <
@@ -509,10 +508,10 @@ privileged applications installed onto it. However, these are out of			privilege
 scope of this [PP](#abbr_PP).								scope of this [PP](#abbr_PP).
 
  \[USE CASE 1\] End User Devices						      |	 \[USE CASE 1\] Elephant-own device
-										      >
-										      >	:   This is everything we need to describe in words about this use case.
 
-:   										      |	    For changes to included [SFRs](#abbr_SFR), selections, and
+:   										      |	:   This is everything we need to describe in words about this use case.
+										      >
+										      >	    For changes to included [SFRs](#abbr_SFR), selections, and
 										      >	    assignments required for this use case, see [F.1 Elephant-own
 										      >	    device](#appendix-elephant){.dynref}.
 
@@ -520,10 +519,11 @@ scope of this [PP](#abbr_PP).								scope of this [PP](#abbr_PP).
 ====================									====================
 
 Conformance Statement									Conformance Statement
-:   An ST must claim exact conformance to this [PP](#abbr_PP), as		      |	:   An [ST](#abbr_ST) must claim exact conformance to this
-    defined in the [CC](#abbr_CC) and [CEM](#abbr_CEM) addenda for Exact	      |	    [PP](#abbr_PP), as defined in the CC and [CEM](#abbr_CEM) addenda
-    Conformance, Selection-Based SFRs, and Optional SFRs (dated May		      |	    for Exact Conformance, Selection-based [SFRs](#abbr_SFR), and
-    2017).									      |	    Optional [SFRs](#abbr_SFR) (dated May 2017).
+:   An ST must claim exact conformance to this [PP](#abbr_PP), as		      |
+    defined in the [CC](#abbr_CC) and [CEM](#abbr_CEM) addenda for Exact	      |	:   An [ST](#abbr_ST) must claim exact conformance to this
+    Conformance, Selection-Based SFRs, and Optional SFRs (dated May		      |	    [PP](#abbr_PP), as defined in the CC and [CEM](#abbr_CEM) addenda
+    2017).									      |	    for Exact Conformance, Selection-based [SFRs](#abbr_SFR), and
+										      >	    Optional [SFRs](#abbr_SFR) (dated May 2017).
 
 CC Conformance Claims									CC Conformance Claims
 :   This [PP](#abbr_PP) is conformant to Parts 2 (extended) and 3			:   This [PP](#abbr_PP) is conformant to Parts 2 (extended) and 3
@@ -837,10 +837,14 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	:::
 										      >
 										      >	::: {.reqdesc}
-										      >	The [TOE](#abbr_TOE) shall consiste of \[**selection**: *soup*,
-										      >	*salad*\] followed by \[**selection**: *pizza*, *spaghetti*,
-										      >	*ratatouille*, *!DEPRECATED!pho*, *sushi*\] with \[**selection**:
-										      >	*white*, *red*\].
+										      >	The [TOE](#abbr_TOE) shall consiste of \[**selection**: [soup]{#soup
+										      >	.selectable-content}, [poison]{#poison .not-selectable-content},
+										      >	[salad]{#salad .selectable-content}, \] followed by \[**selection**:
+										      >	[pizza]{#pizza .selectable-content}, [spaghetti]{#spaghetti
+										      >	.selectable-content}, [ratatouille]{#ratatouille .selectable-content},
+										      >	[!DEPRECATED!pho]{#_s_9 .selectable-content}, [sushi]{#sushi
+										      >	.selectable-content}, \] with \[**selection**: [white]{#s-white
+										      >	.selectable-content}, [red]{#s-red .selectable-content}, \].
 										      >
 										      >	::: {.appnote}
 										      >	[Application Note: ]{.note-header}[]{.note}
@@ -914,7 +918,8 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	:::
 										      >
 										      >	::: {.reqdesc}
-										      >	The [TOE](#abbr_TOE) shall drink \[**selection**: *tea*, *coffee*\].
+										      >	The [TOE](#abbr_TOE) shall drink \[**selection**: [tea]{#tea
+										      >	.selectable-content}, [coffee]{#_s_14 .selectable-content}\].
 										      >
 										      >	::: {.appnote}
 										      >	[Application Note: ]{.note-header}[]{.note}
@@ -935,7 +940,8 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	:::
 										      >
 										      >	::: {.reqdesc}
-										      >	The [TOE](#abbr_TOE) shall eat \[**selection**: *crackers*, *nothing*\]
+										      >	The [TOE](#abbr_TOE) shall eat \[**selection**: [crackers]{#crackers
+										      >	.selectable-content}, [nothing]{#_s_16 .selectable-content}\]
 										      >
 										      >	::: {.appnote}
 										      >	[Application Note: ]{.note-header}[Deonstrating rules across
@@ -961,8 +967,8 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	-   something
 										      >	-   \[**selection**:
-										      >	    -   *abc*,
-										      >	    -   *def*
+										      >	    -   [abc]{#_s_17 .selectable-content}
+										      >	    -   [def]{#_s_18 .selectable-content}
 										      >
 										      >	    \]
 										      >	-   somethingelse
@@ -1013,49 +1019,27 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	::: {.reqdesc}
 										      >	The [TSF](#abbr_TSF) shall generate **asymmetric** cryptographic keys in
 										      >	accordance with a specified \[**selection**: [Cryptographic key
-										      >	generation algorithm ]{.selection-content}\] and specified cryptographic
-										      >	key sizes \[**selection**: [Cryptographic key
-										      >	sizes]{.selection-content}\] that meet the following: \[**selection**:
-										      >	[List of standards]{.selection-content}\]
+										      >	generation algorithm ]{.selectable-content}\] and specified
+										      >	cryptographic key sizes \[**selection**: [Cryptographic key
+										      >	sizes]{.selectable-content}\] that meet the following: \[**selection**:
+										      >	[List of standards]{.selectable-content}\]
 										      >
-										      >	  -----------------------------------------------------------------------
-										      >	  Cryptographic key       Cryptographic key sizes List of standards
-										      >	  generation algorithm                            
-										      >	  ----------------------- ----------------------- -----------------------
-										      >	  RSA                     \[**selection**: *2048  [FIPS](#abbr_FIPS) PUB
-										      >	                          bit*, *3072-bit*\]      186-4 sec. B.3 \[key
-										      >	                                                  generation\]
+										      >	  -----------------------------------------------------------------------------------
+										      >	  Cryptographic key generation algorithm   Cryptographic key sizes                   
+										      >	  ---------------------------------------- ------------------------------------------
+										      >	  RSA                                      \[**selection**: [2048 bit]{#sel-exp-ak-rs
 										      >
-										      >	  ECC-N                   \[**selection**: *256   [FIPS](#abbr_FIPS) PUB
-										      >	                          (P-256)*, *384          186-4 sec. D.1.2
-										      >	                          (P-384)*, *521          \[[NIST](#abbr_NIST)
-										      >	                          (P-521)*\]              curves\]
-										      >	                                                  
-										      >	                                                  [FIPS](#abbr_FIPS) PUB
-										      >	                                                  186-4 sec. B.4 \[key
-										      >	                                                  generation\]
+										      >	  ECC-N                                    \[**selection**: [256 (P-256)]{#sel-exp-ak
+										      >	                                                                                     
 										      >
-										      >	  ECC-B                   \[**selection**: *256   [RFC](#abbr_RFC) 5639
-										      >	                          (brainpoolP256r1)*,     sec. 3 \[Brainpool
-										      >	                          *384                    Curves\]
-										      >	                          (brainpoolP384r1)*,     
-										      >	                          *512                    [FIPS](#abbr_FIPS) PUB
-										      >	                          (brainpoolP512r1)*\]    186-4 sec. B.4 \[key
-										      >	                                                  generation\]
+										      >	  ECC-B                                    \[**selection**: [256 (brainpoolP256r1)]{#
+										      >	                                                                                     
 										      >
-										      >	  DSA                     DSA Bit lengths of p    [FIPS](#abbr_FIPS) PUB
-										      >	                          and q respectively (L,  186-4 sec. B.1 \[key
-										      >	                          N) \[**selection**:     generation\]
-										      >	                          *(2048, 224)*, *(2048,  
-										      >	                          256)*, *(3027, 256)*\]  
+										      >	  DSA                                      DSA Bit lengths of p and q respectively (L
 										      >
-										      >	  Curve25519              256 bits                [RFC](#abbr_RFC) 7748
-										      >	                                                  \[Curve25519\]
-										      >	                                                  
-										      >	                                                  [FIPS](#abbr_FIPS) PUB
-										      >	                                                  186-4 sec. B.4 \[key
-										      >	                                                  generation\]
-										      >	  -----------------------------------------------------------------------
+										      >	  Curve25519                               256 bits                                  
+										      >	                                                                                     
+										      >	  -----------------------------------------------------------------------------------
 										      >
 										      >	  : [Table [3]{.counter}]{#fcs-ckm-1-ak-sels .ctr
 										      >	  data-myid="fcs-ckm-1-ak-sels" data-counter-type="ct-Table"}: Choices
@@ -1063,11 +1047,12 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >	  [FCS\_CKM.1.1/AK](#FCS_CKM.1.1/AK)
 										      >
 										      >	::: {.appnote}
-										      >	[Application Note: ]{.note-header}[ This [SFR](#abbr_SFR) must be
-										      >	included in the [ST](#abbr_ST) if asymmetric key generation is a service
-										      >	provided by the [TOE](#abbr_TOE) to tenant software, or if it is used by
-										      >	the [TOE](#abbr_TOE) itself to support or implement
-										      >	[PP](#abbr_PP)-specified security functionality.]{.note}
+										      >	[Application Note: ]{.note-header}[ ]{.note}
+										      >
+										      >	This [SFR](#abbr_SFR) must be included in the [ST](#abbr_ST) if
+										      >	asymmetric key generation is a service provided by the [TOE](#abbr_TOE)
+										      >	to tenant software, or if it is used by the [TOE](#abbr_TOE) itself to
+										      >	support or implement [PP](#abbr_PP)-specified security functionality.
 										      >
 										      >	Specifically, this [SFR](#abbr_SFR) must be included in the
 										      >	[ST](#abbr_ST) if \"*Asymmetric KEKs generated in accordance with
@@ -1115,7 +1100,8 @@ of [\[\]](#bibCC). The following notations are used:				      <
 :::											:::
 
 ::: {.reqdesc}										::: {.reqdesc}
-The [TOE](#abbr_TOE) shall do either \[**selection**: *this*, *that*\].			The [TOE](#abbr_TOE) shall do either \[**selection**: *this*, *that*\].
+The [TOE](#abbr_TOE) shall do either \[**selection**: *this*, *that*\].		      |	The [TOE](#abbr_TOE) shall do either \[**selection**: [this]{#aaa
+										      >	.selectable-content}, [that]{#_s_36 .selectable-content}\].
 
 ::: {.appnote}										::: {.appnote}
 [Application Note: ]{.note-header}[]{.note}						[Application Note: ]{.note-header}[]{.note}
@@ -1328,10 +1314,12 @@ the following auditable events:							      |	following auditable events:
 a.  Start-up and shutdown of audit functions						a.  Start-up and shutdown of audit functions
 b.  All administrative actions								b.  All administrative actions
 c.  \[Specifically defined auditable events in Table 1\]				c.  \[Specifically defined auditable events in Table 1\]
-d.  \[**selection**: *additional information defined in Table 2*,			d.  \[**selection**: *additional information defined in Table 2*,
-    *additional information defined in Table 3*, *additional information		    *additional information defined in Table 3*, *additional information
-    defined in Table 4*, *additional information defined in in Table 5*,		    defined in Table 4*, *additional information defined in in Table 5*,
-    *no other information*\]								    *no other information*\]
+d.  \[**selection**: *additional information defined in Table 2*,		      |	d.  \[**selection**: [additional information defined in Table 2]{#table2
+    *additional information defined in Table 3*, *additional information	      |	    .selectable-content}, [additional information defined in Table
+    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_38 .selectable-content}, [additional information defined in
+    *no other information*\]							      |	    Table 4]{#_s_39 .selectable-content}, [additional information
+										      >	    defined in in Table 5]{#_s_40 .selectable-content}, [no other
+										      >	    information]{#_s_41 .selectable-content}, \]
 :::											:::
 :::											:::
 
@@ -1349,10 +1337,12 @@ b.  Type of event									b.  Type of event
 c.  Subject and object identity (if applicable)						c.  Subject and object identity (if applicable)
 d.  The outcome (success or failure) of the event					d.  The outcome (success or failure) of the event
 e.  \[Additional information defined in Table 1\]					e.  \[Additional information defined in Table 1\]
-f.  \[**selection**: *additional information defined in Table 2*,			f.  \[**selection**: *additional information defined in Table 2*,
-    *additional information defined in Table 3*, *additional information		    *additional information defined in Table 3*, *additional information
-    defined in Table 4*, *additional information defined in in Table 5*,		    defined in Table 4*, *additional information defined in in Table 5*,
-    *no other information*\]								    *no other information*\]
+f.  \[**selection**: *additional information defined in Table 2*,		      |	f.  \[**selection**: [additional information defined in Table 2]{#_s_42
+    *additional information defined in Table 3*, *additional information	      |	    .selectable-content}, [additional information defined in Table
+    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_43 .selectable-content}, [additional information defined in
+    *no other information*\]							      |	    Table 4]{#_s_44 .selectable-content}, [additional information
+										      >	    defined in in Table 5]{#_s_45 .selectable-content}, [no other
+										      >	    information]{#_s_46 .selectable-content}, \]
 
 ::: {.appnote}										::: {.appnote}
 [Application Note: ]{.note-header}[ The [ST](#abbr_ST){.abbr} author can	      |	[Application Note: ]{.note-header}[ The [ST](#abbr_ST) author can
@@ -1718,12 +1708,13 @@ The evaluator shall perform the following test for this requirement:\		      <
 :::											:::
 
 ::: {.reqdesc}										::: {.reqdesc}
-The [TSF](#abbr_TSF){.abbr} shall \[**selection**: *drop new audit		      |	The [TSF](#abbr_TSF) shall \[**selection**: *drop new audit data*,
-data*, *overwrite previous audit records according to the following		      |	*overwrite previous audit records according to the following rule:
-rule: \[**assignment**: [rule for overwriting previous audit			      |	\[**assignment**: [rule for overwriting previous audit
-records]{.assignable-content}\]*, *\[**assignment**: [other				records]{.assignable-content}\]*, *\[**assignment**: [other
-action]{.assignable-content}\]*\] when the local storage space for audit		action]{.assignable-content}\]*\] when the local storage space for audit
-data is full.										data is full.
+The [TSF](#abbr_TSF){.abbr} shall \[**selection**: *drop new audit		      |	The [TSF](#abbr_TSF) shall \[**selection**: [drop new audit data]{#_s_47
+data*, *overwrite previous audit records according to the following		      |	.selectable-content}, [overwrite previous audit records according to the
+rule: \[**assignment**: [rule for overwriting previous audit			      |	following rule: \[**assignment**: [rule for overwriting previous audit
+records]{.assignable-content}\]*, *\[**assignment**: [other			      |	records]{.assignable-content}\]]{#_s_48 .selectable-content},
+action]{.assignable-content}\]*\] when the local storage space for audit	      |	[\[**assignment**: [other action]{.assignable-content}\]]{#_s_49
+data is full.									      |	.selectable-content}, \] when the local storage space for audit data is
+										      >	full.
 
 ::: {.appnote}										::: {.appnote}
 [Application Note: ]{.note-header}[An external log server, if available,		[Application Note: ]{.note-header}[An external log server, if available,
@@ -1817,15 +1808,15 @@ behavior defined in the [ST](#abbr_ST){.abbr} for				      |	behavior defined in
 The following rationale provides justification for each security			The following rationale provides justification for each security
 objective for the [TOE](#abbr_TOE), showing that the SFRs are suitable		      |	objective for the [TOE](#abbr_TOE), showing that the [SFRs](#abbr_SFR)
 to meet and achieve the security objectives:\					      |	are suitable to meet and achieve the security objectives:\
-
-OBJECTIVE									      |	[Table [4]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
+										      >
+										      >	[Table [4]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
 										      >	data-counter-type="ct-Table"}: [SFR](#abbr_SFR) Rationale
 
-ADDRESSED BY									      |	Objective
+OBJECTIVE									      |	Objective
 
-RATIONALE									      |	Addressed by
-										      >
-										      >	Rationale
+ADDRESSED BY									      |	Addressed by
+
+RATIONALE									      |	Rationale
 
 [O.ACCOUNTABILITY](#O.ACCOUNTABILITY)\							[O.ACCOUNTABILITY](#O.ACCOUNTABILITY)\
 
@@ -3494,18 +3485,18 @@ Activities assoiated with the [TSS](#abbr_TSS).						Activities assoiated with t
 										      >	#### Component Leveling
 										      >
 										      >	FCS\_CKM\_EXT
-										      >	:::
-										      >
-										      >	### C.2.2 Security Audit (FAU) {#ext-comp-FAU .indexable data-level="3"}
+:::											:::
+
+Appendix C - Inherently Satisfied Requirements {#satisfiedreqs .indexable data-level= |	### C.2.2 Security Audit (FAU) {#ext-comp-FAU .indexable data-level="3"}
 										      >
 										      >	THis is information about the FAU class.
 										      >
 										      >	### C.2.2.1 FAU\_STG\_EXT Security Store Filtering {#ext-comp-FAU_STG_EXT .indexable 
 										      >
 										      >	::: {style="margin-left: 1em;"}
-:::											:::
-
-Appendix C - Inherently Satisfied Requirements {#satisfiedreqs .indexable data-level= |	Appendix D - Inherently Satisfied Requirements {#satisfiedreqs .indexable data-level=
+										      >	:::
+										      >
+										      >	Appendix D - Inherently Satisfied Requirements {#satisfiedreqs .indexable data-level=
 ==============================================						==============================================
 
 This appendix lists requirements that should be considered satisfied by			This appendix lists requirements that should be considered satisfied by
@@ -3754,12 +3745,12 @@ Appendix E - References {#biblio .indexable data-level="A"}			      |	Appendix E
 										      >	::: {.uc_from_fel}
 										      >	From [FOO\_BAR.1.2](#FOO_BAR.1.2):
 										      >	:::
-										      >
-										      >	::: {.uc_sel}
+
+Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	::: {.uc_sel}
 										      >	\* select [crackers](#crackers)
 										      >	:::
-
-Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	::: {.uc_from_fel}
+										      >
+										      >	::: {.uc_from_fel}
 										      >	From [FOO\_BAR.1.1](#FOO_BAR.1.1):
 										      >	:::
 										      >
