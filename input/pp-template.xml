@@ -527,7 +527,7 @@ users of the same system.
               <selectables>
                  <selectable id="s-white">white</selectable>
                  <selectable id="s-red">red</selectable>
-              </selectables>. 
+              </selectables>.
             </title>
             <note role="application"></note>
             <aactivity><h:div><depends on="pizza"/>Check for anchovies</h:div>Specific to the componenet<TSS>ABC</TSS></aactivity>
@@ -549,9 +549,11 @@ users of the same system.
         </f-component>
         <f-component cc-id="foo_bar.1" name="Foo Bar">
           <f-element id="foo-bar-id">
-            <title> The TOE shall drink  <selectables><selectable id="tea">tea</selectable><selectable>coffee</selectable></selectables>. 
+            <title> The TOE shall drink  <selectables><selectable id="tea">tea</selectable><selectable id="s-coffee">coffee</selectable><selectable id="s-energydrink">energy drink</selectable><selectable>water</selectable></selectables>.
+	    <provides><depends on="s-coffee" also="s-energydrink"/><n>caffine</n></provides>
             </title>
-            <note role="application"></note>
+            <note role="application">
+	    </note>
             <aactivity>Something<TSS>ABC</TSS></aactivity>
           </f-element>
           <f-element id="foo-bar-cookie">

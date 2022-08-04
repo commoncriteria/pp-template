@@ -5,7 +5,14 @@ on:
     branches:
     - '*'
     - '!gh-pages'
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: string
+        default: DEV
+        required: true
 
+    
 jobs:
   test:
     runs-on: ubuntu-latest
