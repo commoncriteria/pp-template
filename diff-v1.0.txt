@@ -919,10 +919,12 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	::: {.reqdesc}
 										      >	The [TOE](#abbr_TOE) shall drink \[**selection**: [tea]{#tea
-										      >	.selectable-content}, [coffee]{#_s_14 .selectable-content}\].
+										      >	.selectable-content}, [coffee]{#s-coffee .selectable-content}, [energy
+										      >	drink]{#s-energydrink .selectable-content}, [water]{#_s_16
+										      >	.selectable-content}\].
 										      >
 										      >	::: {.appnote}
-										      >	[Application Note: ]{.note-header}[]{.note}
+										      >	[Application Note: ]{.note-header}[ ]{.note}
 										      >	:::
 										      >
 										      >	::: {.validationguidelines_label}
@@ -941,7 +943,7 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	::: {.reqdesc}
 										      >	The [TOE](#abbr_TOE) shall eat \[**selection**: [crackers]{#crackers
-										      >	.selectable-content}, [nothing]{#_s_16 .selectable-content}\]
+										      >	.selectable-content}, [nothing]{#_s_18 .selectable-content}\]
 										      >
 										      >	::: {.appnote}
 										      >	[Application Note: ]{.note-header}[Deonstrating rules across
@@ -967,8 +969,8 @@ of [\[\]](#bibCC). The following notations are used:				      <
 										      >
 										      >	-   something
 										      >	-   \[**selection**:
-										      >	    -   [abc]{#_s_17 .selectable-content}
-										      >	    -   [def]{#_s_18 .selectable-content}
+										      >	    -   [abc]{#_s_19 .selectable-content}
+										      >	    -   [def]{#_s_20 .selectable-content}
 										      >
 										      >	    \]
 										      >	-   somethingelse
@@ -1101,7 +1103,7 @@ of [\[\]](#bibCC). The following notations are used:				      <
 
 ::: {.reqdesc}										::: {.reqdesc}
 The [TOE](#abbr_TOE) shall do either \[**selection**: *this*, *that*\].		      |	The [TOE](#abbr_TOE) shall do either \[**selection**: [this]{#aaa
-										      >	.selectable-content}, [that]{#_s_36 .selectable-content}\].
+										      >	.selectable-content}, [that]{#_s_38 .selectable-content}\].
 
 ::: {.appnote}										::: {.appnote}
 [Application Note: ]{.note-header}[]{.note}						[Application Note: ]{.note-header}[]{.note}
@@ -1316,10 +1318,10 @@ b.  All administrative actions								b.  All administrative actions
 c.  \[Specifically defined auditable events in Table 1\]				c.  \[Specifically defined auditable events in Table 1\]
 d.  \[**selection**: *additional information defined in Table 2*,		      |	d.  \[**selection**: [additional information defined in Table 2]{#table2
     *additional information defined in Table 3*, *additional information	      |	    .selectable-content}, [additional information defined in Table
-    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_38 .selectable-content}, [additional information defined in
-    *no other information*\]							      |	    Table 4]{#_s_39 .selectable-content}, [additional information
-										      >	    defined in in Table 5]{#_s_40 .selectable-content}, [no other
-										      >	    information]{#_s_41 .selectable-content}, \]
+    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_40 .selectable-content}, [additional information defined in
+    *no other information*\]							      |	    Table 4]{#_s_41 .selectable-content}, [additional information
+										      >	    defined in in Table 5]{#_s_42 .selectable-content}, [no other
+										      >	    information]{#_s_43 .selectable-content}, \]
 :::											:::
 :::											:::
 
@@ -1337,12 +1339,12 @@ b.  Type of event									b.  Type of event
 c.  Subject and object identity (if applicable)						c.  Subject and object identity (if applicable)
 d.  The outcome (success or failure) of the event					d.  The outcome (success or failure) of the event
 e.  \[Additional information defined in Table 1\]					e.  \[Additional information defined in Table 1\]
-f.  \[**selection**: *additional information defined in Table 2*,		      |	f.  \[**selection**: [additional information defined in Table 2]{#_s_42
+f.  \[**selection**: *additional information defined in Table 2*,		      |	f.  \[**selection**: [additional information defined in Table 2]{#_s_44
     *additional information defined in Table 3*, *additional information	      |	    .selectable-content}, [additional information defined in Table
-    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_43 .selectable-content}, [additional information defined in
-    *no other information*\]							      |	    Table 4]{#_s_44 .selectable-content}, [additional information
-										      >	    defined in in Table 5]{#_s_45 .selectable-content}, [no other
-										      >	    information]{#_s_46 .selectable-content}, \]
+    defined in Table 4*, *additional information defined in in Table 5*,	      |	    3]{#_s_45 .selectable-content}, [additional information defined in
+    *no other information*\]							      |	    Table 4]{#_s_46 .selectable-content}, [additional information
+										      >	    defined in in Table 5]{#_s_47 .selectable-content}, [no other
+										      >	    information]{#_s_48 .selectable-content}, \]
 
 ::: {.appnote}										::: {.appnote}
 [Application Note: ]{.note-header}[ The [ST](#abbr_ST){.abbr} author can	      |	[Application Note: ]{.note-header}[ The [ST](#abbr_ST) author can
@@ -1708,11 +1710,11 @@ The evaluator shall perform the following test for this requirement:\		      <
 :::											:::
 
 ::: {.reqdesc}										::: {.reqdesc}
-The [TSF](#abbr_TSF){.abbr} shall \[**selection**: *drop new audit		      |	The [TSF](#abbr_TSF) shall \[**selection**: [drop new audit data]{#_s_47
+The [TSF](#abbr_TSF){.abbr} shall \[**selection**: *drop new audit		      |	The [TSF](#abbr_TSF) shall \[**selection**: [drop new audit data]{#_s_49
 data*, *overwrite previous audit records according to the following		      |	.selectable-content}, [overwrite previous audit records according to the
 rule: \[**assignment**: [rule for overwriting previous audit			      |	following rule: \[**assignment**: [rule for overwriting previous audit
-records]{.assignable-content}\]*, *\[**assignment**: [other			      |	records]{.assignable-content}\]]{#_s_48 .selectable-content},
-action]{.assignable-content}\]*\] when the local storage space for audit	      |	[\[**assignment**: [other action]{.assignable-content}\]]{#_s_49
+records]{.assignable-content}\]*, *\[**assignment**: [other			      |	records]{.assignable-content}\]]{#_s_50 .selectable-content},
+action]{.assignable-content}\]*\] when the local storage space for audit	      |	[\[**assignment**: [other action]{.assignable-content}\]]{#_s_51
 data is full.									      |	.selectable-content}, \] when the local storage space for audit data is
 										      >	full.
 
@@ -1808,15 +1810,15 @@ behavior defined in the [ST](#abbr_ST){.abbr} for				      |	behavior defined in
 The following rationale provides justification for each security			The following rationale provides justification for each security
 objective for the [TOE](#abbr_TOE), showing that the SFRs are suitable		      |	objective for the [TOE](#abbr_TOE), showing that the [SFRs](#abbr_SFR)
 to meet and achieve the security objectives:\					      |	are suitable to meet and achieve the security objectives:\
-										      >
-										      >	[Table [4]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
+
+OBJECTIVE									      |	[Table [4]{.counter}]{#t-obj_map .ctr data-myid="t-obj_map"
 										      >	data-counter-type="ct-Table"}: [SFR](#abbr_SFR) Rationale
 
-OBJECTIVE									      |	Objective
+ADDRESSED BY									      |	Objective
 
-ADDRESSED BY									      |	Addressed by
-
-RATIONALE									      |	Rationale
+RATIONALE									      |	Addressed by
+										      >
+										      >	Rationale
 
 [O.ACCOUNTABILITY](#O.ACCOUNTABILITY)\							[O.ACCOUNTABILITY](#O.ACCOUNTABILITY)\
 
@@ -3661,37 +3663,68 @@ Appendix E - References {#biblio .indexable data-level="A"}			      |	Appendix E
 |                                   |     3.1, Revision 5, April 2017.  |	      |	::: {.uc_sel}
 +-----------------------------------+-----------------------------------+	      |	\* select [white](#s-white)
 | [ \[[CEM](#abbr_CEM)\] ]{#bibCEM} | [Common Evaluation Methodology    |	      |	:::
-|                                   | for Information Technology        |	      |
-|                                   | Security - Evaluation             |	      |	DECISION B
-|                                   | Methodology](http://www.commoncri |	      |
-|                                   | teriaportal.org/files/ccfiles/CEM |	      |	::: {.choicelabel}
-|                                   | V3.1R4.pdf),                      |	      |	CHOICE B1
-|                                   | CCMB-2012-09-004, Version 3.1,    |	      |	:::
-|                                   | Revision 4, September 2012.       |	      |
-+-----------------------------------+-----------------------------------+	      |	::: {.uc_from_fel}
-| [ \[[CESG](#abbr_CESG)\]          | [CESG](#abbr_CESG) - [End User    |	      |	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
-| ]{#bibCESG}                       | Devices Security and              |	      |	:::
-|                                   | Configuration                     |	      |
-|                                   | Guidance](https://www.gov.uk/gove |	      |	::: {.uc_sel}
-|                                   | rnment/collections/end-user-devic |	      |	\* select [ratatouille](#ratatouille)
-|                                   | es-security-guidance)             |	      |	:::
-+-----------------------------------+-----------------------------------+	      |
-| [ \[[CSA](#abbr_CSA)\] ]{#bibCSA} | [Computer Security Act of         |	      |	::: {.choicelabel}
-|                                   | 1987](http://csrc.nist.gov/groups |	      |	CHOICE B2
-|                                   | /SMA/ispab/documents/csa_87.txt), |	      |	:::
-|                                   | H.R. 145, June 11, 1987.          |	      |
-+-----------------------------------+-----------------------------------+	      |	::: {.uc_from_fel}
-| [ \[[OMB](#abbr_OMB)\] ]{#bibOMB} | [Reporting Incidents Involving    |	      |	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
-|                                   | Personally Identifiable           |	      |	:::
-|                                   | Information and Incorporating the |	      |
-|                                   | Cost for Security in Agency       |	      |	::: {.uc_sel}
-|                                   | Information Technology            |	      |	\* select [sushi](#sushi)
-|                                   | Investments](http://www.whitehous |	      |	:::
-|                                   | e.gov/sites/default/files/omb/mem |	      |
-|                                   | oranda/fy2006/m06-19.pdf),        |	      |	::: {.uc_from_fel}
-|                                   | [OMB](#abbr_OMB) M-06-19, July    |	      |	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
-|                                   | 12, 2006.                         |	      |	:::
-+-----------------------------------+-----------------------------------+	      |
+|                                   | for Information Technology        |	      <
+|                                   | Security - Evaluation             |	      <
+|                                   | Methodology](http://www.commoncri |	      <
+|                                   | teriaportal.org/files/ccfiles/CEM |	      <
+|                                   | V3.1R4.pdf),                      |	      <
+|                                   | CCMB-2012-09-004, Version 3.1,    |	      <
+|                                   | Revision 4, September 2012.       |	      <
++-----------------------------------+-----------------------------------+	      <
+| [ \[[CESG](#abbr_CESG)\]          | [CESG](#abbr_CESG) - [End User    |	      <
+| ]{#bibCESG}                       | Devices Security and              |	      <
+|                                   | Configuration                     |	      <
+|                                   | Guidance](https://www.gov.uk/gove |	      <
+|                                   | rnment/collections/end-user-devic |	      <
+|                                   | es-security-guidance)             |	      <
++-----------------------------------+-----------------------------------+	      <
+| [ \[[CSA](#abbr_CSA)\] ]{#bibCSA} | [Computer Security Act of         |	      <
+|                                   | 1987](http://csrc.nist.gov/groups |	      <
+|                                   | /SMA/ispab/documents/csa_87.txt), |	      <
+|                                   | H.R. 145, June 11, 1987.          |	      <
++-----------------------------------+-----------------------------------+	      <
+| [ \[[OMB](#abbr_OMB)\] ]{#bibOMB} | [Reporting Incidents Involving    |	      <
+|                                   | Personally Identifiable           |	      <
+|                                   | Information and Incorporating the |	      <
+|                                   | Cost for Security in Agency       |	      <
+|                                   | Information Technology            |	      <
+|                                   | Investments](http://www.whitehous |	      <
+|                                   | e.gov/sites/default/files/omb/mem |	      <
+|                                   | oranda/fy2006/m06-19.pdf),        |	      <
+|                                   | [OMB](#abbr_OMB) M-06-19, July    |	      <
+|                                   | 12, 2006.                         |	      <
++-----------------------------------+-----------------------------------+	      <
+
+Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	DECISION B
+										      >
+										      >	::: {.choicelabel}
+										      >	CHOICE B1
+										      >	:::
+										      >
+										      >	::: {.uc_from_fel}
+										      >	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
+										      >	:::
+										      >
+										      >	::: {.uc_sel}
+										      >	\* select [ratatouille](#ratatouille)
+										      >	:::
+										      >
+										      >	::: {.choicelabel}
+										      >	CHOICE B2
+										      >	:::
+										      >
+										      >	::: {.uc_from_fel}
+										      >	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
+										      >	:::
+										      >
+										      >	::: {.uc_sel}
+										      >	\* select [sushi](#sushi)
+										      >	:::
+										      >
+										      >	::: {.uc_from_fel}
+										      >	From [FOO\_FOO.1.1](#FOO_FOO.1.1):
+										      >	:::
+										      >
 										      >	::: {.uc_sel}
 										      >	\* select [red](#s-red)
 										      >	:::
@@ -3745,8 +3778,8 @@ Appendix E - References {#biblio .indexable data-level="A"}			      |	Appendix E
 										      >	::: {.uc_from_fel}
 										      >	From [FOO\_BAR.1.2](#FOO_BAR.1.2):
 										      >	:::
-
-Appendix F - Acronyms {#acronyms .indexable data-level="A"}			      |	::: {.uc_sel}
+										      >
+										      >	::: {.uc_sel}
 										      >	\* select [crackers](#crackers)
 										      >	:::
 										      >
