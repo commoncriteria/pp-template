@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html><head><title>Protection Profile for QQQQ</title><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/x-mathjax-config">
+<html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type"></meta><meta content="utf-8" http-equiv="encoding"></meta><title>Protection Profile for QQQQ</title><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/x-mathjax-config">
             MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
             jax: ["input/TeX", "output/HTML-CSS"],
@@ -146,7 +146,11 @@ function showTarget(id){
        max-width: 15px;
     }
 
-
+    a.definition{
+      color: inherit;
+      text-decoration: inherit;
+    }
+      
     a {
       text-decoration: none;
       word-wrap: break-word;
@@ -604,7 +608,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">Protection Profile for QQQQ</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-0-">Comment: Comment-0-</a><br/></div><h1 class="title" style="page-break-before:auto;">Protection Profile for QQQQ</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2015-08-14<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>Round 1</td><td>2015-04-23</td><td>First draft of version 1.0 for comment</td></tr>
 <tr><td>1.0</td><td>2015-08-14</td><td>Release - first version released</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#ppoverview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOEboundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#TOEplatform" style="text-indent:20px">1.3.2<span>TOE Platform</span></a><a href="#usecases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#cclaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#spd" style="text-indent:0px">3<span>Security Problem Description</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#Something" style="text-indent:20px">5.1.1<span>Something</span></a><a href="#FOO" style="text-indent:20px">5.1.2<span>QQQQQ (foo)</span></a><a href="#fcs" style="text-indent:20px">5.1.3<span>Cryptographic Support (FCS)</span></a><a href="#QQQQ" style="text-indent:20px">5.1.4<span>QQQQ</span></a><a href="#fmt-2" style="text-indent:20px">5.1.5<span>Security Management (FMT)</span></a><a href="#fau" style="text-indent:20px">5.1.6<span>Security Audit (FAU)</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.7<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#ase" style="text-indent:20px">5.2.1<span>Class ASE: Security Target</span></a><a href="#adv" style="text-indent:20px">5.2.2<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.3<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.4<span>Class ALC: Life-cycle Support</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
@@ -652,10 +656,9 @@ function showTarget(id){
 
 </li> 
           <li> And this is how you reference it: <a onclick="showTarget('quadeq')" href="#quadeq" class="quadeq-ref">Eq.  <span class="counter">1</span></a> </li>
-          <li> <div class="dependent">The following content should be included if:<ul><li><a href="#aaa">this</a>,
-           
-           is selected from 
-           <a href="#FQQ_QQQ.1.1">FQQ_QQQ.1.1</a></li></ul><div class="dependent-content"><div> 
+          <li> <div class="dependent">The following content should be included if:<ul><li><a href="#aaa">this</a>
+             is selected from 
+             <a href="#FQQ_QQQ.1.1">FQQ_QQQ.1.1</a></li></ul><div class="dependent-content"><div> 
                     Some text </div></div></div> </li> 
 			<li> <div class="dependent">The following content should be included if:<ul><li>
            the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
@@ -912,19 +915,19 @@ users of the same system.
      <ul>
        <li>
          <b>Refinement</b> operation (denoted by <b>bold text</b> or <strike>strikethrough
-         text</strike>): is used to add details to a requirement (including replacing an assignment
+         text</strike>): Is used to add details to a requirement (including replacing an assignment
          with a more restrictive selection) or to remove part of the requirement that is made irrelevant
          through the completion of another operation, and thus further restricts a requirement.
          </li>
        <li>
-         <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
+         <b>Selection</b> (denoted by <i>italicized text</i>): Is used to select one or more options
          provided by the [CC] in stating a requirement.</li>
        <li>
-         <b>Assignment</b> operation (denoted by <span class="assignable-content">italicized text</span>): is used to assign a
+         <b>Assignment</b> operation (denoted by <span class="assignable-content">italicized text</span>): Is used to assign a
          specific value to an unspecified parameter, such as the length of a password. Showing the
          value in square brackets indicates assignment.</li>
        <li>
-         <b>Iteration</b> operation: is indicated by appending the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> name with a slash and unique identifier
+         <b>Iteration</b> operation: Is indicated by appending the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> name with a slash and unique identifier
             suggesting the purpose of the operation, e.g. "/EXAMPLE1."
        </li>
      </ul>
@@ -932,42 +935,33 @@ users of the same system.
     <h2 id="SFRs" class="indexable" data-level="2">5.1 Security Functional Requirements</h2>
       <h3 class="indexable" data-level="3" id="Something">5.1.1 Something</h3>
           Here's whwere we talk about an audit table.
-          <table class="" border="1"><caption><span class="ctr" data-myid="t-audit-mandatory" data-counter-type="ct-Table" id="t-audit-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr><td><a href="#FQQ_QQQ.1">FQQ_QQQ.1</a></td><td>
+          <table class="" border="1"><caption><span class="ctr" data-myid="t-audit-mandatory" data-counter-type="ct-Table" id="t-audit-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr><td rowspan="2"><a href="#FQQ_QQQ.1">FQQ_QQQ.1</a></td><td style="display:none"></td></tr><tr><td>
 	On failure of audit data capture due to lack of disk space or pre-defined limit.
-                </td><td>None.<br/></td></tr><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td>
+                </td><td>None.</td></tr><tr><td rowspan="2"><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td style="display:none"></td></tr><tr><td>
 				Failure of audit data capture due to lack of disk space or pre-defined limit.
                                 On failure of logging function, capture record of failure and record upon restart of logging function.
-					</td><td>None.</td></tr></table>
+					</td><td>
+    No additional information
+  </td></tr><tr><td colspan="3">
+	  From <a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439">Functional Package for Transport Layer Security (TLS),
+        version 
+        1.1</a></td></tr></table>
       
       <h3 id="FOO" class="indexable" data-level="3">5.1.2 QQQQQ (foo)</h3>
          <div class="comp" id="FOO_FOO.1"><h4>FOO_FOO.1 Foo Foo</h4>
           <div class="element"><div class="reqid" id="FOO_FOO.1.1"><a href="#FOO_FOO.1.1" class="abbr">FOO_FOO.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall consiste of  
-              [<b>selection</b>: 
-                 <span class="selectable-content" id="soup">soup</span>, 
-		 <span class="not-selectable-content" id="poison">poison</span>, 
-                 <span class="selectable-content" id="salad">salad</span>, 
-              ]
+              [<b>selection</b>: <span class="selectable-content" id="soup">soup</span>,  <span class="not-selectable-content" id="poison">poison</span>,  <span class="selectable-content" id="salad">salad</span> ]
               followed by 
-              [<b>selection</b>: 
-                 <span class="selectable-content" id="pizza">pizza</span>, 
-                 <span class="selectable-content" id="spaghetti">spaghetti</span>, 
-                 <span class="selectable-content" id="ratatouille">ratatouille</span>, 
-                 <span class="selectable-content" id="_s_9">!DEPRECATED!pho</span>, 
-                 <span class="selectable-content" id="sushi">sushi</span>, 
-              ] with 
-              [<b>selection</b>: 
-                 <span class="selectable-content" id="s-white">white</span>, 
-                 <span class="selectable-content" id="s-red">red</span>, 
-              ].
+              [<b>selection</b>: <span class="selectable-content" id="pizza">pizza</span>,  <span class="selectable-content" id="spaghetti">spaghetti</span>,  <span class="selectable-content" id="ratatouille">ratatouille</span>,  <span class="selectable-content" id="_s_9">!DEPRECATED!pho</span>,  <span class="selectable-content" id="sushi">sushi</span> ] with 
+              [<b>selection</b>: <span class="selectable-content" id="s-white">white</span>,  <span class="selectable-content" id="s-red">red</span> ].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note"></span></div><div class="validationguidelines_label">Validation Guidelines:</div><p></p><b><a href="#r-wine">Rule #1</a></b></div></div>
-        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FOO_FOO.1">FOO_FOO.1</a></div><div class="dependent">The following content should be included if:<ul><li><a href="#pizza">pizza</a>,
-           
-           is selected from 
-           <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a></li></ul><div class="dependent-content"><div>Check for anchovies</div></div></div>Specific to the componenet<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">ABC</div><div class="element-activity-header"><a href="#FOO_FOO.1.1">FOO_FOO.1.1</a></div> Specific to the element <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">ABC</div></div></div></div>
+        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FOO_FOO.1">FOO_FOO.1</a></div><div class="dependent">The following content should be included if:<ul><li><a href="#pizza">pizza</a>
+             is selected from 
+             <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a></li></ul><div class="dependent-content"><div>Check for anchovies</div></div></div>Specific to the componenet<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">ABC</div><div class="element-activity-header"><a href="#FOO_FOO.1.1">FOO_FOO.1.1</a></div> Specific to the element <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">ABC</div></div></div></div>
         <div class="comp" id="FOO_BAR.1"><h4>FOO_BAR.1 Foo Bar</h4>
-          <div class="element"><div class="reqid" id="FOO_BAR.1.1"><a href="#FOO_BAR.1.1" class="abbr">FOO_BAR.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall drink  [<b>selection</b>: <span class="selectable-content" id="tea">tea</span>, <span class="selectable-content" id="s-coffee">coffee</span>, <span class="selectable-content" id="s-energydrink">energy drink</span>, <span class="selectable-content" id="_s_16">water</span>].
+          <div class="element"><div class="reqid" id="FOO_BAR.1.1"><a href="#FOO_BAR.1.1" class="abbr">FOO_BAR.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall drink  [<b>selection</b>: <span class="selectable-content" id="tea">tea</span>,  <span class="selectable-content" id="s-coffee">coffee</span>,  <span class="selectable-content" id="s-energydrink">energy drink</span>,  <span class="selectable-content" id="_s_16">water</span> ].
 	    
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -975,7 +969,7 @@ users of the same system.
 	    </span></div><div class="validationguidelines_label">Validation Guidelines:</div><p></p><b><a href="#r-snack">Rule #2</a></b>:
       Selections <a href="#tea">tea</a> and <a href="#crackers">crackers</a> must be chosen together or not at all.
               <br/></div></div>
-          <div class="element"><div class="reqid" id="FOO_BAR.1.2"><a href="#FOO_BAR.1.2" class="abbr">FOO_BAR.1.2</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall eat [<b>selection</b>: <span class="selectable-content" id="crackers">crackers</span>, <span class="selectable-content" id="_s_18">nothing</span>]<div class="appnote"><span class="note-header">Application
+          <div class="element"><div class="reqid" id="FOO_BAR.1.2"><a href="#FOO_BAR.1.2" class="abbr">FOO_BAR.1.2</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall eat [<b>selection</b>: <span class="selectable-content" id="crackers">crackers</span>,  <span class="selectable-content" id="_s_18">nothing</span> ]<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">Deonstrating rules across elements</span></div><div class="validationguidelines_label">Validation Guidelines:</div><p></p><b><a href="#r-snack">Rule #2</a></b>:
       Selections <a href="#tea">tea</a> and <a href="#crackers">crackers</a> must be chosen together or not at all.
@@ -1017,19 +1011,14 @@ users of the same system.
 
 						<tr>
 							<td>RSA</td>
-							<td>[<b>selection</b>: 
-								<span class="selectable-content" id="sel-exp-ak-rsa-2048">2048 bit</span>, 
-								<span class="selectable-content" id="sel-exp-ak-rsa-3072">3072-bit</span>]</td>
+							<td>[<b>selection</b>: <span class="selectable-content" id="sel-exp-ak-rsa-2048">2048 bit</span>,  <span class="selectable-content" id="sel-exp-ak-rsa-3072">3072-bit</span> ]</td>
 							<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.3 [key generation]</td>
 						</tr>
 
 
 						<tr>
 							<td>ECC-N</td>
-							<td>[<b>selection</b>: 
-								<span class="selectable-content" id="sel-exp-ak-eccn-P256">256 (P-256)</span>, 
-								<span class="selectable-content" id="sel-exp-ak-eccn-P384">384 (P-384)</span>, 
-								<span class="selectable-content" id="sel-exp-ak-eccn-P521">521 (P-521)</span>]</td>
+							<td>[<b>selection</b>: <span class="selectable-content" id="sel-exp-ak-eccn-P256">256 (P-256)</span>,  <span class="selectable-content" id="sel-exp-ak-eccn-P384">384 (P-384)</span>,  <span class="selectable-content" id="sel-exp-ak-eccn-P521">521 (P-521)</span> ]</td>
 							<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. D.1.2 [<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves]<br/>
 								<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.4 [key generation]</td>
 						</tr>
@@ -1037,10 +1026,7 @@ users of the same system.
 
 						<tr>
 						<td>ECC-B</td>
-						<td>[<b>selection</b>: 
-							<span class="selectable-content" id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</span>, 
-							<span class="selectable-content" id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</span>, 
-							<span class="selectable-content" id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</span>]</td>
+						<td>[<b>selection</b>: <span class="selectable-content" id="sel-exp-ak-eccb-bpP256r1">256 (brainpoolP256r1)</span>,  <span class="selectable-content" id="sel-exp-ak-eccb-bpP384r1">384 (brainpoolP384r1)</span>,  <span class="selectable-content" id="sel-exp-ak-eccb-bpP512r1">512 (brainpoolP512r1)</span> ]</td>
 						<td><abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5639 sec. 3 [Brainpool Curves]<br/>
 							<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.4 [key generation]</td>
 						</tr>
@@ -1049,10 +1035,7 @@ users of the same system.
 						<tr>
 						<td>DSA</td>
 						<td>DSA Bit lengths of p and q respectively (L, N) 
-							[<b>selection</b>: 
-								<span class="selectable-content" id="sel-exp-ak-dsa-2048-224">(2048, 224)</span>, 
-								<span class="selectable-content" id="sel-exp-ak-dsa-2048-256">(2048, 256)</span>, 
-								<span class="selectable-content" id="sel-exp-ak-dsa-3027-256">(3027, 256)</span>]</td>
+							[<b>selection</b>: <span class="selectable-content" id="sel-exp-ak-dsa-2048-224">(2048, 224)</span>,  <span class="selectable-content" id="sel-exp-ak-dsa-2048-256">(2048, 256)</span>,  <span class="selectable-content" id="sel-exp-ak-dsa-3027-256">(3027, 256)</span> ]</td>
 						<td><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-4 sec. B.1 [key generation]</td>
 						</tr>
 
@@ -1090,7 +1073,7 @@ users of the same system.
 	
        <h3 id="QQQQ" class="indexable" data-level="3">5.1.4 QQQQ</h3>
          <div class="comp" id="FQQ_QQQ.1"><h4>FQQ_QQQ.1 QQQQQ</h4>
-          <div class="element"><div class="reqid" id="FQQ_QQQ.1.1"><a href="#FQQ_QQQ.1.1" class="abbr">FQQ_QQQ.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall do either [<b>selection</b>: <span class="selectable-content" id="aaa">this</span>, <span class="selectable-content" id="_s_38">that</span>]. 
+          <div class="element"><div class="reqid" id="FQQ_QQQ.1.1"><a href="#FQQ_QQQ.1.1" class="abbr">FQQ_QQQ.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall do either [<b>selection</b>: <span class="selectable-content" id="aaa">this</span>,  <span class="selectable-content" id="_s_38">that</span> ]. 
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note"></span></div></div></div>
@@ -1106,7 +1089,7 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
 Activities assoiated with guidance
               </div><div class="eacategory">Tests</div><div class="ea">
                  <ul>
-                    <li><b>Test 1: </b>
+                    <li id="_t_1"><b><a href="#_t_1" class="definition">Test 1</a>: </b>
                      Make shadow puppets.
                        <div class="test-obj"><b>Objective:</b>This is the motivation behind the tests.</div>
                        <div class="evidence"><b>Evidence:</b>A warm fuzzy feeling </div>
@@ -1114,12 +1097,12 @@ Activities assoiated with guidance
                  </ul>
 Activities assoiated with the Tests. 
                  <div class="dependent">The following content should be included if:<ul><li>For 
-           virtual <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> 
+             virtual <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> 
          </li></ul><div class="dependent-content"><div>
 					 Great tests for something virtual.
 				 </div></div></div>
                  <div class="dependent">The following content should be included if:<ul><li>For 
-           physical/imaginary <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> 
+             physical/imaginary <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> 
          </li></ul><div class="dependent-content"><div>
 					 Great tests for something tangible or in my mind.
 				 </div></div></div>
@@ -1157,12 +1140,12 @@ Activities assoiated with the Tests.
                   The evaluator shall verify the list matches the chart in the requirement.</div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall review the operational guidance to verify that the EDR has
                 documented capabilities to perform the management functions.</div><div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the below tests:
                  <ul>
-                   <li><b>Test 1: </b>The evaluator shall modify the time frame for sending Host Agent data to the EDR
+                   <li id="_t_2"><b><a href="#_t_2" class="definition">Test 1</a>: </b>The evaluator shall modify the time frame for sending Host Agent data to the EDR
                    and verify that an affected Host Agent is sending data at the intended interval.</li>
-                   <li><b>Test 2: </b>The evaluator shall tag or categorize a group of individual endpoint systems and
+                   <li id="_t_3"><b><a href="#_t_3" class="definition">Test 2</a>: </b>The evaluator shall tag or categorize a group of individual endpoint systems and
                    verify that the tag or categorization persists within the EDR management dashboard for
                    other users.</li>
-                   <li><b>Test 3: </b>The evaluator shall attempt each function with each role and verify access conforms with the chart in the requirement.</li>
+                   <li id="_t_4"><b><a href="#_t_4" class="definition">Test 3</a>: </b>The evaluator shall attempt each function with each role and verify access conforms with the chart in the requirement.</li>
                  </ul>
                  <div class="test-obj"><b>Objective:</b>This is the motivation behind the tests.</div>
                  <div class="evidence"><b>Evidence:</b>A check should appear.</div>
@@ -1181,16 +1164,7 @@ Activities assoiated with the Tests.
                                 <li>Start-up and shutdown of audit functions</li>
                                 <li>All administrative actions</li>
                                 <li>[Specifically defined auditable events in Table 1]</li>
-                                <li>[<b>selection</b>: 
-
-				
-                                    <span class="selectable-content" id="table2">additional information defined in Table 2</span>, 
-				    <span class="selectable-content" id="_s_40">additional information defined in Table 3</span>, 
-                                    <span class="selectable-content" id="_s_41">additional information defined in Table 4</span>, 
-                                    <span class="selectable-content" id="_s_42">additional information defined in in Table 5</span>, 
-                                    <span class="selectable-content" id="_s_43">no other information</span>, 
-
-				 ]</li>
+                                <li>[<b>selection</b>: <span class="selectable-content" id="table2">additional information defined in Table 2</span>,  <span class="selectable-content" id="_s_40">additional information defined in Table 3</span>,  <span class="selectable-content" id="_s_41">additional information defined in Table 4</span>,  <span class="selectable-content" id="_s_42">additional information defined in in Table 5</span>,  <span class="selectable-content" id="_s_43">no other information</span> ]</li>
                             </ol>
                         </div></div>
                     <div class="element"><div class="reqid" id="FAU_GEN.1.2"><a href="#FAU_GEN.1.2" class="abbr">FAU_GEN.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within each audit record at least the following information:
@@ -1200,14 +1174,7 @@ Activities assoiated with the Tests.
                                 <li>Subject and object identity (if applicable)</li>
                                 <li>The outcome (success or failure) of the event</li>
                                 <li>[Additional information defined in Table 1]</li>
-                                <li>[<b>selection</b>: 
-
-                                    <span class="selectable-content" id="_s_44">additional information defined in Table 2</span>, 
-                                    <span class="selectable-content" id="_s_45">additional information defined in Table 3</span>, 
-                                    <span class="selectable-content" id="_s_46">additional information defined in Table 4</span>, 
-                                    <span class="selectable-content" id="_s_47">additional information defined in in Table 5</span>, 
-                                    <span class="selectable-content" id="_s_48">no other information</span>, 
-                                ]</li>
+                                <li>[<b>selection</b>: <span class="selectable-content" id="_s_44">additional information defined in Table 2</span>,  <span class="selectable-content" id="_s_45">additional information defined in Table 3</span>,  <span class="selectable-content" id="_s_46">additional information defined in Table 4</span>,  <span class="selectable-content" id="_s_47">additional information defined in in Table 5</span>,  <span class="selectable-content" id="_s_48">no other information</span> ]</li>
                             </ol>
                         <div class="appnote"><span class="note-header">Application
       Note:
@@ -1287,11 +1254,14 @@ Activities assoiated with the Tests.
                             
                         <div class="eacategory">Tests</div><div class="ea">
                                 <ul>
-                                    <li><b>Test 1: </b>The evaluator shall access the audit trail as an unauthorized Administrator and attempt 
+                                    <li id="_t_5"><b><a href="#_t_5" class="definition">Test 1</a>: </b>The evaluator shall access the audit trail as an unauthorized Administrator and attempt 
                                         to modify and delete the audit records. The evaluator shall verify that these attempts 
                                         fail.
+					<span style="" class="comment " id="Comment-0-">HHHHH</span>
+  
+					
                                     </li>
-                                    <li><b>Test 2: </b>The evaluator shall access the audit trail as an authorized Administrator and attempt 
+                                    <li id="_t_6"><b><a href="#_t_6" class="definition">Test 2</a>: </b>The evaluator shall access the audit trail as an authorized Administrator and attempt 
                                         to delete the audit records. The evaluator shall verify that these attempts succeed. 
                                         The evaluator shall verify that only the records authorized for deletion are deleted.
                                     </li>
@@ -1307,14 +1277,10 @@ Activities assoiated with the Tests.
                     <div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to transmit the generated audit data to an external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity using a trusted channel as specified in FTP_ITC_EXT.1.
                         </div></div>
                     <div class="element"><div class="reqid" id="FAU_STG_EXT.1.2"><a href="#FAU_STG_EXT.1.2" class="abbr">FAU_STG_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-                            [<b>selection</b>: 
-                                <span class="selectable-content" id="_s_49">drop new audit data</span>, 
-                                <span class="selectable-content" id="_s_50">overwrite previous audit records according to the following rule:
+                            [<b>selection</b>: <span class="selectable-content" id="_s_49">drop new audit data</span>,  <span class="selectable-content" id="_s_50">overwrite previous audit records according to the following rule:
                                     [<b>assignment</b>: 
-     <span class="assignable-content">rule for overwriting previous audit records</span>]</span>, 
-                                <span class="selectable-content" id="_s_51">[<b>assignment</b>: 
-     <span class="assignable-content">other action</span>]</span>, 
-                            ]
+     <span class="assignable-content">rule for overwriting previous audit records</span>]</span>,  <span class="selectable-content" id="_s_51">[<b>assignment</b>: 
+     <span class="assignable-content">other action</span>]</span> ]
                             when the local storage space for audit data is full.
                         <div class="appnote"><span class="note-header">Application
       Note:
@@ -1351,7 +1317,7 @@ Activities assoiated with the Tests.
                                 activities for FTP_ITC_EXT.1. <br/><br/>
                                 The evaluator shall perform the following test for this requirement:<br/><br/>
                                 <ul>
-                                    <li><b>Test 1: </b>The evaluator shall establish a session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the audit server according to the configuration guidance provided. The evaluator shall then examine the traffic that passes between the audit server and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> during several activities of the evaluator’s choice designed to generate audit data to be transferred to the audit server. The evaluator shall observe that these data are not able to be viewed in the clear during this transfer, and that they are successfully received by the audit server. The evaluator shall record the particular software (name, version) used on the audit server during testing.</li>
+                                    <li id="_t_7"><b><a href="#_t_7" class="definition">Test 1</a>: </b>The evaluator shall establish a session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the audit server according to the configuration guidance provided. The evaluator shall then examine the traffic that passes between the audit server and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> during several activities of the evaluator’s choice designed to generate audit data to be transferred to the audit server. The evaluator shall observe that these data are not able to be viewed in the clear during this transfer, and that they are successfully received by the audit server. The evaluator shall record the particular software (name, version) used on the audit server during testing.</li>
                                 </ul>
                             
                                 The evaluator shall perform operations that generate audit data and verify that this data is 
@@ -1938,11 +1904,11 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are listed in this table:
 
-<table><caption><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">5</span></span>: Extended Component Definitions</b></caption><tr><th>Functional Class</th><th>Functional Components</th></tr><tr><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr><td>Security Audit (FAU)</td><td>FAU_STG_EXT Security Store Filtering<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">5</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr data-sortkey="Security Audit (FAU)"><td>Security Audit (FAU)</td><td>FAU_STG_EXT Security Store Filtering<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
 	 FCS class originally defined by CC Part 2:
-	<h3 id="ext-comp-FCS_CKM_EXT" class="indexable" data-level="4">C.2.1.1 FCS_CKM_EXT Cryptographic Key Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for management of cryptographic keys.</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_CKM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FAU" class="indexable" data-level="3">C.2.2 Security Audit (FAU)</h3>
+	<h3 id="ext-comp-FCS_CKM_EXT" class="indexable" data-level="4">C.2.1.1 FCS_CKM_EXT Cryptographic Key Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for management of cryptographic keys.</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_CKM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span><span data-sortkey="Security Audit (FAU)"><h3 id="ext-comp-FAU" class="indexable" data-level="3">C.2.2 Security Audit (FAU)</h3>
 		THis is information about the FAU class.
-	      <h3 id="ext-comp-FAU_STG_EXT" class="indexable" data-level="4">C.2.2.1 FAU_STG_EXT Security Store Filtering</h3><div style="margin-left: 1em;"></div><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix D -  Inherently Satisfied Requirements</h1> This
+	      <h3 id="ext-comp-FAU_STG_EXT" class="indexable" data-level="4">C.2.2.1 FAU_STG_EXT Security Store Filtering</h3><div style="margin-left: 1em;"></div></span></span><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix D -  Inherently Satisfied Requirements</h1> This
 	appendix lists requirements that should be considered satisfied by products
 	successfully evaluated against this Protection Profile.  
 	However, these requirements are not featured explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be
@@ -2041,13 +2007,13 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
 	  as a hash algorithm.<p></p>
 	  This appendix contains only such "rules" as have been defined by the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> Authors, and does not necessarily
 	  represent all such dependencies in the document.<p></p><h2 id="r-wine">
-         Rule #1</h2><div></div><table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">OR</td><td style="display:none"></td></tr><tr><td style="width: 99%">
+         Rule #1</h2><div></div><table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">DECISION A</td><td style="display:none"></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE A1</div>
                  <div class="uc_from_fel">
       From <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a>:</div><div class="uc_sel">* select <a href="#s-white">white</a></div>
                  <table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">DECISION B</td><td style="display:none"></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE B1</div><div class="uc_from_fel">
       From <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a>:</div><div class="uc_sel">* select <a href="#ratatouille">ratatouille</a></div></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE B2</div><div class="uc_from_fel">
       From <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a>:</div><div class="uc_sel">* select <a href="#sushi">sushi</a></div></td></tr></table>
-               </td></tr><tr><td style="width: 99%">
+               </td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE A2</div>
                   <div class="uc_from_fel">
       From <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a>:</div><div class="uc_sel">* select <a href="#s-red">red</a></div>
                   <table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">DECISION C</td><td style="display:none"></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE C1</div><div class="uc_from_fel">
@@ -2055,9 +2021,10 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
       From <a href="#FOO_FOO.1.1">FOO_FOO.1.1</a>:</div><div class="uc_sel">* select <a href="#pizza">pizza</a></div></td></tr></table>
                </td></tr></table><h2 id="r-snack">
          Rule #2</h2><div>Selections <a href="#tea">tea</a> and <a href="#crackers">crackers</a> must be chosen together or not at all.
-              </div><table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">OR</td><td style="display:none"></td></tr><tr><td style="width: 99%"><div class="uc_from_fel">
+              </div>Selections  and  must be chosen together or not at all.
+              <table class="uc_table_or" style="border: 1px solid black"><tr><td class="or_cell" rowspan="3">DECISION D</td><td style="display:none"></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE D1</div><div class="uc_from_fel">
       From <a href="#FOO_BAR.1.1">FOO_BAR.1.1</a>:</div><div class="uc_sel">* select <a href="#tea">tea</a></div><div class="uc_from_fel">
-      From <a href="#FOO_BAR.1.2">FOO_BAR.1.2</a>:</div><div class="uc_sel">* select <a href="#crackers">crackers</a></div></td></tr><tr><td style="width: 99%"><div class="uc_from_fel">
+      From <a href="#FOO_BAR.1.2">FOO_BAR.1.2</a>:</div><div class="uc_sel">* select <a href="#crackers">crackers</a></div></td></tr><tr><td style="width: 99%"><div class="choicelabel">CHOICE D2</div><div class="uc_from_fel">
       From <a href="#FOO_BAR.1.1">FOO_BAR.1.1</a>:</div><div class="uc_not">Choose something other than: 
       <div class="uc_not_sel">* <a href="#tea">tea</a></div></div><div class="uc_from_fel">
       From <a href="#FOO_BAR.1.2">FOO_BAR.1.2</a>:</div><div class="uc_not">Choose something other than: 
@@ -2083,12 +2050,14 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
 	  <h1 id="acronyms" class="indexable" data-level="A">Appendix G -  Acronyms</h1><table><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_AES"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr></span></td><td><span id="long_abbr_AES">Advanced Encryption Standard</span></td></tr>
 <tr><td><span class="term" id="abbr_API"><abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr></span></td><td><span id="long_abbr_API">Application Programming Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_API"><abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr></span></td><td><span id="long_abbr_API">Application Programming Interface</span></td></tr>
+<tr><td><span class="term" id="abbr_app"><abbr class="dyn-abbr"><a href="#abbr_app">app</a></abbr></span></td><td><span id="long_abbr_app">Application</span></td></tr>
 <tr><td><span class="term" id="abbr_ASLR"><abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr></span></td><td><span id="long_abbr_ASLR">Address Space Layout Randomization</span></td></tr>
 <tr><td><span class="term" id="abbr_CEM"><abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr></span></td><td><span id="long_abbr_CEM">Common Evaluation Methodology</span></td></tr>
 <tr><td><span class="term" id="abbr_CESG"><abbr class="dyn-abbr"><a href="#abbr_CESG">CESG</a></abbr></span></td><td><span id="long_abbr_CESG">Communications-Electronics Security Group</span></td></tr>
 <tr><td><span class="term" id="abbr_CMC"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr></span></td><td><span id="long_abbr_CMC">Certificate Management over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td></tr>
 <tr><td><span class="term" id="abbr_CMS"><abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr></span></td><td><span id="long_abbr_CMS">Cryptographic Message Syntax</span></td></tr>
 <tr><td><span class="term" id="abbr_CN"><abbr class="dyn-abbr"><a href="#abbr_CN">CN</a></abbr></span></td><td><span id="long_abbr_CN">Common Names</span></td></tr>
+<tr><td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CRL"><abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr></span></td><td><span id="long_abbr_CRL">Certificate Revocation List</span></td></tr>
 <tr><td><span class="term" id="abbr_CSA"><abbr class="dyn-abbr"><a href="#abbr_CSA">CSA</a></abbr></span></td><td><span id="long_abbr_CSA">Computer Security Act</span></td></tr>
 <tr><td><span class="term" id="abbr_CSP"><abbr class="dyn-abbr"><a href="#abbr_CSP">CSP</a></abbr></span></td><td><span id="long_abbr_CSP">Critical Security Parameters</span></td></tr>
@@ -2153,8 +2122,6 @@ Activities assoiated with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a>
 <tr><td><span class="term" id="abbr_VM"><abbr class="dyn-abbr"><a href="#abbr_VM">VM</a></abbr></span></td><td><span id="long_abbr_VM">Virtual Machine</span></td></tr>
 <tr><td><span class="term" id="abbr_XCCDF"><abbr class="dyn-abbr"><a href="#abbr_XCCDF">XCCDF</a></abbr></span></td><td><span id="long_abbr_XCCDF">eXtensible Configuration Checklist Description Format</span></td></tr>
 <tr><td><span class="term" id="abbr_XOR"><abbr class="dyn-abbr"><a href="#abbr_XOR">XOR</a></abbr></span></td><td><span id="long_abbr_XOR">Exclusive Or</span></td></tr>
-<tr><td><span class="term" id="abbr_app"><abbr class="dyn-abbr"><a href="#abbr_app">app</a></abbr></span></td><td><span id="long_abbr_app">Application</span></td></tr>
-<tr><td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td></tr>
 </table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix H -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[CC]</span></td><td>Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
                 1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,

@@ -1,0 +1,2 @@
+/home/runner/work/pp-template/pp-template/input/pp-template.xml:508:43: error: element "audit-table" missing required attribute "id"
+/home/runner/work/pp-template/pp-template/input/pp-template.xml:972:15: error: element "comment" not allowed anywhere; expected the element end-tag, text, element "_", "assignable", "choice", "ctr", "depends", "endnote", "equation", "evidence", "external-doc", "figure", "if-opt-app", "no-link", "provides", "refinement", "requires", "rule", "selectables", "snip", "steplist", "test-obj", "testlist" or "xref" or an element from another namespace
