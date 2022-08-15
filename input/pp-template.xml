@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
 <PP  boilerplate='yes' target-products="foobars"
@@ -7,8 +7,8 @@
     xmlns:sec="https://niap-ccevs.org/cc/v1/section"
     xmlns:h="http://www.w3.org/1999/xhtml">
 
-  <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
-  <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
+  <!-- <comment color='green'> Hello World QQQQ </comment> -->
+  <!-- <comment color='blue' linebreak='yes'> Hello World QQQQ </comment> -->
   <PPReference>
     <ReferenceTable>
       <PPTitle>Protection Profile for QQQQ</PPTitle>
@@ -969,7 +969,7 @@ Activities assoiated with the TSS.
                                     <test>The evaluator shall access the audit trail as an unauthorized Administrator and attempt 
                                         to modify and delete the audit records. The evaluator shall verify that these attempts 
                                         fail.
-					<inline-comment color='green'> Hello World QQQQ </inline-comment>
+					<comment>HHHHH</comment>
   
 					
                                     </test>
