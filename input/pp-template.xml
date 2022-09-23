@@ -36,14 +36,20 @@
   </RevisionHistory>
 
     <include-pkg id="tls">
-      <raw-url>https://raw.githubusercontent.com/commoncriteria/tls/562626874aacfbb9beb397fca5be128c86ec4ebf/input/tls.xml</raw-url>
-		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
+      <git>
+	<url>https://github.com/commoncriteria/tls</url>
+	<branch>release-1.1</branch>
+      </git>
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
                <depends on="pizza"/>
 	</include-pkg>
 	    
-    <include-pkg id="ssh">
-                <raw-url>https://raw.githubusercontent.com/commoncriteria/ssh/de9b38dc426a4ac14d4016510d1ef477d419f7ae/input/ssh.xml</raw-url>
-      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
+	<include-pkg id="ssh">
+	  <git>
+	    <url>https://github.com/commoncriteria/ssh</url>
+	    <branch>release-1.0</branch>
+	  </git>
+	  <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
    </include-pkg>	
 
 
@@ -508,7 +514,8 @@ users of the same system.
           <audit-table table="mandatory" id="at-man"/>
       </sec:Something>
       <section title="QQQQQ (foo)" id="FOO">
-         <f-component cc-id="foo_foo.1" name="Foo Foo">
+        <f-component cc-id="foo_foo.1" name="Foo Foo">
+	  <description>Description of FOO_FOO.1</description>
           <f-element id="foo-foo-id">
             <title> The TOE shall consiste of  
               <selectables>
