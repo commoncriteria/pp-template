@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
-<PP xmlns="https://niap-ccevs.org/cc/v1" target-products="Widgets"
+<PP xmlns="https://niap-ccevs.org/cc/v1" target-product="Widget"
     xmlns:sec="https://niap-ccevs.org/cc/v1/section" 
     xmlns:h="http://www.w3.org/1999/xhtml" boilerplate='yes'>
 
@@ -34,19 +34,20 @@
   </RevisionHistory>
 
     <include-pkg id="tls">
-      <raw-url>https://github.com/commoncriteria/tls/raw/
-                        562626874aacfbb9beb397fca5be128c86ec4ebf
-                        /input/tls.xml</raw-url>
-		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
-               <depends on="pizza"/>
-	</include-pkg>
-	    
-    <include-pkg id="ssh">
-                <raw-url>https://github.com/commoncriteria/ssh/raw/
-                         de9b38dc426a4ac14d4016510d1ef477d419f7ae
-                         /input/ssh.xml</raw-url>
-      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
-   </include-pkg>	
+      <git>
+	<url>https://github.com/commoncriteria/tls</url>
+	<branch>release-1.1</branch>
+      </git>
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
+      <depends on="pizza"/>
+    </include-pkg>
+    <include-pkg id="pkg-ssh">
+      <git>
+	<url>https://github.com/commoncriteria/ssh</url>
+	<branch>release-1.0</branch>
+      </git>
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=459&amp;id=459</url>
+    </include-pkg>
 
 
   <sec:Introduction>
@@ -490,7 +491,7 @@ users of the same system.
     <sec:SFRs title="Security Functional Requirements">
       <sec:Something>
           Here's whwere we talk about an audit table.
-          <audit-table table="mandatory"/>
+          <audit-table table="mandatory" id="t-mandatory"/>
       </sec:Something>
       <section title="QQQQ" id="FOO">
          <f-component cc-id="foo_foo.1" name="Foo Foo">
