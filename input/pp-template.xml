@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
-<PP  boilerplate='yes' target-products="foobars"
+<PP  boilerplate='yes' target-product="foobar"
     xmlns="https://niap-ccevs.org/cc/v1"
     xmlns:cc="https://niap-ccevs.org/cc/v1"
     xmlns:sec="https://niap-ccevs.org/cc/v1/section"
