@@ -2,21 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
 <PP xmlns="https://niap-ccevs.org/cc/v1"
-    xmlns:sec="https://niap-ccevs.org/cc/v1/section" name="Protection Profile QQQQ"
-    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate='yes'>
-
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+  <boilerplate>yes</boilerplate>
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
-  <PPReference>
-    <ReferenceTable>
-      <PPTitle>Protection Profile for QQQQ</PPTitle>
-      <PPVersion>1.0</PPVersion>
-      <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2015-08-14</PPPubDate>
-      <Keywords>QQQQ</Keywords>
-    </ReferenceTable>
-  </PPReference>
-
+  <product_class>QQQQ</product_class>
   <RevisionHistory>
     <entry>
       <version>Round 1</version>
@@ -24,7 +15,6 @@
       <subject>First draft of version 1.0 for comment</subject>
     </entry>
   </RevisionHistory>
-
   <RevisionHistory>
     <entry>
       <version>1.0</version>
@@ -60,9 +50,9 @@
 
 </h:li> 
           <h:li> And this is how you reference it: <xref to="quadeq"/> </h:li>
-          <h:li> <h:div><depends on="selection"><ref-id>aaa</ref-id></depends> 
+          <h:li> <h:div><depends on="aaa"/>
                     Some text </h:div> </h:li> 
-  		<h:li> <h:div><depends on="implements"><ref-id>a-feature-id</ref-id></depends> 
+  		<h:li> <h:div><depends on="a-feature-id"/>
                     Someting dependent on a feature</h:div> </h:li> 
            
           <h:li> And here's the audit event table for mandatory requirements. 
@@ -483,7 +473,7 @@ users of the same system.
     <sec:SFRs title="Security Functional Requirements">
       <sec:Something>
           Here's whwere we talk about an audit table.
-          <audit-table table="mandatory"/>
+          <audit-table table="mandatory" id="at-mandatory"/>
       </sec:Something>
       <section title="QQQQ" id="FOO">
          <f-component cc-id="foo_foo.1" name="Foo Foo">
@@ -507,21 +497,22 @@ users of the same system.
             </title>
             <note role="application"></note>
             <aactivity>Something<TSS>ABC</TSS></aactivity>
-<!-- So an 'or' with one child means This OR NOTHING. -->
-<!-- So the following means -->
-            <or>
-               <and>
-                 <ref-id>s-white</ref-id>
-                 <or><ref-id>ratatouille</ref-id>
-                     <ref-id>sushi</ref-id></or>
-               </and>
-               <and>
+	    <!-- So an 'or' with one child means This OR NOTHING. -->
+	    <!-- So the following means -->
+	    <rule id="r-1">
+              <or>
+		<and>
+                  <ref-id>s-white</ref-id>
+                  <or><ref-id>ratatouille</ref-id>
+                  <ref-id>sushi</ref-id></or>
+		</and>
+		<and>
                   <ref-id>s-red</ref-id>
                   <or><ref-id>spaghetti</ref-id>
                      <ref-id>pizza</ref-id></or>
-               </and>
-            </or>
-
+		</and>
+              </or>
+	    </rule>
           </f-element>
         </f-component>
         <f-component cc-id="foo_bar.1" name="Foo Bar">
@@ -535,7 +526,9 @@ users of the same system.
             <title> The TOE shall eat <selectables><selectable id="crackers">crackers</selectable><selectable>nothing</selectable></selectables></title>
             <note role="application">Deonstrating rules across elements</note>
             <aactivity>Something <Guidance></Guidance></aactivity>
-            <or><and><ref-id>tea</ref-id><ref-id>crackers</ref-id></and></or>
+	    <rule id="r-tea-and-crackers">
+              <or><and><ref-id>tea</ref-id><ref-id>crackers</ref-id></and></or>
+	    </rule>
           </f-element>
 
          </f-component>
@@ -557,15 +550,15 @@ Activities assoiated with guidance
                  <testlist>
                     <test>
                      Make shadow puppets.
-                       <test-obj>This is the motivation behind the tests.</test-obj>
-                       <evidence>A warm fuzzy feeling </evidence>
+                       <Objective>This is the motivation behind the tests.</Objective>
+                       <Evidence>A warm fuzzy feeling </Evidence>
                      </test>
                  </testlist>
 Activities assoiated with the Tests. 
-                 <h:div><depends on="selection"><ref-id>virtual</ref-id></depends>
+                 <h:div><depends on="virtual"/>
 					 Great tests for something virtual.
 				 </h:div>
-                 <h:div><depends on="selection"><ref-id>physical</ref-id><ref-id>imgi</ref-id></depends>
+                 <h:div><depends on="physical"/>
 					 Great tests for something tangible or in my mind.
 				 </h:div>
 
@@ -578,13 +571,15 @@ Activities assoiated with the Tests.
                 </audit-event-descr>
                 <audit-event-info>None.</audit-event-info>
           </audit-event>
-  	  <audit-event type="optional" table="turtle">
+  	  <audit-event table="turtle">
+	    <optional/>
                 <audit-event-descr>
 	On number of turtles in the area.
                 </audit-event-descr>
           </audit-event>
         </f-component>
-        <f-component cc-id="fqq_qqq.3" name="BQQQQQ" status="objective">
+        <f-component cc-id="fqq_qqq.3" name="BQQQQQ">
+	  <objective/>
           <f-element id="objective-example">
             <title> The TOE shall do <assignable>guidance on what things should be assignable </assignable>. </title>
             <note role="application">Notes. Notes. Notes.</note>
@@ -595,7 +590,8 @@ Activities assoiated with guidance
 	    </aactivity>
           </f-element>
         </f-component>
-        <f-component cc-id="fqq_qqq.2" name="TQQQQQ" status="optional" id="optional-comp-example">
+        <f-component cc-id="fqq_qqq.2" name="TQQQQQ" id="optional-comp-example">
+	  <optional/>
           <f-element id="optional-example">
             <title> The TOE shall do soemthing.</title>
             <note role="application"></note>
@@ -606,8 +602,8 @@ Activities assoiated with the TSS.
 	    </aactivity>
           </f-element>
         </f-component>
-         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
-          <selection-depends req="a-unique-id" ids="aaa"/>
+         <f-component cc-id="fqq_qqq.4" name="UQQQQQ">
+          <depends id="aaa"/>
           <f-element id="selbased-example">
             <title> The TOE shall do something great.</title>
             <note role="application"></note>
@@ -618,8 +614,8 @@ Activities assoiated with the TSS.
 	    </aactivity>
           </f-element>
         </f-component>
-        <f-component cc-id="fqq_qqq.6" name="WQQQQQ" status="feat-based">
-          <depends on="implements"><ref-id>a-feature-id</ref-id></depends>
+        <f-component cc-id="fqq_qqq.6" name="WQQQQQ">
+          <depends on="a-feature-id"/>
           <f-element id="feat-based-example">
             <title> The TOE shall do something with regards to some implementation.</title>
             <note role="application"></note>
@@ -671,8 +667,8 @@ Activities assoiated with the TSS.
                    other users.</test>
                    <test>The evaluator shall attempt each function with each role and verify access conforms with the chart in the requirement.</test>
                  </testlist>
-                 <test-obj>This is the motivation behind the tests.</test-obj>
-                 <evidence>A check should appear.</evidence>
+                 <Objective>This is the motivation behind the tests.</Objective>
+                 <Evidence>A check should appear.</Evidence>
                 </Tests>
               </aactivity>
             </f-element>
@@ -908,7 +904,8 @@ Activities assoiated with the TSS.
  					
                 
                 <!-- FAU_ARP.1 -->
-                <f-component cc-id="fau_arp.1" name="Security Audit Automatic Response"  status="optional">
+                <f-component cc-id="fau_arp.1" name="Security Audit Automatic Response" >
+		  <optional/>
                     <f-element id="fel-counter">
                         <title>The TSF shall take <assignable>list of actions</assignable> upon detection of a potential security violation.
                         </title>
@@ -929,7 +926,8 @@ Activities assoiated with the TSS.
 	        </f-component>
                 
                 <!-- FAU_SAA.1 -->
-                <f-component cc-id="fau_saa.1" name="Security Audit Analysis"  status="optional">
+                <f-component cc-id="fau_saa.1" name="Security Audit Analysis">
+		  <optional/>
                     <f-element id="fel-audit-mon">
                         <title>The TSF shall be able to apply a set of rules in monitoring the audited events and based upon these rules indicate a potential violation of the enforcement of the SFRs.
                         </title>
@@ -1450,46 +1448,6 @@ Activities assoiated with the TSS.
     </section>
   </sec:Security_Requirements>
 
-  <!-- 
-       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
-       To make an SFR optional tag it above as status="optional" 
-  -->
-  <appendix title="Optional Requirements" id="optional"> As indicated in <xref to="ccl"/>,
-    the baseline requirements (those that must be performed by the OS) are
-    contained in the body of this PP. Additionally, there are three other types of requirements
-    specified in <xref to="optional"/>, <xref to="sel-based"/>, and <xref to="objective"/>.
-    The first type (in this Appendix) are requirements that can be included
-    in the ST, but are not required in order for a OS to claim conformance to
-    this PP. The second type (in <xref to="sel-based"/>) are requirements based on selections
-    in the body of the PP: if certain selections are made, then additional requirements in that
-    appendix must be included. The third type (in <xref to="objective"/> are components that
-    are not required in order to conform to this PP, but will be included in the baseline
-    requirements in future versions of this PP, so adoption by vendors is encouraged. Note that the
-    ST author is responsible for ensuring that requirements that may be associated with those in
-      <xref to="optional"/>, <xref to="sel-based"/>, and <xref to="objective"/>
-    but are not listed (e.g., FMT-type requirements) are also included in the ST. </appendix>
-
-  <!-- 
-       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
-       To make an SFR optional tag it above as status="sel-based" 
-  -->
-  <appendix title="Selection-Based Requirements" id="sel-based"> As indicated in the introduction to
-    this PP, the baseline requirements (those that must be performed by the OS or its underlying
-    platform) are contained in the body of this PP. There are additional requirements based on
-    selections in the body of the PP: if certain selections are made, then additional requirements
-    below will need to be included. </appendix>
-
-  <!-- 
-       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
-       To make an SFR optional tag it above as /"objective" 
-  -->
-  <appendix title="Objective Requirements" id="objective"> This appendix includes requirements that
-    specify security functionality which also addresses threats. The requirements are not currently
-    mandated in the body of this PP as they describe security functionality not yet widely-available
-    in commercial technology. However, these requirements may be included in the ST such that the
-    OS is still conformant to this PP, and it is expected that they be included as soon as
-    possible. </appendix>
-
   <appendix title="Inherently Satisfied Requirements" id="satisfiedreqs"> This
 	appendix lists requirements that should be considered satisfied by products
 	successfully evaluated against this Protection Profile.  
@@ -1584,47 +1542,42 @@ Activities assoiated with the TSS.
 
   </appendix>
 
-  <!-- Remove this section if an Entropy Assessment is not needed -->
-  <appendix title="References" id="biblio">
-    <bibliography>
-      <entry id="bibCEM">
-        <tag>CEM</tag>
-        <description>
-          <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R4.pdf">Common
-            Evaluation Methodology for Information Technology Security - Evaluation Methodology</h:a>,
-          CCMB-2012-09-004, Version 3.1, Revision 4, September 2012. </description>
-      </entry>
-      <entry id="bibCESG">
-        <tag>CESG</tag>
-        <description>CESG - <h:a
-            href="https://www.gov.uk/government/collections/end-user-devices-security-guidance"> End
-            User Devices Security and Configuration Guidance</h:a></description>
-      </entry>
-      <entry id="bibCSA">
-        <tag>CSA</tag>
-        <description>
-          <h:a href="http://csrc.nist.gov/groups/SMA/ispab/documents/csa_87.txt">Computer Security Act
-            of 1987</h:a>, H.R. 145, June 11, 1987. </description>
-      </entry>
-      <entry id="bibOMB">
-        <tag>OMB</tag>
-        <description>
-          <h:a href="http://www.whitehouse.gov/sites/default/files/omb/memoranda/fy2006/m06-19.pdf"
-            >Reporting Incidents Involving Personally Identifiable Information and Incorporating the
-            Cost for Security in Agency Information Technology Investments</h:a>, OMB M-06-19, July
-          12, 2006. </description>
-      </entry>
-    </bibliography>
-  </appendix>
 
-  <appendix title="Acronyms" id="acronyms">
-   <acronyms/>
-  </appendix>
 
   <implements>
     <feature id="a-feature-id" title="Widget Thing">
       <description> This is a super description of this certain feature.</description>
     </feature>
   </implements>
+  
+  <bibliography>
+    <entry id="bibCEM">
+      <tag>CEM</tag>
+      <description>
+        <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R4.pdf">Common
+        Evaluation Methodology for Information Technology Security - Evaluation Methodology</h:a>,
+      CCMB-2012-09-004, Version 3.1, Revision 4, September 2012. </description>
+    </entry>
+    <entry id="bibCESG">
+      <tag>CESG</tag>
+      <description>CESG - <h:a
+      href="https://www.gov.uk/government/collections/end-user-devices-security-guidance"> End
+      User Devices Security and Configuration Guidance</h:a></description>
+    </entry>
+    <entry id="bibCSA">
+      <tag>CSA</tag>
+      <description>
+        <h:a href="http://csrc.nist.gov/groups/SMA/ispab/documents/csa_87.txt">Computer Security Act
+      of 1987</h:a>, H.R. 145, June 11, 1987. </description>
+    </entry>
+    <entry id="bibOMB">
+      <tag>OMB</tag>
+      <description>
+        <h:a href="http://www.whitehouse.gov/sites/default/files/omb/memoranda/fy2006/m06-19.pdf"
+             >Reporting Incidents Involving Personally Identifiable Information and Incorporating the
+        Cost for Security in Agency Information Technology Investments</h:a>, OMB M-06-19, July
+      12, 2006. </description>
+    </entry>
+  </bibliography>
 
 </PP>
