@@ -57,7 +57,7 @@
            
           <h:li> And here's the audit event table for mandatory requirements. 
            
-			 <xref g="t-audit-mandatory"/> for more information.
+			 <xref to="at-mandatory"/> for more information.
 <!-- 
                  <audit-events table="mandatory"/> -->
           </h:li>
@@ -766,7 +766,7 @@ Activities assoiated with the TSS.
                                 directly.<h:br></h:br>
 				    
 				    							
-			See <xref g="t-audit-mandatory"/> for more information.
+			See <xref to="at-mandatory"/> for more information.
 
 			<!-- AUDIT TABLE for MANDATORY SFRs. This needs to move outside the EAs -->
 <!-- Bob killed this 
