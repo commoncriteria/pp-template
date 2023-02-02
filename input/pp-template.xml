@@ -818,6 +818,13 @@ Activities assoiated with the TSS.
                         <title>The TSF shall be able to [prevent] modifications to the stored audit records in the audit trail.
                         </title>
                         <note role="application">The assurance activity for this SFR is not intended to imply that the TOE must support an administrator’s ability to designate individual audit records for deletion. That level of granularity is not required.</note>
+			<aactivity><elev/>Element-level eas.
+			<Tests>
+			  <testlist>
+			    <test>Do something</test>
+			  </testlist>
+			</Tests>
+			</aactivity>
                         <aactivity>The evaluator shall ensure that the TSS describes how the audit records are protected from unauthorized modification or deletion. The evaluator shall ensure that the TSS describes the conditions that must be met for authorized deletion of audit records. The evaluator shall perform the following tests:<h:br></h:br><h:br></h:br>
                             <Tests>
                                 <testlist>
