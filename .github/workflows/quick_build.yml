@@ -1,4 +1,4 @@
-name: QuickBuild v4.1
+name: QuickBuild v4.4
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     name: Quick Build
     steps:
     - name: Checkout project and transforms
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
 
@@ -37,17 +37,27 @@ jobs:
       
     - name: Quick Build
       run: WARN_PATH="output/SanityChecksOutput.md" make
-
+      
+    - name: Branch Test
+      run: |
+        branchname=$(echo ${GITHUB_REF#refs/heads/})
+        if [[ $branchname =~ [0-9] ]]; then
+          echo "action_is_release=YES" >> $GITHUB_ENV
+        else
+          echo "action_is_release=NO"  >> $GITHUB_ENV
+        fi
+        
       # PDFify
     - name: PDFify
-      if: ${{ env.action_branch != 'master' }}
+      if: ${{ env.action_is_release == 'YES' }}
       run: |
         sudo apt-get install -y wkhtmltopdf xvfb
-        xvfb-run --auto-servernum --server-args='-screen 0, 1024x768x16' /usr/bin/wkhtmltopdf \
-          --enable-local-file-access --javascript-delay 15000 --footer-right '[page]' \
-          file://${PWD}/output/${PWD##*/}.html?expand=on \
-        output/${PWD##*/}-paged.pdf
-
+        cd output
+        for aa in *.html; do
+          xvfb-run --auto-servernum --server-args='-screen 0, 1024x768x16' /usr/bin/wkhtmltopdf \
+            --enable-local-file-access --javascript-delay 15000 --footer-right '[page]' \
+            file://${PWD}/${aa}?expand=on ${aa}.pdf
+        done
 
     - id: validate
       run: |
@@ -94,26 +104,28 @@ jobs:
            ls input/tds/*.xml ; then
           echo "Master branch should not have TDs" >> output/TDValidationReport.txt
         fi
-        if ls input/tds/*.xml; then
-           PP_XML=output/effective.xml PP_RELEASE_HTML=output/AppliedTDs.html make release
-           java -jar ExecuteDaisy-master/*.jar output/*-release.html output/AppliedTDs.html --file=output/AppliedTDs-Diff.html
-        fi
+        PP_XML=output/effective.xml PP_RELEASE_HTML=output/AppliedTDs.html make release
+        java -jar ExecuteDaisy-master/*.jar output/*-release.html output/AppliedTDs.html --file=output/AppliedTDs-Diff.html
 
 
     - name: Set TD badge attributes
       run: |
-        if ls input/tds/*.xml; then
-            echo "action_tdcolor=$(if [ -s output/TDValidationReport.txt ]; then echo orange; else echo green; fi)" >> $GITHUB_ENV
-            echo "action_tdwarns=$(wc -l output/TDValidationReport.txt | { read first rest ; echo $first;} )" >> $GITHUB_ENV
-        else
+        NUM=$(ls input/tds/*.xml | wc -l)
+        if [ $NUM == 0 ]; then
             echo "action_tdcolor=gray" >> $GITHUB_ENV
             echo "action_tdwarns=N/A"  >> $GITHUB_ENV
+            echo "GOING THROUGH HERE $NUM"
+        else
+            echo "action_tdcolor=$(if [ -s output/TDValidationReport.txt ]; then echo orange; else echo green; fi)" >> $GITHUB_ENV
+            echo "action_tdwarns=$NUM:$(wc -l output/TDValidationReport.txt | { read first rest ; echo $first;})" >> $GITHUB_ENV
+            echo "THERE ARE TDs $NUM"
+            
         fi
-        
+      # Not sure what the point of this is
     - name: Validate Effective
       run: |
-        echo "action_tdcolor=$(if [ -s output/TDValidationReport.txt ]; then echo orange; else echo green; fi)" >> $GITHUB_ENV
-        echo "action_tdwarns=$(wc -l output/TDValidationReport.txt | { read first rest ; echo $first;} )"       >> $GITHUB_ENV
+        echo "action_effvalcolor=$(if [ -s output/TDValidationReport.txt ]; then echo orange; else echo green; fi)" >> $GITHUB_ENV
+        echo "action_effvalwarns=$(wc -l output/TDValidationReport.txt | { read first rest ; echo $first;} )"       >> $GITHUB_ENV
 
 
     - name: Prepare environment
@@ -172,10 +184,10 @@ jobs:
 
     - name:  Make Dashboard Snippet
       run: |
-        (
         rurl="https://raw.githubusercontent.com/commoncriteria/${{env.action_projname}}/gh-pages/${{env.action_branch}}"
         surl="https://commoncriteria.github.io/${{env.action_projname}}/${{env.action_branch}}"
         gurl="https://github.com/commoncriteria/${{env.action_projname}}/blob/gh-pages/${{env.action_branch}}"
+        (
         echo '[cols="1,1,1,1,1,1,1,1"]'
         echo '|==='
         echo "8+|${{ env.action_projname }} "
@@ -190,20 +202,56 @@ jobs:
         echo "a|[link=$gurl/TDValidationReport.txt]"
         echo "image::$rurl/tds.svg[TDs]"
         echo "a|image::$rurl/transforms.svg[transforms,150]"
-        echo "a| "
-        for aa in output/*.html output/*.pdf; do
-           echo "$surl/${aa#*/}[${aa#*/}] +"
-        done
+        echo "a| [link=$gurl/HTMLs.adoc]"
+        echo "image::$rurl/html_count.svg[HTML Count]"
+        echo "[link=$gurl/PDFs.adoc]"
+        echo "image::$rurl/pdf_count.svg[PDF Count]"
         echo '|==='
         ) > output/Minidash.adoc
 
+
+    - name: HTML List
+      run: |
+        surl="https://commoncriteria.github.io/${{env.action_projname}}/${{env.action_branch}}"
+        ( for aa in output/*.html ; do
+           echo "* $surl/${aa#*/}[${aa#*/}]"
+        done ) > output/HTMLs.adoc
+        HTML_COUNT=$(wc -l < output/HTMLs.adoc)
+        echo "action_html_count=$HTML_COUNT" >> $GITHUB_ENV
+
+    - name: PDF List
+      run: |
+        surl="https://commoncriteria.github.io/${{env.action_projname}}/${{env.action_branch}}"
+        cd output
+        (for aa in $(find . -name '*.pdf') ; do
+           echo "* $surl/${aa#*/}[${aa#*/}]"
+        done ) > PDFs.adoc
+        PDF_COUNT=$(wc -l < PDFs.adoc)
+        echo "action_pdf_count=$PDF_COUNT" >> $GITHUB_ENV
+
+
+    - name: HTML Badge
+      uses: emibcn/badge-action@v2.0.2
+      with:
+        label: 'HTMLs'
+        status: ${{ env.action_html_count }}
+        color:  gray
+        path: output/html_count.svg
+
+    - name: PDF Badge
+      uses: emibcn/badge-action@v2.0.2
+      with:
+        label: 'PDFs'
+        status: ${{ env.action_pdf_count }}
+        color:  gray
+        path: output/pdf_count.svg
 
         
     - name:  Prepare checkout
       run: |
         mkdir gh-pages
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: gh-pages
@@ -230,5 +278,3 @@ jobs:
       with:
         branch: gh-pages # The branch the action should deploy to.
         folder: gh-pages # The folder the action should deploy.
-
-        
