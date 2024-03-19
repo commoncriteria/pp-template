@@ -1,33 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
-<PP  boilerplate='yes' target-product="foobar"
-    xmlns="https://niap-ccevs.org/cc/v1"
-    xmlns:cc="https://niap-ccevs.org/cc/v1"
+<!-- for a PP or Functional Package -->
+<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCProtectionProfile.rng" 
+	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<!-- for a PP-module -->
+<!-- <?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" 
+                  schematypens="http://relaxng.org/ns/structure/1.0"?>
+-->
+
+<!-- For PP or cPP -->
+<PP xmlns="https://niap-ccevs.org/cc/v1"
+    xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:sec="https://niap-ccevs.org/cc/v1/section"
-    xmlns:h="http://www.w3.org/1999/xhtml">
+    target-product="Widget"                           <!-- Name of the TOE product  -->
+    target-products="Widgets"                         <!-- Plural name of the TOE product (optional)  -->
+    boilerplate="yes"                                 <!-- Whether to use boilerplate text by default (can be disabled in sections) -->
+    short="Wid">                                      <!-- A short name for the PP (e.g. App or MDF) -->
 
-  <!-- <comment color='green'> Hello World QQQQ </comment> -->
-  <!-- <comment color='blue' linebreak='yes'> Hello World QQQQ </comment> -->
+<!--    <cPP/>    -->                                 <!-- This empty element must be included here if this is a cPP. It must not be here if it is not.  -->
+
+<!-- for FP -->
+<!--
+<Package name="TLS"                                   
+    xmlns="https://niap-ccevs.org/cc/v1"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+-->
+
+<!-- For a PP-Module 
+<Module
+    name="Widget Clients"                              # Name of the Module  
+    xmlns="https://niap-ccevs.org/cc/v1"               # Some html magic
+    xmlns:h="http://www.w3.org/1999/xhtml"             # uses the "h" namespace for inline HTML
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"   # The "sec" namespace for sections is available
+    target-product="Widget"                            # Name of the TOE product
+    target-products="Widgets"                          # Plural name of the TOE product (optional)
+    boilerplate="yes"                                  # Whether to use boilerplate text by default (can be disabled in sections)
+    short="Wid">                                       # A short name for the PP (e.g. App or MDF)
+-->
+
+  <!-- PPReference (all documents) -->
   <PPReference>
     <ReferenceTable>
       <PPTitle>Protection Profile for QQQQ</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2015-08-14</PPPubDate>
-      <Keywords>QQQQ</Keywords>
+      <Keywords>QQQQ</Keywords>               <!-- This field is unused and optional -->
     </ReferenceTable>
   </PPReference>
 
+<!-- Revision History (all documents) -->
   <RevisionHistory>
     <entry>
       <version>Round 1</version>
       <date>2015-04-23</date>
       <subject>First draft of version 1.0 for comment</subject>
     </entry>
-  </RevisionHistory>
-
-  <RevisionHistory>
     <entry>
       <version>1.0</version>
       <date>2015-08-14</date>
@@ -35,13 +66,15 @@
     </entry>
   </RevisionHistory>
 
+<!-- Included Packages (all documents) (optional) -->
+<!-- One entry for each package -->
     <include-pkg id="tls">
       <git>
-	<url>https://github.com/commoncriteria/tls</url>
-	<branch>release-1.1</branch>
+	    <url>https://github.com/commoncriteria/tls</url>  <!-- url of github repo -->
+	    <branch>release-1.1</branch>                      <!-- github branch of published version -->
       </git>
-      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
-               <depends on="pizza"/>
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>  <!-- url of published document on NIAP site -->
+      <depends on="pizza"/>     <!-- If package inclusion is dependent on something. Absent if package inclusion is mandatory -->
 	</include-pkg>
 	    
 	<include-pkg id="ssh">
@@ -52,141 +85,132 @@
 	  <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
    </include-pkg>	
 
+<!-- Modules (optional). A properly constructed PP does not need this section. -->
+<!-- It is abomination that PPs refer to Modules. This should never happen. -->
+<!-- But this is how it is done. But don't do it.  -->
+<!--
+   <modules required="yes">
+      <module id="client-virt">
+		<git>
+			<url>https://github.com/commoncriteria/clientvirtualization</url>
+			<branch>master</branch>
+		</git>
+        <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=409&amp;id=409</url> 
+	  </module>
+      <module id="server-virt">
+		<git>
+			<url>https://github.com/commoncriteria/servervirtualization</url>
+			<branch>master</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=410&amp;id=410</url>
+	  </module>
+   </modules>
+-->
 
-  <sec:Introduction>
-    <section title="Overview" id="ppoverview">
-      Content added 11 Feb 2021: 1307pm.
-      Content added 11 Feb 2021: 1249pm.
-      &#x3A3;      
+<!-- PP Preferences (all documents) -->
+<pp-preferences>
+     <!-- Indicate that audit events are defined with their SFRs -->
+	 <!-- All new documents should do it this way. This will become the default, if it hasn't already.  -->
+	 <!-- And this preference might not even be necessary. I should test it. -->
+     <audit-events-in-sfrs/>         
+	 
+	 <!-- Indicates that audit events will be displayed along the associated SFR in the published document -->
+	 <!-- rather than in an audit table. -->
+<!--     <display-audit-with-sfrs/>     -->
 
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <table class="classic">
-           <thead><caption>Table Caption</caption>
-           <tr><th></th><th>Column 1</th><th>Column 2</th></tr></thead>
-<tbody>
-<tr><th>Row 1</th><td>Data 1 </td><td> Data 2</td></tr>
-<tr><th>Row 2</th><td rowspan="2">Data 3 </td><td> Data 4</td></tr>
-<tr><th>Row 2</th><td> Data 7</td></tr>
-<tr><th>Row 3</th><td colspan="2">Data 5 </td></tr>
-</tbody>
-</table>
-</div>
-      The scope of this Protection Profile (PP) is to
-      describe the security functionality of QQQQ products in terms of <xref g='CC'/>
-      and to define functional and assurance requirements for such products.
-      <choice>An operating system is software that manages computer hardware and software
-      resources, and provides common services for application programs. The hardware
-      it manages may be <selectables><selectable id="physical">physical</selectable>
-		                             <selectable id="virtual">virtual</selectable><selectable id="imgi">imaginary</selectable></selectables>.</choice>
-      <h:div> Something</h:div>
-      <h:p> This is going to show some tests:
- 	<h:ul>
-	  <h:li> Terms with abbrs like ASLR, or API, should be found a linked automatically.</h:li>
-          <h:li> And components can be refered to by their name: FQQ_QQQ.1 </h:li>
-          <h:li> And so can requirements: FQQ_QQQ.1.1 or by their unique identifier: <xref to="a-unique-id"/></h:li>
- 
-   	  <h:li> Or you can stop them <no-link>ASLR</no-link> </h:li>
-          <h:li> This is how you do a picture: 
-                <figure entity="images/niaplogo.png" title="Niap's Logo " id="fig-logo"/> </h:li>
-          <h:li> And this is how you reference it: <xref to="fig-logo"/></h:li>
-          <h:li> This is how you do an equation with an arbitrary counter:  
-              <equation id="quadeq">x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}</equation>
-
-</h:li> 
-          <h:li> And this is how you reference it: <xref to="quadeq"/> </h:li>
-          <h:li> <h:div><depends on="aaa"/> 
-                    Some text </h:div> </h:li> 
-			<h:li> <h:div><depends on="a-feature-id"/>
-                    Someting dependent on a feature</h:div> </h:li> 
-           
-          <h:li> And here's the audit event table for mandatory requirements. 
-           
-			 <xref g="t-audit-mandatory"/> for more information.
-<!-- 
-                 <audit-events table="mandatory"/> -->
-          </h:li>
-          <h:li> Test for an xref to section <xref to="Threats"/> </h:li>
-        </h:ul>
-        And this is another sentence (or fragment). I added this sentence and deleted the next one. 
-		This uses the plural acronym OSes. 
-      </h:p>
-      <h:p> And here's a generic coutner 
-                       <ctr id="c-abc" ctr-type="Abc ">: Some Words</ctr>
-      </h:p>
-      <h:p>
-        And here's the reference to it <xref to="c-abc"/>.
-      </h:p>
- 
+	 <!-- Indicates that the document is using CC:2022. -->
+	 <!-- This setting has already been deprecated, but is still allowed for backward compatiblity -->
+	 <!-- New douments shoudl use the <CClaimsInfo> element to specify CC:2022 --> 
+     <using-cc2022/>     
+  </pp-preferences>
 
 
-    </section>
-    <tech-terms>
-      <suppress>  ,Base Protection Profile,
-               ,Common Criteria</suppress>
+  <!-- Introduction (all documents) -->
+  <section title="Introduction" id="sec-intro">
+
+    <!-- PP or TOE Overview -->
+
+    <section title="PP Overview" id="sec-ppoverview">
+
+		<!-- ...the PP overview briefly describes the usage of the TOE and its major security features,
+    	identifies the TOE type, and identifies any major non-TOE hardware/software/firmware available
+		to the TOE.
+		-->   
+
+	</section>  <!-- PP Overview -->
+	
+	<!-- CC and Tech terms.  -->
+	<!-- CC terms are auto-generated -->
+	<!-- All tech terms are generated from the list below. -->
+	<!-- You should add and delete tech terms as required by the technology type. -->
+	<tech-terms>
+	  <!-- To remove an irrlevant CC term from the document, use the <suppress> element -->
+      <suppress>Distributed TOE</suppress>   
+
       <term abbr='AES' full="Advanced Encryption Standard"/>
       <term abbr='API' full="Application Programming Interface"/>
       <term full="Address Space Layout Randomization" abbr="ASLR">
-	An anti-exploitation feature which loads memory mappings into unpredictable
-	locations. ASLR makes it more difficult for an attacker to redirect control to code
-	that they have introduced into the address space of a process.
+		An anti-exploitation feature which loads memory mappings into unpredictable
+		locations. ASLR makes it more difficult for an attacker to redirect control to code
+		that they have introduced into the address space of a process.
       </term>
       <term full="Administrator">
-	An administrator is responsible for management activities, including setting policies that are 
-	applied by the enterprise on the operating system.
-	This administrator could be acting remotely through a management server, from which the system
-	receives configuration policies.
-	An administrator can enforce settings on the system which cannot be overridden by non-administrator users.
+		An administrator is responsible for management activities, including setting policies that are 
+		applied by the enterprise on the operating system.
+		This administrator could be acting remotely through a management server, from which the system
+		receives configuration policies.
+		An administrator can enforce settings on the system which cannot be overridden by non-administrator users.
       </term>
       <term full="Application" abbr="app">
-	Software that runs on a platform and performs tasks on behalf of the user
-	or owner of the platform, as well as its supporting documentation. 
+		Software that runs on a platform and performs tasks on behalf of the user
+		or owner of the platform, as well as its supporting documentation. 
       </term>
       <term full="Application Programming Interface" abbr="API">
-	A specification of routines, data structures, object classes, and variables
-	that allows an application to make use of services provided by another software
-	component, such as a library. APIs are often provided for a set of libraries included
-	with the platform.
+		A specification of routines, data structures, object classes, and variables
+		that allows an application to make use of services provided by another software
+		component, such as a library. APIs are often provided for a set of libraries included
+		with the platform.
       </term>
       <term abbr='CESG' full="Communications-Electronics Security Group"/>
       <term abbr='CMC' full="Certificate Management over CMS"/>
       <term abbr='CMS' full="Cryptographic Message Syntax"/>
       <term abbr='CN' full="Common Names"/>
       <term full="Credential">
-	Data that establishes the identity of a user, e.g. a cryptographic key or
-	password.
+		Data that establishes the identity of a user, e.g. a cryptographic key or
+		password.
       </term>
       <term abbr='CRL' full="Certificate Revocation List"/>
       <term abbr='CSA' full="Computer Security Act"/>
       <term full="Critical Security Parameters" abbr="CSP">
-	Information that is either user or system defined and
-	is used to operate a cryptographic module in processing encryption functions including
-	cryptographic keys and authentication data, such as passwords, the disclosure or modification
-	of which can compromise the security of a cryptographic module or the security of the
-	information protected by the module.
+		Information that is either user or system defined and
+		is used to operate a cryptographic module in processing encryption functions including
+		cryptographic keys and authentication data, such as passwords, the disclosure or modification
+		of which can compromise the security of a cryptographic module or the security of the
+		information protected by the module.
       </term>
       <term full="Data At Rest" abbr="DAR" />
       <term full="DAR Protection">
-	Countermeasures that prevent attackers, even those with physical access,
-	from extracting data from non-volatile storage.
-	Common techniques include data encryption and wiping.
+		Countermeasures that prevent attackers, even those with physical access,
+		from extracting data from non-volatile storage.
+		Common techniques include data encryption and wiping.
       </term>
       <term full="Data Execution Prevention" abbr="DEP">
-	An anti-exploitation feature of modern operating systems executing on
-	modern computer hardware, which enforces a non-execute permission on pages of memory.
-	DEP prevents pages of memory from containing both data and instructions, which makes
-	it more difficult for an attacker to introduce and execute code.
+		An anti-exploitation feature of modern operating systems executing on
+		modern computer hardware, which enforces a non-execute permission on pages of memory.
+		DEP prevents pages of memory from containing both data and instructions, which makes
+		it more difficult for an attacker to introduce and execute code.
       </term>
       <term abbr='DES' full="Data Encryption Standard"/>
       <term full="Developer">
-	An entity that writes OS software. For the purposes of this document,
-	vendors and developers are the same.
+		An entity that writes OS software. For the purposes of this document,
+		vendors and developers are the same.
       </term>
       <term full="General Purpose Operating System">
-	A class of OSes designed to support a wide-variety of workloads consisting of many concurrent applications or services.
-	Typical characteristics for OSes in this class include support for third-party applications,
-	support for multiple users, and security separation between users and their respective resources.
-	General Purpose Operating Systems also lack the real-time constraint that defines Real Time Operating Systems (RTOS).
-	RTOSes typically power routers, switches, and embedded devices.
+		A class of OSes designed to support a wide-variety of workloads consisting of many concurrent applications or services.
+		Typical characteristics for OSes in this class include support for third-party applications,
+		support for multiple users, and security separation between users and their respective resources.
+		General Purpose Operating Systems also lack the real-time constraint that defines Real Time Operating Systems (RTOS).
+		RTOSes typically power routers, switches, and embedded devices.
       </term>
       <term abbr='DHE' full="Diffie-Hellman Ephemeral"/>
       <term abbr='DNS' full="Domain Name System"/>
@@ -201,8 +225,8 @@
       <term abbr='FIPS' full="Federal Information Processing Standards"/>
       <term abbr='HMAC' full="Hash-based Message Authentication Code"/>
       <term full="Host-based Firewall">
-	A software-based firewall implementation running on the OS for filtering inbound and
-	outbound network traffic to and from processes running on the OS.
+		A software-based firewall implementation running on the OS for filtering inbound and
+		outbound network traffic to and from processes running on the OS.
       </term>
       <term abbr='HTTP' full="Hypertext Transfer Protocol"/>
       <term abbr='HTTPS' full="Hypertext Transfer Protocol Secure"/>
@@ -218,9 +242,9 @@
       <term abbr='OID' full="Object Identifier"/>
       <term abbr='OMB' full="Office of Management and Budget"/>
       <term full="Operating System" abbr="OS" plural="OSes">
-	Software that manages physical and logical resources and provides services
-	for applications. The terms <h:i>TOE</h:i> and <h:i>OS</h:i> are interchangeable in this
-	document. 
+		Software that manages physical and logical resources and provides services
+		for applications. The terms <h:i>TOE</h:i> and <h:i>OS</h:i> are interchangeable in this
+		document. 
       </term>
       <term abbr='PKI' full="Public Key Infrastructure"/>
       <term abbr='PP' full="Protection Profile"/>
@@ -229,21 +253,21 @@
       <term abbr='RNG' full="Random Number Generator"/>
       <term abbr='RNGVS' full="Random Number Generator Validation System"/>
       <term full="Personally Identifiable Information" abbr="PII">
-	Any information about an individual maintained by an agency, including, but
-	not limited to, education, financial transactions, medical history, and criminal or
-	employment history and information which can be used to distinguish or trace an
-	individual's identity, such as their name, social security number, date and place of
-	birth, mother's maiden name, biometric records, etc., including any other personal
-	information which is linked or linkable to an individual.<xref to="bibOMB"/>
+		Any information about an individual maintained by an agency, including, but
+		not limited to, education, financial transactions, medical history, and criminal or
+		employment history and information which can be used to distinguish or trace an
+		individual's identity, such as their name, social security number, date and place of
+		birth, mother's maiden name, biometric records, etc., including any other personal
+		information which is linked or linkable to an individual.<xref to="bibOMB"/>
       </term>
       <term abbr='SAN' full="Subject Alternative Name"/>
       <term abbr='SHA' full="Secure Hash Algorithm"/>
       <term abbr='S/MIME' full="Secure/Multi-purpose Internet Mail Extensions"/>
       <term full="Sensitive Data">
-	Sensitive data may include all user or enterprise data or may be specific
-	application data such as PII, emails, messaging, documents, calendar items, and contacts.
-	Sensitive data must minimally include credentials and keys. Sensitive data shall
-	be identified in the OS's TSS by the ST author. 
+		Sensitive data may include all user or enterprise data or may be specific
+		application data such as PII, emails, messaging, documents, calendar items, and contacts.
+		Sensitive data must minimally include credentials and keys. Sensitive data shall
+		be identified in the OS's TSS by the ST author. 
       </term>
       <term abbr='SIP' full="Session Initiation Protocol"/>
       <term abbr='SWID' full="Software Identification"/>
@@ -252,48 +276,164 @@
       <term abbr='URL' full="Uniform Resource Locator"/>
       <term abbr='USB' full="Universal Serial Bus"/>
       <term full="User">
-	A user is subject to configuration policies applied
-	to the operating system by administrators.  On some systems under certain
-	configurations, a normal user can temporarily elevate privileges to that of an administrator.
-	At that time, such a user should be considered an administrator.
+		A user is subject to configuration policies applied
+		to the operating system by administrators.  On some systems under certain
+		configurations, a normal user can temporarily elevate privileges to that of an administrator.
+		At that time, such a user should be considered an administrator.
       </term>
 	  <term abbr="VM" full="Virtual Machine">Blah Blah Blah</term>
       <term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
       <term abbr='XOR' full="Exclusive Or"/>
     </tech-terms>    
-    <section title="Compliant Targets of Evaluation" id="TOEdescription">
+
+	<!-- Other sections can be added here. -->
+	<!-- Commen examples include Scope of Document, Intended Audiance, Compliant Targets of Evaluation,
+	     TOE Boundary, TOE Operational Environment, and Roles. These sections can also be included in the
+		 TOE/PP Overview aove. -->
+    <section title="Compliant Targets of Evaluation" id="sec-TOEdescription">
       <section title="TOE Boundary" id="TOEboundary">
         <figure entity="images/Toe.png" title="General TOE " id="toe"/>
       </section>
-      <section title="TOE Platform" id="TOEplatform">
+      <section title="TOE Platform" id="sec-TOEplatform">
       </section>
-    </section>
-    <section title="Use Cases" id="usecases">Requirements in this Protection Profile are designed to
-      address the security problems in at least the following use cases. These use cases are intentionally
-      very broad, as many specific use cases exist for an operating system. These use cases may also
-      overlap with one another.  An operating system's functionality may even be effectively extended by
-      privileged applications installed onto it.  However, these are out of scope of this PP. 
+    </section>  <!-- Compliant TOEs -->
+
+	<!-- Use Cases (optional) -->
+    <section title="Use Cases" id="sec-usecases">
       <usecases>
-      <usecase title="Elephant-own device" id="elephant">
-        <description>This is everything we need to describe in words about this use case.</description>	
-	  <config>
-                <ref-id>soup</ref-id><not><ref-id>ratatouille</ref-id><ref-id>pizza</ref-id></not>
+		<!-- Each use case followed by an optional set of selections or restrictions --> 
+		<usecase title="Elephant-own device" id="elephant">
+			<description>This is everything we need to describe in words about this use case.</description>	
+			<!-- The restrictions and selections associated with this use case -->
+			<config>
+                <ref-id>soup</ref-id>
+				<not><ref-id>ratatouille</ref-id><ref-id>pizza</ref-id></not>
                 <not><ref-id>table2</ref-id></not> <!-- This says you can't choose this selectable-->
-                <ref-id>optional-comp-example</ref-id><!-- Inclusion of an optional/objective requirement -->
+                <ref-id>optional-comp-example</ref-id> <!-- Inclusion of an optional/objective requirement -->
                 <not><ref-id>t-network-eavesdrop</ref-id></not>
                 <restrict><ref-id>a-widgets</ref-id>Number <int gte="4" lte="6"/></restrict>
-	  </config>
-      </usecase>
+			</config>
+		</usecase>
       </usecases>
-    </section>
-  </sec:Introduction>
+    </section>  <!-- Use Cases -->
 
-  <sec:cclaims title="Conformance Claims"/>
-  <sec:spd title="Security Problem Description">The security problem is described in terms
-    of the threats that the OS is expected to address, assumptions about the
-    operational environment, and any organizational security policies that the OS
+    <!-- Platform definitions (optional) -->
+	<!-- Currently only the App PP uses this. And that's probably the only one that will. -->
+	<section title="Platforms with Specific EAs" id="sec-platforms">
+		<choice prefix="Platforms:" >
+			This PP includes platform-specific EAs for the below-listed operating system platforms. For "bare-metal" applications, 
+			applications that run on other OS platforms, and applications that run in software-based execution environments contact the
+			Technical Community for guidance.<h:p/>
+		  <selectables linebreak="yes">
+			<selectable id="android"><h:b><snip>Android</snip></h:b>: <h:i>Mobile operating systems based on Google Android.</h:i></selectable>
+			<selectable id="windows"><h:b><snip>Microsoft Windows</snip></h:b>: <h:i>Microsoft Windows operating systems.</h:i></selectable>
+			<selectable id="ios"><h:b><snip>Apple iOS</snip></h:b>: <h:i>Apple's mobile operating system for iPhones.</h:i></selectable>
+			<selectable id="linux"><h:b><snip>Linux</snip></h:b>: <h:i>Linux-based operating systems other than Android.</h:i></selectable>
+			<selectable id="Solaris"><h:b><snip>Oracle Solaris</snip></h:b>: <h:i>Oracle's enterprise operating system.</h:i></selectable>
+			<selectable id="mac"><h:b><snip>Apple macOS</snip></h:b>: <h:i>Apple's operating system for MACs.</h:i></selectable>
+		  </selectables> 
+		</choice>
+	</section>   <!-- Platforms -->
+	
+
+	<!-- Product Features. Required if there are implementation-dependent requirements. -->
+	<!-- These are the product features that are defined in order to support implementation-dependent requirements. -->
+	<section title="Product Features Mapped to Implementation-dependent Requirements" id="sec-features">
+		The feature(s) enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
+		<implements>
+			<feature id="feat-test1" title="Test Feature 1">
+				<description>Description of test feature one.</description>
+			</feature>
+			<feature id="feat-test2" title="Test Feature 2">
+				<description>Description of test feature two.</description>
+			</feature>
+		</implements>			
+	</section>   <!-- Features -->
+	
+	<!-- Other sections can be added here. -->
+<!--
+    <section title="Yet Another Section" id="sec-yetanother">
+    </section>
+-->	
+  </section>   <!-- Introduction  -->
+
+
+  <!-- Conformance Claims Section -->
+  <!-- New conformance claims section for CC:2022. -->
+  <!-- If boilerplate is "yes" something that is probably incorrect is generated -->
+  <section title="Conformance Claims" id="sec-cclaims" boilerplate="no">
+
+	<CClaimsInfo 
+		cc-version="cc-2022r1"         <!-- CC Version: cc-2022r1 or cc-31r5   -->
+		cc-approach="standard"         <!-- Approach: standard or direct-rationale  -->
+		display="yes">                 <!-- Should this info be displayed in the Conformance -->
+		                               <!-- Claims section? If no, you have to write a free-form section -->
+
+		<!-- Conformance for STs: exact, strict, or demonstrable -->
+		<cc-st-conf>exact</cc-st-conf>                  
+
+		<!-- Part 2 & 3 conformance (extended or conformant) -->
+		<cc-pt2-conf>extended</cc-pt2-conf>           
+		<cc-pt3-conf>extended</cc-pt3-conf>           
+
+		<!-- Claims conformance to these other PPs (none)-->
+		<cc-pp-conf/>              		  
+		
+		<!-- Can be in a configuration with these PPs and Modules -->
+		<cc-pp-config-with>             
+	        <PP-cc-ref>Protection Profile for Mobile Device Management Version 4.0</PP-cc-ref>
+			<Mod-cc-ref>PP-Module for File Encryption, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for VPN Clients, Version 2.2</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for VPN Clients, Version 2.3</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for VPN Clients, Version 2.4</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Endpoint Detection and Response, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Host Agent, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Voice and Video over IP (VVoIP), Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Email Clients, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Web Browsers, Version 1.0</Mod-cc-ref>
+			<Mod-cc-ref>PP-Module for Redaction Tools, Version 1.0</Mod-cc-ref>
+		</cc-pp-config-with>
+
+		<!-- Package claims -->
+		<cc-pkg-claim>
+			<FP-cc-ref conf="conformant">Functional Package for TLS Version 1.1</FP-cc-ref>
+			<FP-cc-ref conf="conformant">Functional Package for TLS Version 2.0</FP-cc-ref>
+			<FP-cc-ref conf="conformant">Functional Package for SSH Version 1.0</FP-cc-ref>
+			<AP-cc-ref conf="conformant">Assurance Package that Doesn't exist</AP-cc-ref>
+		</cc-pkg-claim>
+
+		<!-- Evaluation Methods (optional) -->
+		<cc-eval-methods">
+			<EM-cc-ref>Name of document</EM-cc-ref>
+		</cc-eval-methods>
+		
+		<!-- Additional information to be added to the end of the Conformance Claims section (optional) -->
+		<cc-claims-addnl-info>
+			All security requirements in these claimed functional packages are intended to satisfy 
+			the O.PROTECTED_COMMS TOE security objective of this PP.
+		</cc-claims-addnl-info>
+
+	</CClaimsInfo>
+  </section>  <!-- Conformance Claims -->
+  
+
+  
+  <section title="Security Problem Definition" id="sec-spd">
+  
+    <!-- Arbitrary introductory text -->
+	The security problem is described in terms of the threats that the OS is expected to address, 
+	assumptions about the operational environment, and any organizational security policies that the OS
     is expected to enforce.
-    <sec:Threats>
+
+
+    <section title="Threats" id="sec-threats">
+	
+		<!-- If using the standard approach, each threat references one of more Objectives -->
+		<!-- using the <objective-refer> tag.   -->
+		<!-- If using direct rationale, each threat references the SFRs that address the threat -->
+		<!-- using the <addressed-by> tag.  -->
+
       <threats>
         <threat name="T.NETWORK_ATTACK">
           <description> An attacker is positioned on a communications channel or elsewhere on the
@@ -308,16 +448,15 @@
             <rationale>The threat T.NETWORK_ATTACK is countered by O.INTEGRITY as this provides for
               integrity of software that is installed onto the system from the network.</rationale>
           </objective-refer>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.MANAGEMENT as this provides for
-              the ability to configure the OS to defend against network attack.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.ACCOUNTABILITY">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.ACCOUNTABILITY as this
-              provides a mechanism for the OS to report behavior that may indicate a network
-              attack has occurred.</rationale>
-          </objective-refer>
+
+		  <!-- For direct rationale, use the following format instead of <objective-refer> -->
+<!--          <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+          <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+          <addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+          <addressed-by>FPT_TUD_EXT.2</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+-->		  
         </threat>
+
         <threat name="T.NETWORK_EAVESDROP" id="t-network-eavesdrop">
           <description> An attacker is positioned on a communications channel or elsewhere on the
             network infrastructure. Attackers may monitor and gain access to data exchanged between
@@ -331,34 +470,22 @@
               for the ability to configure the OS to protect the confidentiality of its transmitted
               data.</rationale>
           </objective-refer>
-        </threat>
-        <threat name="T.LOCAL_ATTACK">
-          <description> An attacker may compromise applications running on the OS. The
-            compromised application may provide maliciously formatted input to the OS through a
-            variety of channels including unprivileged system calls and messaging via the
-            file system. </description>
-          <objective-refer ref="O.INTEGRITY">
-            <rationale>The objective O.INTEGRITY protects against the use of mechanisms that weaken
-              the TOE with regard to attack by other software on the
-              platform.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.ACCOUNTABILITY">
-            <rationale>The objective O.ACCOUNTABILITY protects against local attacks by providing
-              a mechanism to report behavior that may indicate a local attack is occurring or
-              has occurred.</rationale>
-          </objective-refer>
-        </threat>
-        <threat name="T.LIMITED_PHYSICAL_ACCESS">
-          <description> An attacker may attempt to access data on the OS while having a limited
-            amount of time with the physical device. </description>
-          <objective-refer ref="O.PROTECTED_STORAGE">
-            <rationale>The objective O.PROTECTED_STORAGE protects against unauthorized attempts to
-              access physical storage used by the TOE.</rationale>
-          </objective-refer>
+		  
+<!--            <addressed-by>FCS_COP.1/HASH</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+            <addressed-by>FCS_COP.1/SIGN</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+            <addressed-by>FCS_COP.1/KEYHMAC</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+            <addressed-by>FPT_ACF_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+            <addressed-by>FPT_SRP_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+            <addressed-by>FIA_X509_EXT.1</addressed-by><rationale>How the SFR addresses the threat.</rationale>
+-->		  
         </threat>
       </threats>
-    </sec:Threats>
-    <section title="Assumptions" id="assumptions">
+    </section>  <!-- Threats -->
+	
+	<!-- Assumptions refer to operational objective objectives regardless of whether -->
+	<!-- the document uses standard or direct rationale. -->
+	
+    <section title="Assumptions" id="sec-assumptions">
       <assumptions>
         <assumption name="A.PLATFORM">
           <description> The OS relies upon a trustworthy computing platform for
@@ -378,17 +505,11 @@
               A.PROPER_USER.</rationale>
           </objective-refer>
         </assumption>
-        <assumption name="A.PROPER_ADMIN">
-          <description> The administrator of the OS is not careless, willfully negligent or hostile,
-            and administers the OS within compliance of the applied enterprise security policy. </description>
-          <objective-refer ref="OE.PROPER_ADMIN">
-            <rationale>The operational environment objective OE.PROPER_ADMIN is realized through
-              A.PROPER_ADMIN.</rationale>
-          </objective-refer>
-        </assumption>
-      </assumptions>
-    </section>
-<!--    <section title="Organizational Security Policies" id="OSPs">
+    </section>   <!-- Assumptions -->
+	
+	<!-- OSPs refer to Objectives or OE Objectives in standard approach documents. -->
+	<!-- In direct rationale PPs, they should refer to OE Objectives -->
+    <section title="Organizational Security Policies" id="sec-OSPs">
       <OSPs>
         <OSP id="P.ENTERPRISE">
           <description>If the OS is bound to a directory or management server, the configuration of
@@ -401,9 +522,22 @@
           </objective-refer>
         </OSP>
       </OSPs>
-    </section> -->
-  </sec:spd>
-  <sec:Security_Objectives>
+    </section>   <!-- OSPs -->
+	
+	<!-- If there are no OSPs, then this: -->
+<!--	<section title="Organizational Security Policies" id="sec-osp" boilerplate="no">
+        <OSPs/>
+    </section> 
+-->
+	
+  </section>  <!-- Security Problem Definition -->
+  
+  
+  <!-- This section is mandatory for standard approach documents.   -->
+  <!-- It should be included in direct rationale documents if there are OE Objectives. -->
+  <section title="Security Objectives" id="sec-objectives">
+  
+	<!-- This section is omitted for direct rationale documents -->
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
       <SOs>
         <SO name="O.ACCOUNTABILITY">
@@ -425,18 +559,6 @@
             <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale>For reasons </rationale>
             <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale>ASLR For reasons </rationale>
             <addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_TUD_EXT.2</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/HASH</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/SIGN</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/KEYHMAC</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_ACF_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_SRP_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_X509_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_TST_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_W^X_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_AFL.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_UAU.5</addressed-by><rationale>For reasons </rationale>
         </SO>
         <SO name="O.MANAGEMENT">
           <description> To facilitate management by users and the enterprise, conformant OSes
@@ -450,41 +572,12 @@
             <addressed-by>FTA_TAB.1</addressed-by><rationale>For reasons </rationale>
             <addressed-by>FTP_TRP.1</addressed-by><rationale>For reasons </rationale>
         </SO>
-	<!-- <SO id="O.RESILIENCE"> -->
-	<!--   <description>  -->
-	<!--     To address the issue of exploitation in the event of software vulnerabilities,  -->
-	<!--     conformant OSs employ industry-standard exploitation countermeasures. -->
-	<!--   </description> -->
-	<!-- </SO> -->
-        <SO name="O.PROTECTED_STORAGE">
-          <description>
-To address the issue of loss of confidentiality of credentials in the event of
-loss of physical control of the storage medium, conformant OSes
-provide data-at-rest protection for credentials.
-Conformant OSes also provide access controls which allow users to keep their files private from other
-users of the same system.
-          </description>
-          <addressed-by>FCS_STO_EXT.1, FCS_RBG_EXT.1, FCS_COP.1/ENCRYPT, FDP_ACF_EXT.1</addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
-        </SO>
-        <SO name="O.PROTECTED_COMMS">
-          <description> To address both passive (eavesdropping) and active (packet modification)
-            network attack threats, conformant OSes provide mechanisms to create
-            trusted channels for CSP and sensitive data. Both CSP and sensitive data
-            should not be exposed outside of the platform. </description>
-          <addressed-by>
-            FCS_RBG_EXT.1, FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1/ENCRYPT,
-            FCS_COP.1/HASH, FCS_COP.1/SIGN, FCS_COP.1/HMAC, FDP_IFC_EXT.1, FIA_X509_EXT.1,
-            FIA_X509_EXT.2, FTP_ITC_EXT.1
-          </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
-        </SO>
       </SOs>
-    </section>
-    <section title="Security Objectives for the Operational Environment"
-      id="SecurityObjectivesTOEorEnvironment">The following security objectives for the operational
-      environment assist the OS in correctly providing its security functionality.
-      These track with the assumptions about the environment. <SOEs>
+    </section>  <!-- Security Objectives for the TOE -->
+
+	<!-- This section is included in direct rationale documents if there are OE Objectives -->
+    <section title="Security Objectives for the Operational Environment" id="sec-OEObjectives">
+	  <SOEs>
         <SOE name="OE.PLATFORM">
           <description>The OS relies on being installed on trusted
             hardware.</description>
@@ -501,11 +594,15 @@ users of the same system.
             negligent or hostile, and administers the OS within compliance of the applied enterprise
             security policy. </description>
         </SOE>
-      </SOEs></section>
-    <section title="Security Objectives Rationale" id="SOR">
-      <!-- This section is populated by boilerplates.xsl in transforms. -->
-      </section>
-  </sec:Security_Objectives>
+      </SOEs>
+	</section>  <!-- OE Objectives -->
+
+	<!-- This section is automatically generated, but this placeholder is reuired -->
+    <section title="Security Objectives Rationale" id="sec-sor"/>
+
+  </section>  <!-- Security_Objectives  -->
+
+
 
   <sec:Security_Requirements>
     <sec:SFRs title="Security Functional Requirements">
