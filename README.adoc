@@ -27,37 +27,37 @@ cd pp-template.git
 
 . Push the pp-template contents into your new repo
 
-````
+```
 # Mirror-push to the new repository (where widget is the name of
 # the repo you created in step 1).
 # In Git Extensions use the Console to do this.
 git push --mirror http://github.com/commoncriteria/widget.git
-````
+```
 
 . Optionally remove the local copy of the pp-template repo
 
-````
+```
 cd ..
 rm -rf pp-template.git
-....
+...
 
 [arabic, start=3]
 . Do a full clone of your new project
 
-````
+```
 git clone --recursive http://github.com/commoncriteria/widget.git
 
 # Or use Git Extensions to clone the repo
-````
+```
 
 . Rename your local copy of the main XML file in the input directory
 from pp-template.xml to widget.xml (or whatever the name of your project is).
 +
 If something was the project name it would be,
 +
-....
+```
 git mv input/pp-template.xml input/something.xml
-....
+```
 
 . If creating a PP-Module rename Module.make to Makefile
 otherwise rename ProtectionProfile.make to Makefile and delete the other
