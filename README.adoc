@@ -6,6 +6,11 @@
 . To make a new protection profile create a new repo, probably through
 the web interface.
 - Go to ```github.com/orgs/commoncriteria```
+- Select the Repositories tab
+- New Repository
+-- Name it
+-- public
+-- add a README file
 
 . Copy the URL to the projects git file to the clipboard. Run the
 following script, pasting the value copied into where you see
