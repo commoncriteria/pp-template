@@ -5,7 +5,7 @@
 [arabic]
 - To make a new protection profile create a new repo through
 the web interface.
-- - Go to ```github.com/orgs/commoncriteria```
+-- Go to ```github.com/orgs/commoncriteria```
 - Select the Repositories tab
 - New Repository
 - Name it (e.g. widget)
