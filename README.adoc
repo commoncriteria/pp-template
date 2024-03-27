@@ -3,9 +3,9 @@
 === Quickstart
 
 [arabic]
-- To make a new protection profile create a new repo through
+. To make a new protection profile create a new repo through
 the web interface.
--- Go to ```github.com/orgs/commoncriteria```
+- Go to ```github.com/orgs/commoncriteria```
 - Select the Repositories tab
 - New Repository
 - Name it (e.g. widget)
@@ -59,24 +59,15 @@ If something was the project name it would be,
 git mv input/pp-template.xml input/something.xml
 ```
 
-. If creating a PP-Module rename Module.make to Makefile
-otherwise rename ProtectionProfile.make to Makefile and delete the other
-.make file.
-. If creating a Protection Profile Module open input/something.xml and
-change the opening <PP> and closing </PP> tags to be <Module> and
-</Module> respectively. If you’re creating a standard Protection Profile
-then these tags do not need to be changed.
-. Remove this content from the readme, up to the line below and
-customize (look for `QQQQ' and `pp-template').
+. If creating a PP-Module, edit the Makefile in the main directory and replace
+```
+include $(TRANS)/Helper.make
+```
+with 
+```
+include $(TRANS)/module/Module.make
+```
 
-Note: Adding this project to the Travis CI live build requires special
-permission and cannot be done without assistance. Contact the the
-framework coordinators for more informatino.
-
-For more information see the
-https://github.com/commoncriteria/pp-template/wiki[PP Development Wiki].
-
-'''''
 
 == Protection Profile or Extended Package for QQQQ
 
