@@ -5,7 +5,7 @@
 [arabic]
 . To make a new protection profile create a new repo, probably through
 the web interface.
-- Go to ```github.com/orgs/commoncriteria
+- Go to ```github.com/orgs/commoncriteria```
 
 . Copy the URL to the projects git file to the clipboard. Run the
 following script, pasting the value copied into where you see
