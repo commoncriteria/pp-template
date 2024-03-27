@@ -16,14 +16,14 @@ the web interface.
 
 . Clone the pp-template repo 
 
-...
+....
 # Make a bare clone of the pp-template repository
 git clone --bare https://github.com/commoncriteria/pp-template.git
 cd pp-template.git
 
 # This can also be done through the Git Extentions GUI by cloning
 # the pp-template repo and selecting the --bare checkbox
-...
+....
 
 . Push the pp-template contents into your new repo
 
