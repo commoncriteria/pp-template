@@ -15,6 +15,7 @@ the web interface.
 . To continue, you need a command line interface. This can be your local Linux subsystem, or using a tool such as Git Extensions.
 
 . Clone the pp-template repo 
+
 ....
 # Make a bare clone of the pp-template repository
 git clone --bare https://github.com/commoncriteria/pp-template.git
@@ -25,6 +26,7 @@ cd pp-template.git
 ````
 
 . Push the pp-template contents into your new repo
+
 ````
 # Mirror-push to the new repository (where widget is the name of
 # the repo you created in step 1).
@@ -33,6 +35,7 @@ git push --mirror http://github.com/commoncriteria/widget.git
 ````
 
 . Optionally remove the local copy of the pp-template repo
+
 ````
 cd ..
 rm -rf pp-template.git
@@ -40,6 +43,7 @@ rm -rf pp-template.git
 
 [arabic, start=3]
 . Do a full clone of your new project
+
 ````
 git clone --recursive http://github.com/commoncriteria/widget.git
 
