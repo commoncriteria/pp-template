@@ -46,9 +46,8 @@ rm -rf pp-template.git
 
 ```
 git clone --recursive http://github.com/commoncriteria/widget.git
-
-# Or use Git Extensions to clone the repo
 ```
+Or use Git Extensions to clone the repo
 
 . Rename your local copy of the main XML file in the input directory
 from pp-template.xml to widget.xml (or whatever the name of your project is).
