@@ -1,6 +1,7 @@
 == To create a new project based on this template
 * Follow the directions on this wiki page: https://github.com/commoncriteria/pp-template/wiki/Creating-a-New-Project
 * Edit the README contents below, replacing QQQQ with the name of your requirements document, and replacing all occurrences of "pp-template" with the name of your new repo.
+* And then delete this part, leaving everything below here.
 
 == Protection Profile for QQQQ
 
@@ -24,25 +25,7 @@ image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/mas
 image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/pdf_count.svg[PDF Count]
 |===
 
-
-
-image:https://img.shields.io/badge/Build-master-black.svg[Master Badges]
-image:https://github.com/commoncriteria/pp-template/workflows/Build/badge.svg[Build]
-image:https://github.com/commoncriteria/pp-template/workflows/Validate/badge.svg[Validate]
-
-image:https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/build-branch-badge.svg[Last
-QuickBuilt Branch]
-https://github.com/commoncriteria/pp-template/blob/gh-pages/ValidationReport.txt[image:https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/validation.svg[Validation]]
-https://github.com/commoncriteria/pp-template/blob/gh-pages/SanityChecksOutput.md[image:https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/warnings.svg[SanityChecks]]
-https://github.com/commoncriteria/pp-template/blob/gh-pages/SpellCheckReport.txt[image:https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/spell-badge.svg[SpellCheck]]
-https://commoncriteria.github.io/pp-template[image:https://github.com/commoncriteria/pp-template/actions/workflows/quick_build.yml/master/badge.svg[QuickBuild]]
-
-https://github.com/commoncriteria/pp-template/issues[image:https://img.shields.io/github/issues/commoncriteria/pp-template.svg?maxAge=2592000[GitHub
-issues Open]]
-image:https://img.shields.io/badge/license-Unlicensed-blue.svg[license]
-
 === Draft Version (latest build of master branch)
-
 * https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.html[Protection
 Profile for QQQQ] (html)
 * https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.pdf[Protection
