@@ -368,11 +368,14 @@
   <!-- If boilerplate is "yes" something that is probably incorrect is generated -->
   <section title="Conformance Claims" id="sec-cclaims" boilerplate="no">
 
+	<!-- cc-version: cc-2022r1 or cc-31r5   -->
+	<!-- cc-approach: standard or direct-rationale  -->
+	<!-- display: Should this info be displayed in the Conformance -->
+	<!-- Claims section? If no, you have to write a free-form section -->
 	<CClaimsInfo 
-		cc-version="cc-2022r1"         <!-- CC Version: cc-2022r1 or cc-31r5   -->
-		cc-approach="standard"         <!-- Approach: standard or direct-rationale  -->
-		display="yes">                 <!-- Should this info be displayed in the Conformance -->
-		                               <!-- Claims section? If no, you have to write a free-form section -->
+		cc-version="cc-2022r1"         
+		cc-approach="standard"         
+		display="yes">                 
 
 		<!-- Conformance for STs: exact, strict, or demonstrable -->
 		<cc-st-conf>exact</cc-st-conf>                  
