@@ -1,77 +1,10 @@
-== To create a new project based on this template, either
+== To create a new project based on this template
 * Follow the directions on this wiki page: https://github.com/commoncriteria/pp-template/wiki/Creating-a-New-Project
-* Or puzzle out the instructions below.
+* Edit the README contents below, replacing QQQQ with the name of your requirements document, and replacing all occurrences of "pp-template" with the name of your new repo.
 
-=== Quickstart
-
-[arabic]
-. To make a new protection profile create a new repo through
-the web interface.
-- Go to ```github.com/orgs/commoncriteria```
-- Select the Repositories tab
-- New Repository
-- Name it (e.g. widget)
-- Make it public
-- add a README file
-
-. To continue, you need a command line interface. This can be your local Linux subsystem, or using a tool such as Git Extensions.
-
-. Clone the pp-template repo 
-
-....
-# Make a bare clone of the pp-template repository
-git clone --bare https://github.com/commoncriteria/pp-template.git
-cd pp-template.git
-
-# This can also be done through the Git Extentions GUI by cloning
-# the pp-template repo and selecting the --bare checkbox
-....
-
-. Push the pp-template contents into your new repo
-
-```
-# Mirror-push to the new repository (where widget is the name of
-# the repo you created in step 1).
-# In Git Extensions use the Console to do this.
-git push --mirror http://github.com/commoncriteria/widget.git
-```
-
-. Optionally remove the local copy of the pp-template repo
-
-```
-cd ..
-rm -rf pp-template.git
-...
-
-[arabic, start=3]
-. Do a full clone of your new project
-
-```
-git clone --recursive http://github.com/commoncriteria/widget.git
-```
-Or use Git Extensions to clone the repo
-
-. Rename your local copy of the main XML file in the input directory
-from pp-template.xml to widget.xml (or whatever the name of your project is).
-+
-If something was the project name it would be,
-+
-```
-git mv input/pp-template.xml input/something.xml
-```
-
-. If creating a PP-Module, edit the Makefile in the main directory and replace
-```
-include $(TRANS)/Helper.make
-```
-with 
-```
-include $(TRANS)/module/Module.make
-```
-
-== SNIP
-
-== Protection Profile or Extended Package for QQQQ
+== Protection Profile for QQQQ
+== Functional Package for QQQQ
+== Protection Profile Module for QQQQ
 
 image:https://img.shields.io/badge/Build-master-black.svg[Master Badges]
 image:https://github.com/commoncriteria/pp-template/workflows/Build/badge.svg[Build]
@@ -88,21 +21,11 @@ https://github.com/commoncriteria/pp-template/issues[image:https://img.shields.i
 issues Open]]
 image:https://img.shields.io/badge/license-Unlicensed-blue.svg[license]
 
-This repository hosts the draft version of the Protection Profile for
-QQQQ based on the
-https://commoncriteria.github.io/pp/QQQQ/QQQQ-esr.html[Essential
-Security Requirements (ESR)] for this technology class of products. This
-repository is used to facilitate collaboration and development on the
-draft document. See the link:#Release-Version[release] section if you
-are looking for the officially released version for evaluations. A list
-of products that have passed evaluation against this Protection Profile
-can be found link:QQQQ[here].
+=== Draft Version (latest build of master branch)
 
-=== Draft Version
-
-* https://commoncriteria.github.io/pp/QQQQ/QQQQ-release.html[Protection
+* https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.html[Protection
 Profile for QQQQ] (html)
-* https://commoncriteria.github.io/pp/QQQQ/QQQQ-release.pdf[Protection
+* https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.pdf[Protection
 Profile for QQQQ] (pdf)
 
 === Release Version
