@@ -1,4 +1,6 @@
-== Protection Profile Template
+== To create a new project based on this template, either
+* Follow the directions on [this wiki page](https://github.com/commoncriteria/pp-template/wiki/Creating-a-New-Project)
+* Or puzzle out the instructions below.
 
 === Quickstart
 
