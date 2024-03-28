@@ -3,8 +3,44 @@
 * Edit the README contents below, replacing QQQQ with the name of your requirements document, and replacing all occurrences of "pp-template" with the name of your new repo.
 
 == Protection Profile for QQQQ
-== Functional Package for QQQQ
-== Protection Profile Module for QQQQ
+
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|application
+| https://github.com/commoncriteria/pp-template/tree/master[master] 
+a| https://commoncriteria.github.io/pp-template/master/application-release.html[📄]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/pdf_count.svg[PDF Count]
+
+| https://github.com/commoncriteria/pp-template/tree/release-1.4[release-1.4] 
+a| https://commoncriteria.github.io/pp-template/release-1.4/application-release.html[📄]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/release-1.4/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/release-1.4/pdf_count.svg[PDF Count]
+|===
+
+
 
 image:https://img.shields.io/badge/Build-master-black.svg[Master Badges]
 image:https://github.com/commoncriteria/pp-template/workflows/Build/badge.svg[Build]
