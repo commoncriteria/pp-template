@@ -520,7 +520,7 @@
 	<!-- In direct rationale PPs, they should refer to OE Objectives -->
     <section title="Organizational Security Policies" id="sec-OSPs">
       <OSPs>
-        <OSP id="P.ENTERPRISE">
+        <OSP name="P.ENTERPRISE">
           <description>If the OS is bound to a directory or management server, the configuration of
             the OS software must be capable of adhering to the enterprise security policies
             distributed by them.</description>
