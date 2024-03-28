@@ -513,6 +513,7 @@
               A.PROPER_USER.</rationale>
           </objective-refer>
         </assumption>
+      </assumptions>
     </section>   <!-- Assumptions -->
 	
 	<!-- OSPs refer to Objectives or OE Objectives in standard approach documents. -->
