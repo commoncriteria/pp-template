@@ -69,7 +69,7 @@ with
 include $(TRANS)/module/Module.make
 ```
 
-###SNIP
+== SNIP
 
 == Protection Profile or Extended Package for QQQQ
 
