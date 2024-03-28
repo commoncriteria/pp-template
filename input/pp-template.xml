@@ -14,10 +14,21 @@
 <PP xmlns="https://niap-ccevs.org/cc/v1"
     xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+    target-product="Widget" 
+    target-products="Widgets" 
+    boilerplate="yes"
+    short="Wid"
+>
+
+<?junk
+<PP xmlns="https://niap-ccevs.org/cc/v1"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
     target-product="Widget"                           <!-- Name of the TOE product  -->
     target-products="Widgets"                         <!-- Plural name of the TOE product (optional)  -->
     boilerplate="yes"                                 <!-- Whether to use boilerplate text by default (can be disabled in sections) -->
     short="Wid">                                      <!-- A short name for the PP (e.g. App or MDF) -->
+?>
 
 <!--    <cPP/>    -->                                 <!-- This empty element must be included here if this is a cPP. It must not be here if it is not.  -->
 
