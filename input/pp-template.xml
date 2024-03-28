@@ -50,9 +50,9 @@
   <PPReference>
     <ReferenceTable>
       <PPTitle>Protection Profile for QQQQ</PPTitle>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2015-08-14</PPPubDate>
+      <PPPubDate>2024-03-28</PPPubDate>
       <Keywords>QQQQ</Keywords>               <!-- This field is unused and optional -->
     </ReferenceTable>
   </PPReference>
@@ -68,6 +68,11 @@
       <version>1.0</version>
       <date>2015-08-14</date>
       <subject>Release - first version released</subject>
+    </entry>
+    <entry>
+      <version>2.0</version>
+      <date>2024-03-28</date>
+      <subject>Updated for CC:2022, or whatever</subject>
     </entry>
   </RevisionHistory>
 
@@ -704,7 +709,7 @@
 				</description>
 -->
 				<!-- Elements for this component. One or more. -->
-				<f-element id="fau-stg-ext-1e1">
+				<f-element id="fcs-cop-ext-1-1-skc">
 					<title>
 						The TSF shall be able to transfer generated audit data to an external IT entity
 						using 
@@ -749,6 +754,39 @@
 					<audit-event-descr>Failure to establish a HTTPS Session.</audit-event-descr>
 					<audit-event-info>Reason for failure.</audit-event-info>
 					<audit-event-info>Non-TOE endpoint of connection (IP address) for failures.</audit-event-info>
+				</audit-event>
+				
+			</f-component>	
+	
+			<!-- We're pretending that this one is from the CC catalog -->
+			<f-component name="Yet Another Requirement"   
+               id="sfr-fcs-yar-1"       
+               cc-id="fcs_yar.1">              
+		
+				<!-- Elements for this component. One or more. -->
+				<f-element id="fcs-yar-1e1">
+					<title>
+						The TSF shall be able to do something important.
+					</title>
+					
+					<note role="application">
+						Instructions for the ST Author on how to fill in the selections and assignments.
+					</note>
+					
+					<!-- EAs for the element (or component) -->
+					<aactivity level="element">
+						<TSS>What the evaluator has to do with the TSS.</TSS>
+						<Guidance>What the evaluator has to do with the TOE Guidance document.</Guidance>
+						<KMD>What the evaluator has to do with the Key Management Document, or whatever.</KMD>
+						<Tests>The tests that the evaluator has to run to verify that the requirement is met.</Tests>
+					</aactivity>
+					
+				</f-element>
+
+				<!-- Audit events for this SFR -->
+				<audit-event>
+					<audit-event-descr>Failure to do the important thing.</audit-event-descr>
+					<audit-event-info>Reason for failure.</audit-event-info>
 				</audit-event>
 				
 			</f-component>	
