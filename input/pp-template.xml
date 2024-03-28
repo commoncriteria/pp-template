@@ -412,7 +412,7 @@
 		</cc-pkg-claim>
 
 		<!-- Evaluation Methods (optional) -->
-		<cc-eval-methods">
+		<cc-eval-methods>
 			<EM-cc-ref>Name of document</EM-cc-ref>
 		</cc-eval-methods>
 		
