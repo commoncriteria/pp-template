@@ -648,12 +648,17 @@
 			</ext-comp-def>
 -->			
 			<!-- Next define all the components in the Class -->
-			<f-component name="Cryptographic Operation: Symmetric Key Cryptography"   <!-- Name of the requirement as it should appear in the document -->
-               id="sfr-fcs-cop-ext-1-skc"       <!-- Should look something like this, but it just needs to be unique in the document -->
-               cc-id="fcs_cop_ext.1"            <!-- This is a lower-case version of the SFR name as it would appear in a document -->
-               iteration="SKC"                  <!-- This attribute is required only if the SFR is an iteration --> 
-               status="sel-based">              <!-- sel-based, optional, objective, sel-based, feat-based. -->
-												<!-- Omit status for mandatory SFRs -->
+			<!-- name: Name of the requirement as it should appear in the document -->
+			<!-- id: Should look something like this, but it just needs to be unique in the document -->
+			<!-- cc-id" This is a lower-case version of the SFR name as it would appear in a document -->
+			<!-- iteration: This attribute is required only if the SFR is an iteration -->
+			<!-- status: sel-based, optional, objective, sel-based, feat-based. -->
+			<!-- Omit status for mandatory SFRs -->
+			<f-component name="Cryptographic Operation: Symmetric Key Cryptography"   
+               id="sfr-fcs-cop-ext-1-skc"       
+               cc-id="fcs_cop_ext.1"            
+               iteration="SKC"                   
+               status="sel-based">              
 		
 				<!-- Dependencies for sel-based, feat-based -->
 				<depends on-sel="sel-rot2-audit"/> 
